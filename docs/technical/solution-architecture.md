@@ -43,8 +43,8 @@ Custom assistants live in `.github/agents/` as `*.agent.md` files. Their YAML fr
 
 | Assistant | Responsibility | Tool boundary |
 |---|---|---|
-| [BA Requirements Writer](../.github/agents/ba-requirements-writer.agent.md) | Drafts, edits, reviews, and decomposes Initiative, Epic, Feature, User Story, and Change Management documents. It selects the artifact-specific workflow, uses templates, keeps English/French pairs aligned, and maintains links. | Read, edit, search, todo, execute |
-| [BA Requirements Reviewer](../.github/agents/ba-requirements-reviewer.agent.md) | Gives a second opinion on one named artifact and its relevant parent, siblings, and language pair. It reports evidence-based findings and does not modify files. | Read, search |
+| [BA Requirements Writer](../../.github/agents/ba-requirements-writer.agent.md) | Drafts, edits, reviews, and decomposes Initiative, Epic, Feature, User Story, and Change Management documents. It selects the artifact-specific workflow, uses templates, keeps English/French pairs aligned, and maintains links. | Read, edit, search, todo, execute |
+| [BA Requirements Reviewer](../../.github/agents/ba-requirements-reviewer.agent.md) | Gives a second opinion on one named artifact and its relevant parent, siblings, and language pair. It reports evidence-based findings and does not modify files. | Read, search |
 
 The writer is the authoring surface; the reviewer is an optional independent pass. The reviewer does not replace `/validate` or claim that deterministic scripts have passed.
 
@@ -54,15 +54,15 @@ Skills live under `.github/skills/<name>/SKILL.md`. Their `name` and `descriptio
 
 | Skill | Role |
 |---|---|
-| [initiative-documentation](../.github/skills/initiative-documentation/SKILL.md) | Initiative structure, guardrails, scoring, readiness, and approval criteria. |
-| [epic-documentation](../.github/skills/epic-documentation/SKILL.md) | Epic structure, guardrails, scoring, readiness, and approval criteria. |
-| [feature-documentation](../.github/skills/feature-documentation/SKILL.md) | Feature structure, guardrails, scoring, readiness, and approval criteria. |
-| [user-story-documentation](../.github/skills/user-story-documentation/SKILL.md) | Story statement, acceptance criteria, INVEST, readiness, and completion criteria. |
-| [change-management-documentation](../.github/skills/change-management-documentation/SKILL.md) | Change impact, stakeholder readiness, communications, training, adoption, and go-live criteria. |
-| [sibling-overlap-validation](../.github/skills/sibling-overlap-validation/SKILL.md) | Compares sibling epics, features, or stories under the same parent for scope and behavior overlap. |
-| [stakeholder-register-validation](../.github/skills/stakeholder-register-validation/SKILL.md) | Checks named stakeholders, users, personas, and impacted groups against the central register. |
-| [pack-integrity-check](../.github/skills/pack-integrity-check/SKILL.md) | Defines repository-wide deterministic checks and their scripts. |
-| [version-history](../.github/skills/version-history/SKILL.md) | Governs save/share/retrieval/history/undo workflows and approved baseline versions. |
+| [initiative-documentation](../../.github/skills/initiative-documentation/SKILL.md) | Initiative structure, guardrails, scoring, readiness, and approval criteria. |
+| [epic-documentation](../../.github/skills/epic-documentation/SKILL.md) | Epic structure, guardrails, scoring, readiness, and approval criteria. |
+| [feature-documentation](../../.github/skills/feature-documentation/SKILL.md) | Feature structure, guardrails, scoring, readiness, and approval criteria. |
+| [user-story-documentation](../../.github/skills/user-story-documentation/SKILL.md) | Story statement, acceptance criteria, INVEST, readiness, and completion criteria. |
+| [change-management-documentation](../../.github/skills/change-management-documentation/SKILL.md) | Change impact, stakeholder readiness, communications, training, adoption, and go-live criteria. |
+| [sibling-overlap-validation](../../.github/skills/sibling-overlap-validation/SKILL.md) | Compares sibling epics, features, or stories under the same parent for scope and behavior overlap. |
+| [stakeholder-register-validation](../../.github/skills/stakeholder-register-validation/SKILL.md) | Checks named stakeholders, users, personas, and impacted groups against the central register. |
+| [pack-integrity-check](../../.github/skills/pack-integrity-check/SKILL.md) | Defines repository-wide deterministic checks and their scripts. |
+| [version-history](../../.github/skills/version-history/SKILL.md) | Governs save/share/retrieval/history/undo workflows and approved baseline versions. |
 
 The five artifact-specific skills own their quality models and status gates. The sibling and stakeholder skills are reusable cross-cutting checks. The integrity skill is mechanical, while version-history governs collaboration and baseline-version changes.
 
@@ -117,4 +117,4 @@ The TOC coverage and documentation-register scripts exclude `.github/`, template
 
 ## Release Notes
 
-Historical change notes are kept in [docs/release-notes](release-notes/). The existing note describing the BA assistant, skills, and guardrails is [2026-09-25-ba-agent-skills-and-guardrails.md](release-notes/2026-09-25-ba-agent-skills-and-guardrails.md).
+Historical change notes are kept in [release-notes](release-notes/). The existing note describing the BA assistant, skills, and guardrails is [2026-09-25-ba-agent-skills-and-guardrails.md](release-notes/2026-09-25-ba-agent-skills-and-guardrails.md).

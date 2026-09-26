@@ -29,7 +29,7 @@ This update builds on the BA requirements authoring and guardrails introduced in
 
 ## Business User Guidance
 
-Created paired [English](../business-user-guide.md) and [French](../business-user-guide-fr.md) guides explaining the assistant's capabilities and value to Product Managers and Product Owners. The guides include an Epic workflow from the initial prompt through stakeholder checks, decomposition, validation, approval, saving, and sharing.
+Created paired [English](../../business/business-user-guide.md) and [French](../../business/business-user-guide-fr.md) guides explaining the assistant's capabilities and value to Product Managers and Product Owners. The guides include an Epic workflow from the initial prompt through stakeholder checks, decomposition, validation, approval, saving, and sharing.
 
 ## Epic Creation Freshness
 
