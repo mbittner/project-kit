@@ -42,7 +42,7 @@ Architecture documentation supports business outcomes; it never redefines them.
 
 | Capability | Contract |
 |---|---|
-| Save | Review the intended change set, maintain affected documentation, record the change locally, and report what was recorded. Saving alone does not publish work or approve a requirement. |
+| Save | Review the intended change set, maintain affected documentation, record the change locally with a concise outcome-oriented subject and complete summary, and report what was recorded. Saving alone does not publish work or approve a requirement. |
 | Share | Retrieve the latest shared state first; resolve conflicts with the user; maintain documentation and run relevant integrity checks; summarize the complete intended change set; obtain confirmation; publish the intended set; verify publication. Never report success before verification. |
 | Get latest | Retrieve shared changes without silently discarding local work. Explain incoming changes and stop for the user's decision when edits conflict. |
 | Show history | Report available change history accurately. Distinguish local-only changes from changes known to be shared; do not invent authorship or timestamps. |

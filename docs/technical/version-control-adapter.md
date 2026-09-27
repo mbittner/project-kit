@@ -10,7 +10,7 @@ The current implementation uses local Git history and a GitHub-hosted shared rem
 
 | Capability | Current implementation |
 |---|---|
-| Save | Run `git add <intended paths>` and `git commit -m "<human-readable summary>"`. This records a local commit; it does not publish it. |
+| Save | Run `git add <intended paths>` and create a local commit with a concise `<scope>: <outcome>` subject plus the full human-readable summary as the commit body. This records a local commit; it does not publish it. |
 | Get latest | Run `git fetch <configured remote>` and integrate its upstream changes. Stop for user input on conflicts; do not discard local edits. |
 | Share | After latest-state integration and explicit confirmation, create a local commit only if needed, then run `git push <configured remote> <shared branch>` and verify the result. Never force-push. |
 | Show history | Use `git log` and related read-only status/history commands to distinguish local changes from published changes. |
@@ -19,9 +19,11 @@ The current implementation uses local Git history and a GitHub-hosted shared rem
 The command mapping in practical terms is:
 
 ```text
-/save-my-work  -> git add <intended paths> -> git commit -m "<summary>"  (local only)
+/save-my-work  -> git add <intended paths> -> git commit -m "<scope>: <outcome>" -m "<full summary>"  (local only)
 /share-my-work -> retrieve/integrate latest -> confirm -> git push <remote> <branch>
 ```
+
+Save commit subjects should identify the main outcome at a glance. Use an artifact ID when available, for example `epic: add EPIC-001 advisor self-service claims intake`; use `pack:` for a mixed change set when no single artifact scope dominates. Avoid generic subjects such as `save changes` or `update files`.
 
 If `/save-my-work` already created the local commit, `/share-my-work` must not create a duplicate; it publishes that commit with `git push`. If additional intended changes arrived, record those changes once before publishing the pending commits.
 

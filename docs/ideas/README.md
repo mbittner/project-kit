@@ -15,3 +15,5 @@ Every idea file must link back to this README, and every idea must be listed her
 	- High-level change: Organize Solution Architect work like business requirements, with dedicated assistants, guidance, commands, checks, and templates for assessments, decisions, and designs.
 - [IDEA-003 — Governed non-functional requirements component](idea-003-governed-non-functional-requirements.md)
 	- High-level change: Add a bilingual, source-linked NFR register and project-specific applicability and verification profiles that can be referenced by Features and Solution Designs.
+- [IDEA-004 — Descriptive local save commit messages](idea-004-descriptive-local-save-commit-messages.md)
+	- High-level change: Generate concise, outcome-oriented local save commit messages from the user's change summary instead of relying on broad generic descriptions.

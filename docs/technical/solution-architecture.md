@@ -124,7 +124,7 @@ Prompts live in `.github/prompts/*.prompt.md`. Their frontmatter declares the co
 | `/decompose-epic <id>` | Proposes features for an epic and checks the proposed sibling set for overlap before asking for confirmation. |
 | `/decompose-feature <id>` | Proposes stories for a feature and checks the proposed sibling set for overlap before asking for confirmation. |
 | `/audit-pack [initiative-id]` | Runs repository checks and a portfolio audit including artifact scoring, sibling overlap, KPI traceability, stakeholder impact, and change-fatigue analysis. The quality-score sweep covers initiatives, epics, and features; an optional initiative ID scopes the audit. |
-| `/save-my-work` | Classifies changes, updates relevant documentation, generates a UTC time-stamped release note, then runs `git add` and `git commit` for the intended paths (local only). |
+| `/save-my-work` | Classifies changes, updates relevant documentation, generates a UTC time-stamped release note, then creates a local commit with a concise outcome-oriented subject and full summary body. |
 | `/share-my-work` | Gets and integrates latest updates, resolves conflicts, maintains docs and release notes, then runs `git push` for the intended saved change set after confirmation and verifies success. |
 | `/get-latest` | Retrieves the teammate's latest changes and summarizes them in plain language. |
 | `/show-history [document-id]` | Reports the change history for a document or the project. |

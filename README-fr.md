@@ -95,7 +95,7 @@ Le champ `Version du document` indique la base approuvée; il ne change pas à c
 
 ## Enregistrer et partager votre travail
 
-Utilisez `/save-my-work` ou `/share-my-work` pour que Copilot classe les changements, actualise la documentation d'affaires et technique pertinente, crée une note de version horodatée et inclue ces mises à jour dans le résumé du travail consigné. Le partage récupère aussi les changements des collègues, résout les conflits et exécute les vérifications; après votre confirmation, il publie les changements prévus et en vérifie la réussite. En cas d'échec, le travail local est conservé et le problème est signalé. `/get-latest`, `/show-history` et `/undo-my-last-change` restent disponibles au besoin. Le [Guide d'utilisation pour les gens d'affaires](docs/business/business-user-guide-fr.md) explique ces processus.
+Utilisez `/save-my-work` ou `/share-my-work` pour que Copilot classe les changements, actualise la documentation d'affaires et technique pertinente, crée une note de version horodatée et inclue ces mises à jour dans le résumé du travail consigné. L'enregistrement local utilise un sujet de commit concis au format `<portée> : <résultat>`, et conserve le résumé complet dans le corps du commit. Le partage récupère aussi les changements des collègues, résout les conflits et exécute les vérifications; après votre confirmation, il publie les changements prévus et en vérifie la réussite. En cas d'échec, le travail local est conservé et le problème est signalé. `/get-latest`, `/show-history` et `/undo-my-last-change` restent disponibles au besoin. Le [Guide d'utilisation pour les gens d'affaires](docs/business/business-user-guide-fr.md) explique ces processus.
 
 ## Qui est impliqué
 

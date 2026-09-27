@@ -20,7 +20,7 @@ Before proposing a design, review the relevant Initiative, Epic, and Feature, in
 
 When a technical document identifies a confirmed project system, reference it by its stable `SYS-###` ID and canonical name, and link the relevant architecture documents from the [System Register](../../system-register.md). The paired [French register](../../system-register-fr.md) must carry the same ID and factual details.
 
-Copilot is instructed to run [system-register-validation](../../.github/skills/system-register-validation/SKILL.md) when architecture/architecture documents are edited and on every `/save-my-work` or `/share-my-work` invocation. For a new or materially changed system, provide:
+Copilot is instructed to run [system-register-validation](../../.github/skills/system-register-validation/SKILL.md) when architecture documents are edited and on every `/save-my-work` or `/share-my-work` invocation. For a new or materially changed system, provide:
 
 - The accountable system owner.
 - The CMCD real name/ID.

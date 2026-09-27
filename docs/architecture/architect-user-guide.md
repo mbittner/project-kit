@@ -109,7 +109,7 @@ The command asks what changed, drafts a new decision that references the old one
 
 ### 10. Save, share, and track the work
 
-Use `/save-my-work` to record your changes locally. It checks every technical change against the System Register, updates related documentation, and creates a time-stamped release note. Use `/share-my-work` when you are ready to share: it gets the latest updates first, explains conflicts for you to resolve, runs all integrity checks, including the architecture checks, and publishes only after you confirm. `/audit-pack` includes an architecture coverage section that shows Features that may need you, conflicting decisions, orphan documents, and open System Register questions.
+Use `/save-my-work` to record your changes locally. It checks every technical change against the System Register, updates related documentation, creates a time-stamped release note, and records a concise outcome-oriented commit subject with the full summary in the commit body. Use `/share-my-work` when you are ready to share: it gets the latest updates first, explains conflicts for you to resolve, runs all integrity checks, including the architecture checks, and publishes only after you confirm. `/audit-pack` includes an architecture coverage section that shows Features that may need you, conflicting decisions, orphan documents, and open System Register questions.
 
 **Value:** Architecture work is traceable, shared safely, and visible across the portfolio.
 

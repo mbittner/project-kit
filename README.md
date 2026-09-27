@@ -95,7 +95,7 @@ The `Document version` field records the approved baseline; it does not change o
 
 ## Saving and Sharing Your Work
 
-Use `/save-my-work` or `/share-my-work` to have Copilot classify changes, update relevant business and technical documentation, create a time-stamped release note, and include those updates in the saved summary. Share additionally retrieves teammate changes, resolves conflicts, and runs checks; after you confirm, it publishes the intended changes and verifies success. If publishing fails, your local work is preserved and the failure is reported. `/get-latest`, `/show-history`, and `/undo-my-last-change` remain available when needed. The [Business User Guide](docs/business/business-user-guide.md) explains these workflows.
+Use `/save-my-work` or `/share-my-work` to have Copilot classify changes, update relevant business and technical documentation, create a time-stamped release note, and include those updates in the saved summary. Local saves use a concise `<scope>: <outcome>` commit subject, with the full summary retained as the commit body. Share additionally retrieves teammate changes, resolves conflicts, and runs checks; after you confirm, it publishes the intended changes and verifies success. If publishing fails, your local work is preserved and the failure is reported. `/get-latest`, `/show-history`, and `/undo-my-last-change` remain available when needed. The [Business User Guide](docs/business/business-user-guide.md) explains these workflows.
 
 ## Who's Involved
 

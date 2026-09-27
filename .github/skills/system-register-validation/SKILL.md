@@ -15,7 +15,7 @@ When reconciling documents, distinguish project systems from tools used only to 
 
 ## Reconciliation Procedure
 
-1. Scan the complete set of changed or newly received architecture/architecture documents for system names, aliases, existing `SYS-###` references, and changed system relationships. On save/share, run this scan even when no technical file appears changed; in that case report that no technical changes need reconciliation.
+1. Scan the complete set of changed or newly received architecture documents for system names, aliases, existing `SYS-###` references, and changed system relationships. On save/share, run this scan even when no technical file appears changed; in that case report that no technical changes need reconciliation.
 2. Compare each confirmed candidate with both register language copies by ID, canonical name, and aliases. Reuse an existing ID for an existing system. Do not create duplicate records or reuse retired IDs.
 3. For a newly confirmed system or a materially changed entry, ask the Solution Architect for the system owner and the CMCD real name/ID. Ask for the Hopex system name/ID as an optional reference; clearly state that Hopex is not required.
 4. If owner or CMCD information is not provided, record `To confirm` / `À confirmer` in the corresponding register field and add a specific open question in both registers, assigned to the Solution Architect. Do not block saving or sharing the technical document. If Hopex is not provided, leave that optional field blank without an open question.
