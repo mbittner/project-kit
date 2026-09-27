@@ -6,7 +6,7 @@
 
 ## État du portefeuille
 <!-- GENERATED PORTFOLIO SNAPSHOT START -->
-**Date du relevé :** 2026-09-26
+**Date du relevé :** 2026-09-27
 
 | Type d'artéfact | Paires EN/FR | Ébauches | Ébauches illustratives | En révision | Approuvés |
 |---|---:|---:|---:|---:|---:|
@@ -26,7 +26,7 @@ Lorsqu'un travail est en cours, ajoutez l'identifiant et les liens de l'artéfac
 ## Bases approuvées
 
 <!-- GENERATED APPROVED BASELINES START -->
-Aucune base approuvée consignée au 2026-09-26.
+Aucune base approuvée consignée au 2026-09-27.
 <!-- GENERATED APPROVED BASELINES END -->
 
 ## Règles de versionnement
