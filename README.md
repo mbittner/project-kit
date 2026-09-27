@@ -2,7 +2,7 @@
 
 *[Lire ce document en français](README-fr.md)*
 
-This workspace helps Product Managers and Product Owners draft, review, and track bilingual business requirements with Copilot Chat. It includes an example portfolio, reusable templates, guided checks, and documentation status tracking.
+This workspace helps Product Managers and Product Owners draft, review, and track bilingual business requirements with Copilot Chat. It includes reusable templates, guided checks, and documentation status tracking, with no project-specific requirements preloaded.
 
 Browse the business requirements in the [Table of Contents](table-of-content.md). Supporting material is organized under `docs/business/` and `docs/technical/` and is not part of the requirements index.
 
@@ -21,16 +21,16 @@ Initiative  →  Epic          →  Feature          →  User Story
 - **User Story** — a small, sprint-sized piece of a feature, written from one user's point of view. What does this person specifically need, and how will we know it's done?
 - **Change Management Brief** — one per epic and one per feature (not needed at the story level — the feature-level brief already covers it). Who is affected, and what will they need to do differently on the day this goes live?
 
-You don't have to build these top-down in one sitting. Start wherever you are — even a rough one-line idea — and Copilot will fill in reasonable details, flag anything it's genuinely unsure about, and tell you if something is missing.
+No project-specific business requirements are preloaded. Begin with an Initiative when the project is ready, and let Copilot flag material unknowns rather than inventing answers.
 Start with the artifact that matches the decision you need to make; the [Business User Guide](docs/business/business-user-guide.md) explains the workflow from drafting through sharing.
 
 ## How to Use This
 
 Open Copilot Chat and describe the business outcome or artifact you need. For example:
 
-> "Draft an epic under INIT-001 for digital group onboarding."
+> "Draft an epic under <initiative ID> for <business capability>."
 
-> "Is EPIC-002 ready for feature discovery?"
+> "Is my epic ready for feature discovery?"
 
 Copilot creates English/French pairs, records assumptions and open questions, checks stakeholders and scope overlaps, and avoids inventing unconfirmed facts. The detailed behavior is covered in the [Business User Guide](docs/business/business-user-guide.md).
 
@@ -40,20 +40,18 @@ Use these shortcuts in Copilot Chat when you need a repeatable workflow:
 
 | Command | What it does |
 |---|---|
-| `/validate epic 003` | Checks the item you name — `initiative`, `epic`, `feature`, `story`, `cm-epic`, or `cm-feature` — against its quality checklist and gives it a score, with specific gaps called out. You must say which type it is (e.g. `/validate initiative 001`, `/validate story 004`). |
-| `/decompose-initiative 001` | Gets the latest updates automatically, then proposes a non-overlapping epic set; refreshes again after you confirm before creating files. |
-| `/decompose-initiative 001` | Proposes a non-overlapping epic set and refreshes updates automatically before creation. |
-| `/decompose-epic 003` | Same, proposing features for an epic. |
-| `/decompose-epic 003` | Refreshes updates automatically, then proposes features for an epic. |
-| `/decompose-feature 011` | Same, proposing user stories for a feature. |
-| `/audit-pack` | Runs a full health check across every document — or just one initiative and everything under it (`/audit-pack INIT-001`) — and gives you one report of what needs attention, including whether any team or group is being asked to absorb too much change at once. |
+| `/validate <type> <ID>` | Checks the named initiative, epic, feature, story, or change-management brief against its quality checklist and reports specific gaps. |
+| `/decompose-initiative <ID>` | Proposes a non-overlapping epic set, refreshes updates automatically, and refreshes again after you confirm before creating files. |
+| `/decompose-epic <ID>` | Proposes features for an epic and checks sibling overlap before creating files. |
+| `/decompose-feature <ID>` | Proposes user stories for a feature and checks sibling overlap before creating files. |
+| `/audit-pack` | Runs a health check across the pack or a named initiative and its descendants (`/audit-pack <initiative ID>`). |
 | `/save-my-work` | Saves your changes so they're safely recorded. Doesn't send them to your teammate yet. |
 | `/share-my-work` | Gets your teammate's latest updates first, then sends your saved changes to them. Warns you about any quality issues first, but won't stop you from sharing. |
 | `/get-latest` | Brings in your teammate's latest changes and tells you what's new; epic creation does this automatically, but you can still run it on demand. |
-| `/show-history EPIC-003` | Shows a plain-language timeline of who changed a document and when — leave the ID off to see the whole project's recent history. |
+| `/show-history <document ID>` | Shows who changed a document and when; leave the ID off to see the project's recent history. |
 | `/undo-my-last-change` | Safely undoes your last change, always showing you what would be lost first and asking you to confirm. |
 
-(Replace the numbers with the ID of the document you mean — e.g. `003` for `EPIC-003`.)
+Replace the placeholder with an ID from the current project.
 
 ## Further Reading
 
@@ -79,11 +77,11 @@ Use the [Stakeholder Register](stakeholder-register.md) for governance roles, im
 
 ## Folder Structure
 
-- `initiative/` — the portfolio-level initiative document
-- `epics/` — one document per epic
-- `features/` — one document per feature
-- `stories/` — one document per user story
-- `change-management/` — one brief per epic and per feature, plus an overall summary
+- `initiative/` — future portfolio-level initiative artifacts
+- `epics/` — future epic artifacts
+- `features/` — future feature artifacts
+- `stories/` — future user story artifacts
+- `change-management/` — future change-management briefs
 - `docs/business/` — practical guides for business users
 - `docs/technical/` — architecture documentation and release notes
 - `templates/` — blank starting points (you normally won't need to open these yourself — just ask Copilot to draft something)
@@ -99,4 +97,4 @@ Use the [Stakeholder Register](stakeholder-register.md) for governance roles, im
 
 ## Important
 
-This pack is a working example, not an approved organizational standard. All baselines, targets, dates, owners, system choices, and detailed rules are intentionally left marked for validation — treat "To confirm" and "To approve" as literal instructions to go get a real answer before relying on the document.
+This is a reusable starting point, not an approved organizational standard. Set project-specific baselines, targets, dates, owners, and policies with the appropriate stakeholders; do not treat template examples or placeholders as approved decisions.

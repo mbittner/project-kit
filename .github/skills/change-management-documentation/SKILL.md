@@ -13,7 +13,7 @@ A Change Management (CM) brief exists to make sure a technically successful deli
 
 | Level | Key Question | Where it's captured |
 |-------|--------------|----------------------|
-| Initiative | Why must people change? | [initiative/](../../../initiative/) — Executive Sponsorship, Strategic Drivers, Impacted Stakeholder Groups, Adoption Success Measures (roll these into the initiative's optional Change Management Plan section and into [change-management/executive-summary.md](../../../change-management/executive-summary.md)) |
+| Initiative | Why must people change? | [initiative/](../../../initiative/) — Executive Sponsorship, Strategic Drivers, Impacted Stakeholder Groups, and Adoption Success Measures (include these in the initiative's optional Change Management Plan section) |
 | Epic | Who must change? | `CM-EPIC-XXX` brief (this skill) |
 | Feature | What must they do differently? | `CM-FEAT-XXX` brief (this skill) |
 
@@ -24,7 +24,7 @@ A technically successful delivery without adoption should be treated as **unsucc
 - Folder: `change-management/`
 - Filenames: `cm-epic-XXX-slug.md` (+ `-fr.md`) for one per epic, `cm-feat-XXX-slug.md` (+ `-fr.md`) for one per feature — a 1:1 pairing, not siblings competing for scope (no overlap-check skill needed here).
 - Templates to copy from: [templates/cm-epic-template.md](../../../templates/cm-epic-template.md) / [templates/cm-epic-template-fr.md](../../../templates/cm-epic-template-fr.md) for epic-level briefs, [templates/cm-feature-template.md](../../../templates/cm-feature-template.md) / [templates/cm-feature-template-fr.md](../../../templates/cm-feature-template-fr.md) for feature-level briefs.
-- Rollup documents: [change-management/README.md](../../../change-management/README.md) (full summary table) and [change-management/executive-summary.md](../../../change-management/executive-summary.md) — update these when a new CM brief is added or materially changed.
+- Portfolio rollups are optional. On a clean project, do not create project-specific rollups before there are approved requirements; if the project later maintains a bilingual rollup, update it when briefs change.
 - Parent artifact: an approved Epic (for `CM-EPIC-XXX`) or approved Feature (for `CM-FEAT-XXX`) — see [epic-documentation](../epic-documentation/SKILL.md) / [feature-documentation](../feature-documentation/SKILL.md) if the source doesn't exist yet.
 
 Follow the repository-wide conventions: zero-padded sequential IDs matching the source artifact's number (`CM-EPIC-003` documents `EPIC-003`), mandatory EN/FR pair, the standard header blockquote linking the source epic/feature and (for feature briefs) the parent CM-EPIC brief.
@@ -38,7 +38,7 @@ Follow the repository-wide conventions: zero-padded sequential IDs matching the 
 5. **When working from a short prompt, apply the AI Generation rules below** — use reasonable defaults for structural/process gaps, document every assumption, and cap true unknowns at 5 `[NEEDS CLARIFICATION]` markers (log any overflow in the Open Questions Log). Never invent hard numbers, names, or dates.
 6. **Run all five Guardrail checks** (below) as a final pass — before/after explicit, stakeholder/role impact (including the [stakeholder-register-validation](../stakeholder-register-validation/SKILL.md) check), adoption ≠ deployment, training/communication/documentation explicit, and no technical/change-risk conflation — and rewrite anything found.
 7. **Run the quality scoring model** (below) against the draft and report the score/rating back to the user before calling it done.
-8. **Update cross-links:** add/update the row in [change-management/README.md](../../../change-management/README.md)/[README-fr.md](../../../change-management/README-fr.md), update [executive-summary.md](../../../change-management/executive-summary.md) if this is a new epic-level brief, confirm the source epic/feature's header links back to this brief, and update [table-of-content.md](../../../table-of-content.md)/[table-of-content-fr.md](../../../table-of-content-fr.md) if the source artifact's change-brief link changed. Run `check-parity.ps1` and `check-links.ps1` after saving.
+8. **Update cross-links:** confirm the source epic/feature header links back to this brief, and update [table-of-content.md](../../../table-of-content.md)/[table-of-content-fr.md](../../../table-of-content-fr.md) if a link changed. Update a portfolio rollup only if the project maintains one. Run `check-parity.ps1` and `check-links.ps1` after saving.
 
 ## Mandatory Sections
 

@@ -10,11 +10,7 @@
 
 | Type d'artéfact | Paires EN/FR | Ébauches | Ébauches illustratives | En révision | Approuvés |
 |---|---:|---:|---:|---:|---:|
-| Initiative | 1 | 0 | 1 | 0 | 0 |
-| Épopées | 6 | 0 | 6 | 0 | 0 |
-| Fonctionnalités | 21 | 0 | 21 | 0 | 0 |
-| Gestion du changement | 29 | 0 | 29 | 0 | 0 |
-| **Total** | **57** | **0** | **57** | **0** | **0** |
+| **Total** | **0** | **0** | **0** | **0** | **0** |
 <!-- GENERATED PORTFOLIO SNAPSHOT END -->
 
 ## Travail actif

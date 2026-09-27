@@ -10,11 +10,7 @@
 
 | Artifact Type | EN/FR Pairs | Draft | Illustrative Drafts | In Review | Approved |
 |---|---:|---:|---:|---:|---:|
-| Initiative | 1 | 0 | 1 | 0 | 0 |
-| Epics | 6 | 0 | 6 | 0 | 0 |
-| Features | 21 | 0 | 21 | 0 | 0 |
-| Change Management | 29 | 0 | 29 | 0 | 0 |
-| **Total** | **57** | **0** | **57** | **0** | **0** |
+| **Total** | **0** | **0** | **0** | **0** | **0** |
 <!-- GENERATED PORTFOLIO SNAPSHOT END -->
 
 ## Active Work

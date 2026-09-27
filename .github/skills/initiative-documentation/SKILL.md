@@ -70,7 +70,7 @@ Before finalizing, cross-check the document against itself:
 - Folder: `initiative/`
 - Filename: `init-XXX-slug.md` (+ `init-XXX-slug-fr.md`)
 - Template to copy from: [templates/initiative-template.md](../../../templates/initiative-template.md) and [templates/initiative-template-fr.md](../../../templates/initiative-template-fr.md)
-- Fully worked example: [initiative/init-001-modernize-new-business-onboarding.md](../../../initiative/init-001-modernize-new-business-onboarding.md) (note: this example predates some of the sections below — treat the template, not the example, as authoritative for section structure on new documents)
+- No project-specific worked example is included in the clean-start workspace; use the linked template as the authoritative section structure.
 
 Follow the repository-wide conventions from the agent instructions: zero-padded sequential IDs (check existing files and [table-of-content.md](../../../table-of-content.md) for the next free number), kebab-case filenames, mandatory EN/FR pair created together, the standard header blockquote status block, and cross-linking updates in [table-of-content.md](../../../table-of-content.md)/[table-of-content-fr.md](../../../table-of-content-fr.md) after creation.
 
@@ -117,7 +117,7 @@ Add only for larger/complex initiatives: Financial Analysis (ROI/NPV/payback), D
 
 When asked to generate an initiative from a brief prompt rather than a fully detailed brief:
 
-1. **Make informed guesses.** Use the prompt's context, this pack's existing artifacts (e.g., [init-001](../../../initiative/init-001-modernize-new-business-onboarding.md)), and standard group-insurance/industry patterns to fill structural gaps — don't stall on every unknown.
+1. **Make informed guesses.** Use the prompt's context and apply industry patterns only when they fit the user's stated business domain; do not assume group insurance or reuse a demo project's requirements.
 2. **Document assumptions.** Every guess must be written into the Assumptions section (Section 7), not silently folded into another section. If unsure whether something is a guess, put it there.
 3. **Limit clarifications to a maximum of 5.** Use an inline `[NEEDS CLARIFICATION: <question>]` marker — not a silent "To confirm" — only for decisions that are both (a) impossible to reasonably default and (b) material enough to change the shape of the initiative depending on the answer. Never exceed 5 markers per document; log any additional lower-priority unknown as an Open Questions Log entry instead (or as a documented assumption if you're confident enough to proceed on a default).
 4. **Prioritize which unknowns earn a marker**, in this order: **stakeholder identification** (is the Executive Sponsor/Business Owner named and registered?) > **scope boundary** (what's in/out) > **risk, compliance, or regulatory exposure** > **business value / success metric definition** > **governance or operational detail**. Only the top 1–5 unresolved items by this order get a marker; everything else becomes an Open Questions Log entry (Question | Why It Matters | Decision Needed By | Suggested Owner | Status) or a documented assumption/"To confirm" value.
@@ -129,7 +129,7 @@ When asked to generate an initiative from a brief prompt rather than a fully det
 - **KPI baselines/targets not yet measured:** state as "Baseline to be confirmed" / "Target to be approved by leadership" (existing pack convention) instead of blocking on a marker.
 - **Governance cadence:** reuse this pack's standard six decision gates (Section 11) unless the prompt implies a different governance model.
 - **Stakeholder roles:** default to the standard role set already used across this pack's initiatives (Executive Sponsor, Business Owner, Product Manager, Product Owner, Business Analyst, etc.).
-- **Risk categories:** default to the illustrative risk set used in [init-001](../../../initiative/init-001-modernize-new-business-onboarding.md) (adoption, data quality, decision ownership, fragmented delivery, unmeasured value) as a starting checklist, tailored to the specific initiative.
+- **Risk categories:** consider adoption, data quality, decision ownership, fragmented delivery, and unmeasured value as generic prompts; tailor them to the initiative and stated business domain.
 - **Traceability model:** reuse the standard chain in Section 13 verbatim unless the prompt describes a materially different delivery model.
 - **Scope exclusions:** default to excluding claims, renewals/in-force changes, and final legal/pricing/security decisions unless the prompt says otherwise — these are standing out-of-scope items across this pack.
 

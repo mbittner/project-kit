@@ -86,9 +86,10 @@ Never set `> **Document status:**` to Approved just because a user asks. Each of
 3. **Always open and copy the relevant file from `templates/`** (or the de facto template document, per above) before drafting — don't invent new section names, omit sections, or write from memory alone. For artifact types with a dedicated skill (see Skills table above), load that skill's `SKILL.md` first and follow its workflow.
 4. **Always produce the EN/FR pair** together, keeping content equivalent (not machine-literal, but matching structure and meaning).
 5. **Update cross-links after creating or renumbering artifacts:**
+5. **Update cross-links after creating or renumbering artifacts:**
    - Add the new epic/feature to its parent's portfolio/feature table.
    - Add the new CM brief link to the corresponding artifact's header block.
-   - Update [table-of-content.md](../../table-of-content.md) and [table-of-content-fr.md](../../table-of-content-fr.md), and [change-management/README.md](../../change-management/README.md) if a CM brief was added or changed.
+   - Update [table-of-content.md](../../table-of-content.md) and [table-of-content-fr.md](../../table-of-content-fr.md). Maintain portfolio rollups only if the project has chosen to create them.
 6. **When reviewing/critiquing existing docs**, check for:
    - Missing or renumbered sections vs. the standard structure.
    - Broken or one-directional parent/child/CM links.

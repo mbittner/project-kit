@@ -22,7 +22,7 @@ A slash command is a shortcut to a saved workflow. The workflow guidance gives C
 
 Suppose you are a Product Manager who wants an epic under an existing initiative. Start with a business outcome and the people affected. For example:
 
-> “Draft an epic under INIT-001 for a capability that helps new-group administrators submit complete onboarding information with fewer follow-ups. The intended outcome is faster, more complete submissions. Keep the epic focused on one business capability, avoid naming a technical solution, and show assumptions or important questions rather than inventing facts. Identify likely users and tell me what you need to confirm.”
+> “Draft an epic under <initiative ID> for <business capability>. The intended outcome is <measurable outcome>. Keep the epic focused on one business capability, avoid naming a technical solution, and show assumptions or important questions rather than inventing facts.”
 
 ### 1. Copilot checks the context
 
@@ -50,7 +50,7 @@ The `check-stakeholders.ps1` script is a separate, heuristic warning check. It c
 
 The epic guidance checks that the proposal is a business capability at epic level: not so broad that it belongs in the initiative, and not so narrow that it is a feature. It also applies `sibling-overlap-validation` to compare the proposed capability and scope with other epics under the same initiative.
 
-If you are planning several epics, `/decompose-initiative 001` automatically gets the latest updates before reading the initiative and proposing a coherent, non-overlapping set. After you confirm the candidates, it refreshes again before assigning IDs and creating files. If new updates affect the initiative or proposed set, Copilot revises the proposal and asks you to confirm again.
+If you are planning several epics, `/decompose-initiative <initiative number>` automatically gets the latest updates before reading the initiative and proposing a coherent, non-overlapping set. After you confirm the candidates, it refreshes again before assigning IDs and creating files. If new updates affect the initiative or proposed set, Copilot revises the proposal and asks you to confirm again.
 
 **Value:** Clear boundaries reduce duplicated work and make the eventual feature breakdown more useful.
 
@@ -65,7 +65,7 @@ When the epic is created, its parent initiative's Epic Portfolio is updated and 
 Once the epic is ready for decomposition, use:
 
 ```text
-/decompose-epic 001
+/decompose-epic <epic number>
 ```
 
 The command reads the epic's outcome, scope, and existing feature list. It proposes features that cover the in-scope work, checks the candidates against one another and existing sibling features, and presents the set for your review. **It does not create feature files until you confirm the proposed set.** After confirmation, the feature workflow creates bilingual feature documents and updates the epic and contents links.
@@ -92,7 +92,7 @@ If the epic passes and you ask to approve it, Copilot compares it with its previ
 
 Use `/save-my-work` to record the current changes and update the register's manually maintained **Active Work** section when the artifact remains in progress. It asks for an owner and next action when they are missing; unknowns stay “To confirm.” The register generator refreshes portfolio counts and approved baselines from document headers without overwriting Active Work notes.
 
-Use `/share-my-work` when you are ready to share. It gets the latest updates first, explains conflicts for you to resolve, runs integrity checks, and then shares if you say to proceed. `/show-history EPIC-001` explains a document's change timeline; `/undo-my-last-change` explains what would be lost before asking you to confirm.
+Use `/share-my-work` when you are ready to share. It gets the latest updates first, explains conflicts for you to resolve, runs integrity checks, and then shares if you say to proceed. `/show-history <document ID>` explains a document's change timeline; `/undo-my-last-change` explains what would be lost before asking you to confirm.
 
 **Value:** Work has a visible owner and next action, the approved baseline summary stays consistent with document headers, and changes are traceable.
 
@@ -100,11 +100,11 @@ Use `/share-my-work` when you are ready to share. It gets the latest updates fir
 
 | Command | When to use it |
 |---|---|
-| `/decompose-initiative 001` | Propose a non-overlapping epic set under an initiative |
-| `/decompose-epic 001` | Propose features under an epic; confirm the set before files are created |
-| `/decompose-feature 001` | Propose stories under a feature; confirm the set before files are created |
+| `/decompose-initiative <initiative number>` | Propose a non-overlapping epic set under an initiative |
+| `/decompose-epic <epic number>` | Propose features under an epic; confirm the set before files are created |
+| `/decompose-feature <feature number>` | Propose stories under a feature; confirm the set before files are created |
 | `/validate epic 001` | Score an epic and check readiness; replace `epic` with the artifact type you are validating |
-| `/audit-pack INIT-001` | Review a whole initiative and its descendants, including quality, overlap, KPI traceability, and stakeholder change fatigue |
+| `/audit-pack <initiative ID>` | Review an initiative and its descendants, including quality, overlap, KPI traceability, and stakeholder change fatigue |
 | `/get-latest` | Bring in teammates' latest updates before starting new work |
 | `/save-my-work` / `/share-my-work` | Record work, then review and share it |
 

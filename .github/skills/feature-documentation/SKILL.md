@@ -29,7 +29,7 @@ Unlike an initiative or epic, a feature **should** include acceptance criteria a
 - Folder: `features/`
 - Filename: `feat-XXX-slug.md` (+ `feat-XXX-slug-fr.md`)
 - Template to copy from: [templates/feature-template.md](../../../templates/feature-template.md) and [templates/feature-template-fr.md](../../../templates/feature-template-fr.md)
-- Fully worked example: [features/feat-001-online-group-setup-wizard.md](../../../features/feat-001-online-group-setup-wizard.md) (note: this example predates some of the sections below — treat the template, not the example, as authoritative for section structure on new documents)
+- No project-specific worked example is included in the clean-start workspace; use the linked template as the authoritative section structure.
 - Parent artifact: an approved Epic — see the [epic-documentation](../epic-documentation/SKILL.md) skill if the parent doesn't exist yet.
 
 Follow the repository-wide conventions from the agent instructions: zero-padded sequential IDs (check existing files and [table-of-content.md](../../../table-of-content.md) for the next free number), kebab-case filenames, mandatory EN/FR pair created together, the standard header blockquote status block (linking the parent epic and the change-management brief), and cross-linking updates in [table-of-content.md](../../../table-of-content.md)/[table-of-content-fr.md](../../../table-of-content-fr.md) after creation.
@@ -118,7 +118,7 @@ A feature's behavior and scope must be distinct from every other feature under t
 
 When asked to generate a feature from a brief prompt rather than a fully detailed brief:
 
-1. **Make informed guesses.** Use the prompt's context, the parent epic's Scope and Features table, this pack's existing artifacts (e.g., [feat-001](../../../features/feat-001-online-group-setup-wizard.md)), and standard group-insurance/industry patterns to fill structural gaps.
+1. **Make informed guesses.** Use the prompt's context and the parent epic's Scope and Features table. Apply industry patterns only when they fit the user's stated business domain; do not assume group insurance or reuse a demo project's requirements.
 2. **Document assumptions.** Every guess must be written into Assumptions, not silently folded into another section.
 3. **Limit clarifications to a maximum of 5.** Use an inline `[NEEDS CLARIFICATION: <question>]` marker — not a silent "To confirm" — only for decisions that are both (a) impossible to reasonably default and (b) material enough to change the shape of the feature depending on the answer.
 4. **Prioritize which unknowns earn a marker**, in this order: **stakeholder identification** (is the primary beneficiary named and registered?) > **scope boundary or primary beneficiary** > **parent epic linkage or benefit hypothesis** > **acceptance criteria / success measure definition** > **dependency or quality-attribute detail**. Only the top 1–5 unresolved items by this order get a marker; everything else becomes an Open Questions Log entry (Question | Why It Matters | Decision Needed By | Suggested Owner | Status) or a documented assumption/"To confirm" value.
@@ -128,8 +128,8 @@ When asked to generate a feature from a brief prompt rather than a fully detaile
 ### Examples of Reasonable Defaults (don't ask about these)
 
 - **KPI baselines/targets not yet measured:** state as "To confirm" / "To approve" instead of blocking on a marker.
-- **Personas:** default to the standard role set used across this pack's features (advisor/plan sponsor administrator roles, Product Owner, operational specialist roles).
-- **Risk categories:** default to the illustrative risk set used in [feat-001](../../../features/feat-001-online-group-setup-wizard.md) (incomplete/contradictory rules, users bypassing the feature, unsupported data, dependency delays, late measurement definition).
+- **Personas:** derive roles from the user's prompt and parent epic; use generic role descriptions only as provisional assumptions and ask when the beneficiary is unclear.
+- **Risk categories:** consider incomplete or contradictory rules, bypass behavior, unsupported data, dependency delays, and late measurement definition as generic prompts; tailor them to the stated domain.
 - **Scope exclusions:** default to excluding capabilities assigned to another feature/epic, final technical implementation choices, and unapproved business-policy changes — these are standing out-of-scope items across this pack.
 - **Non-functional considerations:** default to the standard set (security/least-privilege, privacy/data minimization, availability, performance, auditability, accessibility, bilingual content) and mark "not applicable" explicitly where genuinely irrelevant, rather than omitting the section.
 

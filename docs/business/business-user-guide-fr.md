@@ -22,7 +22,7 @@ Une commande oblique est un raccourci vers un processus enregistré. Les guides 
 
 Supposons que vous êtes gestionnaire de produit et souhaitez créer une épopée sous une initiative existante. Commencez par un résultat d'affaires et les personnes touchées. Par exemple :
 
-> « Rédige une épopée sous INIT-001 pour une capacité qui aide les administrateurs de nouveaux groupes à soumettre des renseignements d'intégration complets avec moins de suivis. Le résultat visé est d'accélérer les soumissions et d'en améliorer l'exhaustivité. Garde l'épopée centrée sur une capacité d'affaires, sans nommer de solution technique. Indique les utilisateurs probables et les hypothèses ou questions importantes à confirmer; n'invente aucun fait. »
+> « Rédige une épopée sous <identifiant d'initiative> pour <capacité d'affaires>. Le résultat visé est <résultat mesurable>. Garde l'épopée centrée sur une capacité d'affaires, sans nommer de solution technique et sans inventer de faits. »
 
 ### 1. Copilot vérifie le contexte
 
@@ -50,7 +50,7 @@ Le script `check-stakeholders.ps1` est un avertissement heuristique distinct. Il
 
 Le guide d'épopée vérifie que la proposition est bien une capacité d'affaires de niveau épopée : ni assez large pour relever de l'initiative, ni assez étroite pour être une fonctionnalité. Il applique également `sibling-overlap-validation` pour comparer la capacité et la portée proposées aux autres épopées de la même initiative.
 
-Si vous planifiez plusieurs épopées, `/decompose-initiative 001` récupère automatiquement les dernières mises à jour avant de lire l'initiative et de proposer un ensemble cohérent sans chevauchements. Après votre confirmation, il actualise de nouveau les données avant d'attribuer les identifiants et de créer les fichiers. Si les nouveaux changements touchent l'initiative ou l'ensemble proposé, Copilot révise la proposition et vous demande une nouvelle confirmation.
+Si vous planifiez plusieurs épopées, `/decompose-initiative <numéro d'initiative>` récupère automatiquement les dernières mises à jour avant de lire l'initiative et de proposer un ensemble cohérent sans chevauchements. Après votre confirmation, il actualise de nouveau les données avant d'attribuer les identifiants et de créer les fichiers. Si les nouveaux changements touchent l'initiative ou l'ensemble proposé, Copilot révise la proposition et vous demande une nouvelle confirmation.
 
 **Valeur :** Des limites claires réduisent le travail en double et rendent la décomposition en fonctionnalités plus utile.
 
@@ -65,7 +65,7 @@ Lors de la création de l'épopée, le portefeuille d'épopées de l'initiative 
 Quand l'épopée est prête à être décomposée, utilisez :
 
 ```text
-/decompose-epic 001
+/decompose-epic <numéro d'épopée>
 ```
 
 La commande lit le résultat, la portée et la liste de fonctionnalités existantes de l'épopée. Elle propose des fonctionnalités couvrant les éléments inclus, vérifie les propositions entre elles et par rapport aux fonctionnalités sœurs, puis présente l'ensemble pour révision. **Aucun fichier de fonctionnalité n'est créé avant votre confirmation.** Après confirmation, le processus des fonctionnalités crée les documents bilingues et met à jour les liens dans l'épopée et les tables des matières.
@@ -92,7 +92,7 @@ Si l'épopée réussit et que vous demandez son approbation, Copilot la compare 
 
 Utilisez `/save-my-work` pour consigner les modifications. Si l'artéfact est encore en cours, la section **Travail actif** du registre est mise à jour; les coordonnées et la prochaine étape manquantes sont demandées ou restent « À confirmer ». Le générateur de registre actualise les totaux du portefeuille et les bases approuvées à partir des en-têtes, sans écraser les notes de Travail actif.
 
-Utilisez `/share-my-work` lorsque vous êtes prête ou prêt à partager. La commande récupère d'abord les dernières mises à jour, explique les conflits à résoudre, exécute les vérifications d'intégrité, puis partage si vous confirmez. `/show-history EPIC-001` explique la chronologie des modifications; `/undo-my-last-change` explique ce qui serait perdu avant de demander votre confirmation.
+Utilisez `/share-my-work` lorsque vous êtes prête ou prêt à partager. La commande récupère d'abord les dernières mises à jour, explique les conflits à résoudre, exécute les vérifications d'intégrité, puis partage si vous confirmez. `/show-history <identifiant de document>` explique la chronologie des modifications; `/undo-my-last-change` explique ce qui serait perdu avant de demander votre confirmation.
 
 **Valeur :** Le travail a un responsable et une prochaine étape visibles, le sommaire des bases approuvées reste cohérent avec les en-têtes et les changements sont traçables.
 
@@ -100,11 +100,11 @@ Utilisez `/share-my-work` lorsque vous êtes prête ou prêt à partager. La com
 
 | Commande | Quand l'utiliser |
 |---|---|
-| `/decompose-initiative 001` | Proposer un ensemble non chevauchant d'épopées sous une initiative |
-| `/decompose-epic 001` | Proposer des fonctionnalités sous une épopée; confirmer l'ensemble avant la création des fichiers |
-| `/decompose-feature 001` | Proposer des récits sous une fonctionnalité; confirmer l'ensemble avant la création des fichiers |
+| `/decompose-initiative <numéro d'initiative>` | Proposer un ensemble non chevauchant d'épopées sous une initiative |
+| `/decompose-epic <numéro d'épopée>` | Proposer des fonctionnalités sous une épopée; confirmer l'ensemble avant la création des fichiers |
+| `/decompose-feature <numéro de fonctionnalité>` | Proposer des récits sous une fonctionnalité; confirmer l'ensemble avant la création des fichiers |
 | `/validate epic 001` | Évaluer une épopée et vérifier sa préparation; remplacez `epic` par le type d'artéfact à valider |
-| `/audit-pack INIT-001` | Examiner une initiative et ses descendants : qualité, chevauchements, traçabilité des ICP et fatigue liée au changement |
+| `/audit-pack <identifiant d'initiative>` | Examiner une initiative et ses descendants : qualité, chevauchements, traçabilité des ICP et fatigue liée au changement |
 | `/get-latest` | Récupérer les dernières mises à jour des collègues avant de commencer un nouveau travail |
 | `/save-my-work` / `/share-my-work` | Consigner le travail, puis le réviser et le partager |
 

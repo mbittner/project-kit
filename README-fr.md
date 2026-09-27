@@ -2,7 +2,7 @@
 
 *[Read this document in English](README.md)*
 
-Cet espace de travail aide les gestionnaires et propriétaires de produit à rédiger, réviser et suivre des exigences d'affaires bilingues avec Copilot Chat. Il comprend un portefeuille d'exemple, des gabarits réutilisables, des vérifications guidées et un suivi de l'état de la documentation.
+Cet espace de travail aide les gestionnaires et propriétaires de produit à rédiger, réviser et suivre des exigences d'affaires bilingues avec Copilot Chat. Il comprend des gabarits réutilisables, des processus guidés, des vérifications et des registres, sans exigences propres à un projet préchargées.
 
 Consultez les exigences d'affaires dans la [Table des matières](table-of-content-fr.md). Les documents d'accompagnement se trouvent dans `docs/business/` et `docs/technical/`; ils ne font pas partie de l'index des exigences.
 
@@ -21,16 +21,16 @@ Initiative  →  Épopée              →  Fonctionnalité      →  Récit uti
 - **Récit utilisateur** — un élément de taille de sprint d'une fonctionnalité, rédigé du point de vue d'une personne précise. Qu'est-ce que cette personne a besoin exactement, et comment saurons-nous que c'est terminé?
 - **Bilan de gestion du changement** — un par épopée et un par fonctionnalité (pas nécessaire au niveau du récit — le bilan au niveau de la fonctionnalité couvre déjà cela). Qui est touché, et que devra-t-il faire différemment le jour de la mise en production?
 
-Vous n'avez pas besoin de tout construire du haut vers le bas en une seule séance. Commencez où vous en êtes — même avec une idée d'une ligne — et Copilot remplira les détails raisonnables, signalera ce dont il n'est vraiment pas certain, et vous dira ce qui manque.
+Aucune exigence d'affaires propre au projet n'est préchargée. Commencez par une initiative lorsque le projet est prêt et laissez Copilot signaler les inconnues importantes plutôt que d'inventer des réponses.
 Commencez par l'artéfact qui correspond à la décision à prendre; le [Guide d'utilisation pour les gens d'affaires](docs/business/business-user-guide-fr.md) explique le processus, de la rédaction au partage.
 
 ## Comment utiliser cet outil
 
 Ouvrez Copilot Chat et décrivez le résultat d'affaires ou l'artéfact souhaité. Par exemple :
 
-> « Rédige une épopée sous INIT-001 pour l'intégration numérique de nouveaux groupes. »
+> « Rédige une épopée sous <identifiant d'initiative> pour <capacité d'affaires>. »
 
-> « Est-ce que EPIC-002 est prêt pour la découverte des fonctionnalités? »
+> « Mon épopée est-elle prête pour la découverte des fonctionnalités? »
 
 Copilot crée les paires anglaise et française, consigne les hypothèses et questions ouvertes, vérifie les parties prenantes et les chevauchements de portée, et n'invente pas les faits à confirmer. Les détails figurent dans le [Guide d'utilisation pour les gens d'affaires](docs/business/business-user-guide-fr.md).
 
@@ -40,20 +40,18 @@ Utilisez ces raccourcis dans Copilot Chat pour les processus répétables :
 
 | Commande | Ce qu'elle fait |
 |---|---|
-| `/validate epic 003` | Vérifie l'élément nommé — `initiative`, `epic`, `feature`, `story`, `cm-epic` ou `cm-feature` — par rapport à sa liste de contrôle de qualité et lui donne un score, avec les lacunes précises signalées. Vous devez préciser le type (p. ex. `/validate initiative 001`, `/validate story 004`). |
-| `/decompose-initiative 001` | Récupère automatiquement les dernières mises à jour, puis propose un ensemble d'épopées sans chevauchement; actualise de nouveau après votre confirmation avant de créer les fichiers. |
-| `/decompose-initiative 001` | Propose un ensemble d'épopées sans chevauchement et actualise automatiquement les mises à jour avant la création. |
-| `/decompose-epic 003` | Pareil, en proposant des fonctionnalités pour une épopée. |
-| `/decompose-epic 003` | Actualise automatiquement les mises à jour, puis propose des fonctionnalités pour une épopée. |
-| `/decompose-feature 011` | Pareil, en proposant des récits utilisateur pour une fonctionnalité. |
-| `/audit-pack` | Effectue une vérification complète de tous les documents — ou d'une seule initiative et de tout ce qui en dépend (`/audit-pack INIT-001`) — et vous donne un seul rapport de ce qui nécessite de l'attention, y compris si une équipe ou un groupe doit absorber trop de changements en même temps. |
+| `/validate <type> <ID>` | Vérifie l'initiative, l'épopée, la fonctionnalité, le récit ou le bilan de gestion du changement nommé et signale les lacunes précises. |
+| `/decompose-initiative <ID>` | Propose un ensemble d'épopées sans chevauchement, actualise les mises à jour automatiquement et s'actualise de nouveau après votre confirmation avant la création des fichiers. |
+| `/decompose-epic <ID>` | Propose des fonctionnalités pour une épopée et vérifie les chevauchements avant de créer les fichiers. |
+| `/decompose-feature <ID>` | Propose des récits utilisateur pour une fonctionnalité et vérifie les chevauchements avant de créer les fichiers. |
+| `/audit-pack` | Vérifie tout l'ensemble ou une initiative nommée et ses artéfacts descendants (`/audit-pack <identifiant d'initiative>`). |
 | `/save-my-work` | Enregistre vos changements pour qu'ils soient bien conservés. Ne les envoie pas encore à votre collègue. |
 | `/share-my-work` | Récupère d'abord les dernières mises à jour de votre collègue, puis envoie vos changements enregistrés. Vous avertit des problèmes de qualité d'abord, mais ne vous empêche pas de partager. |
 | `/get-latest` | Récupère les derniers changements et vous dit ce qui est nouveau; la création d'épopée le fait automatiquement, mais vous pouvez aussi lancer la commande au besoin. |
-| `/show-history EPIC-003` | Montre une chronologie en langage clair de qui a changé un document et quand — omettez l'identifiant pour voir l'historique récent de tout le projet. |
+| `/show-history <identifiant de document>` | Montre qui a modifié un document et quand; omettez l'identifiant pour consulter l'historique récent du projet. |
 | `/undo-my-last-change` | Annule votre dernier changement en toute sécurité, en vous montrant toujours ce qui serait perdu avant de vous demander de confirmer. |
 
-(Remplacez les numéros par l'identifiant du document visé — p. ex. `003` pour `EPIC-003`.)
+Remplacez les paramètres entre chevrons par les identifiants du projet courant.
 
 ## Documentation complémentaire
 
@@ -79,11 +77,11 @@ Consultez le [Registre des parties prenantes](stakeholder-register-fr.md) pour l
 
 ## Structure des dossiers
 
-- `initiative/` : le document d'initiative au niveau du portefeuille
-- `epics/` : un document par épopée
-- `features/` : un document par fonctionnalité
-- `stories/` : un document par récit utilisateur
-- `change-management/` : un bilan par épopée et par fonctionnalité, plus un sommaire global
+- `initiative/` : futurs artéfacts d'initiative de portefeuille
+- `epics/` : futurs artéfacts d'épopée
+- `features/` : futurs artéfacts de fonctionnalité
+- `stories/` : futurs artéfacts de récit utilisateur
+- `change-management/` : futurs bilans de gestion du changement
 - `docs/business/` : guides pratiques pour les gens d'affaires
 - `docs/technical/` : notes d'architecture et notes de version
 - `templates/` : points de départ vierges (vous n'aurez normalement pas besoin de les ouvrir vous-même — demandez simplement à Copilot de rédiger quelque chose)
@@ -99,5 +97,5 @@ Consultez le [Registre des parties prenantes](stakeholder-register-fr.md) pour l
 
 ## Important
 
-Cet ensemble est un exemple de travail, et non une norme organisationnelle approuvée. Toutes les valeurs de référence, cibles, dates, responsables, choix de systèmes et règles détaillées sont volontairement marqués pour validation — traitez « à confirmer » et « à approuver » comme des instructions littérales d'aller chercher une vraie réponse avant de vous fier au document.
+Cet ensemble est un point de départ réutilisable, et non une norme organisationnelle approuvée. Établissez les références, cibles, dates, responsables et politiques propres au projet avec les parties prenantes appropriées; les exemples et espaces réservés des gabarits ne sont pas des décisions approuvées.
 

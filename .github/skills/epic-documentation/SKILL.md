@@ -24,7 +24,7 @@ An epic should be **larger than a Feature** and **smaller than an Initiative** �
 - Folder: `epics/`
 - Filename: `epic-XXX-slug.md` (+ `epic-XXX-slug-fr.md`)
 - Template to copy from: [templates/epic-template.md](../../../templates/epic-template.md) and [templates/epic-template-fr.md](../../../templates/epic-template-fr.md)
-- Fully worked example: [epics/epic-001-digital-group-setup-and-data-collection.md](../../../epics/epic-001-digital-group-setup-and-data-collection.md) (note: this example predates some of the sections below — treat the template, not the example, as authoritative for section structure on new documents)
+- No project-specific worked example is included in the clean-start workspace; use the linked template as the authoritative section structure.
 - Parent artifact: an approved Initiative — see the [initiative-documentation](../initiative-documentation/SKILL.md) skill if the parent doesn't exist yet.
 
 Follow the repository-wide conventions from the agent instructions: zero-padded sequential IDs (check existing files and [table-of-content.md](../../../table-of-content.md) for the next free number), kebab-case filenames, mandatory EN/FR pair created together, the standard header blockquote status block (linking the parent initiative and the change-management brief), and cross-linking updates in [table-of-content.md](../../../table-of-content.md)/[table-of-content-fr.md](../../../table-of-content-fr.md) after creation.
@@ -108,7 +108,7 @@ An epic's capability and scope must be distinct from every other epic under the 
 
 When asked to generate an epic from a brief prompt rather than a fully detailed brief:
 
-1. **Make informed guesses.** Use the prompt's context, the parent initiative's Scope and Epic Portfolio, this pack's existing artifacts (e.g., [epic-001](../../../epics/epic-001-digital-group-setup-and-data-collection.md)), and standard group-insurance/industry patterns to fill structural gaps.
+1. **Make informed guesses.** Use the prompt's context and the parent initiative's Scope and Epic Portfolio. Apply industry patterns only when they fit the user's stated business domain; do not assume group insurance or reuse a demo project's requirements.
 2. **Document assumptions.** Every guess must be written into Risks and Assumptions, not silently folded into another section.
 3. **Limit clarifications to a maximum of 5.** Use an inline `[NEEDS CLARIFICATION: <question>]` marker — not a silent "To confirm" — only for decisions that are both (a) impossible to reasonably default and (b) material enough to change the shape of the epic depending on the answer.
 4. **Prioritize which unknowns earn a marker**, in this order: **stakeholder identification** (are the primary/secondary/operational users named and registered?) > **capability/scope boundary** (what's in/out) > **parent initiative linkage or business outcome** > **success metric definition** > **dependency/operational detail**. Only the top 1–5 unresolved items by this order get a marker; everything else becomes an Open Questions Log entry (Question | Why It Matters | Decision Needed By | Suggested Owner | Status) or a documented assumption/"To confirm" value.
@@ -119,7 +119,7 @@ When asked to generate an epic from a brief prompt rather than a fully detailed 
 
 - **KPI baselines/targets not yet measured:** state as "Baseline to be confirmed" / "Target to be approved" instead of blocking on a marker.
 - **Stakeholder roles:** default to the standard role set used across this pack's epics (Product Manager, Product Owner, Business Analyst, Solution Architecture, UX, Data, Security, Privacy, Compliance, Delivery, QA).
-- **Risk categories:** default to the illustrative risk set used in [epic-001](../../../epics/epic-001-digital-group-setup-and-data-collection.md) (unresolved business rules, local feature optimization, unvalidated roles) as a starting checklist, tailored to the specific epic.
+- **Risk categories:** consider unresolved business rules, local feature optimization, and unvalidated roles as generic prompts; tailor them to the project's stated domain and do not copy example requirements.
 - **Scope exclusions:** default to excluding capabilities owned by sibling epics, final technical design/vendor selection, and unapproved policy/legal/privacy/security/operational changes — these are standing out-of-scope items across this pack.
 
 ## Do's
