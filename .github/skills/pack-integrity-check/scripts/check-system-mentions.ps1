@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
 Advisory-only check: scans architecture documents for systems named without a
 SYS-NNN ID - in the "Related systems" header of assessments, ADRs, and designs,
@@ -11,7 +11,7 @@ registering the system, or confirming it is not an independently managed system.
 
 $RepoRoot = (Resolve-Path "$PSScriptRoot/../../../..").Path
 $registerPath = Join-Path $RepoRoot 'system-register.md'
-$scanFolders = @('technical/assessments', 'technical/decisions', 'technical/designs')
+$scanFolders = @('architecture/assessments', 'architecture/decisions', 'architecture/designs')
 $ignoredValues = '(?i)^(none( identified)?|not applicable.*|n/?a|to confirm|tbd|-+|\u2014)$'
 $warnings = @()
 $filesScanned = 0

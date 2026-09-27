@@ -12,7 +12,7 @@ $tocConfigurations = @(
 )
 $excludedDirectories = @(
     '.git', '.github', 'templates', 'docs', 'release-notes',
-    'technical', 'technical-docs', 'technical-documentation', 'implementation'
+    'architecture', 'technical', 'technical-docs', 'technical-documentation', 'implementation'
 )
 $excludedRootFiles = @(
     'README.md', 'README-fr.md', 'table-of-content.md', 'table-of-content-fr.md'

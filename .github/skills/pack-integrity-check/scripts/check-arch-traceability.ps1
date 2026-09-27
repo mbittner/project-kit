@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-Checks traceability between architecture artifacts under technical/ and
+Checks traceability between architecture artifacts under architecture/ and
 business artifacts: every assessment, ADR, and design links to at least one
 existing Initiative, Epic, Feature, or Story in the same language; each linked
 business artifact lists the technical document in its Architecture references
@@ -8,7 +8,7 @@ header; and each technical artifact is listed in the matching technical index.
 #>
 
 $RepoRoot = (Resolve-Path "$PSScriptRoot/../../../..").Path
-$artifactFolders = @('technical/assessments', 'technical/decisions', 'technical/designs')
+$artifactFolders = @('architecture/assessments', 'architecture/decisions', 'architecture/designs')
 $businessFolders = @('initiative', 'epics', 'features', 'stories')
 $linkedPattern = '(?m)^> \*\*(?:Linked business artifacts|Art.facts d''affaires li.s)\s*:\*\*(.*)$'
 $backlinkPattern = '(?m)^> \*\*(?:Architecture references|R.f.rences d''architecture)\s*:\*\*(.*)$'
@@ -38,11 +38,11 @@ function Get-Relative {
 $indexLinks = @{}
 foreach ($language in @('EN', 'FR')) {
     $indexName = if ($language -eq 'FR') { 'README-fr.md' } else { 'README.md' }
-    $indexPath = Join-Path $RepoRoot "technical/$indexName"
+    $indexPath = Join-Path $RepoRoot "architecture/$indexName"
     if (Test-Path $indexPath) {
         $indexLinks[$language] = Get-LinkTargets -Text ([System.IO.File]::ReadAllText($indexPath)) -BaseDirectory (Split-Path $indexPath)
     } else {
-        $issues += "MISSING INDEX: technical/$indexName"
+        $issues += "MISSING INDEX: architecture/$indexName"
         $indexLinks[$language] = @()
     }
 }
@@ -59,7 +59,7 @@ foreach ($folder in $artifactFolders) {
         $text = [System.IO.File]::ReadAllText($file.FullName)
 
         if ($indexLinks[$language] -notcontains $file.FullName) {
-            $issues += "MISSING INDEX ENTRY: $relative is not linked from technical/$(if ($isFrench) { 'README-fr.md' } else { 'README.md' })"
+            $issues += "MISSING INDEX ENTRY: $relative is not linked from architecture/$(if ($isFrench) { 'README-fr.md' } else { 'README.md' })"
         }
 
         $linkedLine = [regex]::Match($text, $linkedPattern)

@@ -12,12 +12,12 @@ Business requirements (Initiative → Epic → Feature → User Story) remain th
 
 | Help | Use it for |
 |---|---|
-| **Solution Architecture Writer** | Drafting, updating, and superseding assessments, decision records, and designs under [technical/](../../technical/README.md) |
+| **Solution Architecture Writer** | Drafting, updating, and superseding assessments, decision records, and designs under [architecture/](../../architecture/README.md) |
 | **Solution Architecture Reviewer** | An independent, read-only critique of one architecture document |
 | **Lifecycle Navigator** | Read-only advice on what to do next, including whether you are needed at all |
 | **BA Requirements Writer** / **BA Requirements Reviewer** | Clarifying or reviewing the business artifact your work depends on |
 
-Copilot keeps each document in English and French, keeps the [architecture index](../../technical/README.md) current, adds `Architecture references` links to the related Epic or Feature, and reconciles every system you name with the [System Register](../../system-register.md).
+Copilot keeps each document in English and French, keeps the [architecture index](../../architecture/README.md) current, adds `Architecture references` links to the related Epic or Feature, and reconciles every system you name with the [System Register](../../system-register.md).
 
 ## When to Engage
 

@@ -1,6 +1,6 @@
 ---
 name: architecture-traceability-validation
-description: "Use whenever an Architecture Assessment, ADR, or Solution Design is created, linked, or reviewed, to keep links between technical/ documents and business artifacts (Initiative, Epic, Feature) valid in both directions and to keep the technical/README.md index current. Trigger phrases: architecture traceability, link design to feature, architecture references, orphan ADR, orphan design, backlink."
+description: "Use whenever an Architecture Assessment, ADR, or Solution Design is created, linked, or reviewed, to keep links between architecture/ documents and business artifacts (Initiative, Epic, Feature) valid in both directions and to keep the architecture/README.md index current. Trigger phrases: architecture traceability, link design to feature, architecture references, orphan ADR, orphan design, backlink."
 ---
 
 # Architecture Traceability Validation
@@ -13,7 +13,7 @@ The architecture counterpart of [stakeholder-register-validation](../stakeholder
 2. **Business artifacts link back.** Each linked Epic or Feature lists the technical document in its `Architecture references` / `Références d'architecture` header line, in both language copies. Replace the value `None` / `Aucune` with the first link. Separate further links with `; `. For an Initiative without that header field, add the line after the change management brief row.
 3. **Backlink updates are the only edit to business documents.** Do not change their status, version, scope, or any other content. An added link is editorial and does not change the baseline version.
 4. **Technical cross-links.** An ADR links to its source assessment, and the assessment's `Resulting decision` links back. A design lists its governing ADRs, and each ADR's Affected Designs section lists the design.
-5. **Index.** Each technical artifact has a row in [technical/README.md](../../../technical/README.md) and [technical/README-fr.md](../../../technical/README-fr.md) with current status.
+5. **Index.** Each technical artifact has a row in [architecture/README.md](../../../architecture/README.md) and [architecture/README-fr.md](../../../architecture/README-fr.md) with current status.
 6. **Systems.** Systems are cited as `SYS-### — Name` and reconciled by [system-register-validation](../system-register-validation/SKILL.md), including rows in the register's Technical References table.
 
 ## Procedure

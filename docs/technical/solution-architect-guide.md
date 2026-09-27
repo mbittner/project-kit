@@ -4,7 +4,7 @@
 
 This guide explains how a Solution Architect can use the Modern BA Practice Markdown Pack to engage at the right point, keep architecture decisions connected to business outcomes, and collaborate with Product Owners, Product Managers, Business Analysts, developers, and delivery roles.
 
-The pack provides business-requirement authoring, review, lifecycle advice, and work-management workflows, plus a dedicated architecture toolkit: the **Solution Architecture Writer** and **Solution Architecture Reviewer** assistants, bilingual templates for Architecture Assessments, ADRs, and Solution Designs, architecture commands, integrity checks, and the bilingual [System Register](../../system-register.md). Architecture work lives under [`technical/`](../../technical/README.md). The pack has no Hopex integration; do not treat it as having looked up Hopex or as replacing organizational architecture governance.
+The pack provides business-requirement authoring, review, lifecycle advice, and work-management workflows, plus a dedicated architecture toolkit: the **Solution Architecture Writer** and **Solution Architecture Reviewer** assistants, bilingual templates for Architecture Assessments, ADRs, and Solution Designs, architecture commands, integrity checks, and the bilingual [System Register](../../system-register.md). Architecture work lives under [`architecture/`](../../architecture/README.md). The pack has no Hopex integration; do not treat it as having looked up Hopex or as replacing organizational architecture governance.
 
 ## Start With the Business Context
 
@@ -20,7 +20,7 @@ Before proposing a design, review the relevant Initiative, Epic, and Feature, in
 
 When a technical document identifies a confirmed project system, reference it by its stable `SYS-###` ID and canonical name, and link the relevant architecture documents from the [System Register](../../system-register.md). The paired [French register](../../system-register-fr.md) must carry the same ID and factual details.
 
-Copilot is instructed to run [system-register-validation](../../.github/skills/system-register-validation/SKILL.md) when technical/architecture documents are edited and on every `/save-my-work` or `/share-my-work` invocation. For a new or materially changed system, provide:
+Copilot is instructed to run [system-register-validation](../../.github/skills/system-register-validation/SKILL.md) when architecture/architecture documents are edited and on every `/save-my-work` or `/share-my-work` invocation. For a new or materially changed system, provide:
 
 - The accountable system owner.
 - The CMCD real name/ID.
@@ -47,11 +47,11 @@ Do not make architecture review a default gate for every Feature. If none of the
 
 | Artifact | Folder and ID | Lifecycle | Created with |
 |---|---|---|---|
-| Architecture Assessment | `technical/assessments/`, `ARCH-XXX` | Draft → In Review → Recommended → Closed | Solution Architecture Writer |
-| Architecture Decision Record | `technical/decisions/`, `ADR-XXX` | Proposed → Accepted / Rejected → Superseded / Deprecated | `/record-decision`, `/supersede-decision`, or the Writer |
-| Solution Design | `technical/designs/`, `SD-XXX` | Draft → In Review → Approved, with baseline versions | `/design-solution` or the Writer |
+| Architecture Assessment | `architecture/assessments/`, `ARCH-XXX` | Draft → In Review → Recommended → Closed | Solution Architecture Writer |
+| Architecture Decision Record | `architecture/decisions/`, `ADR-XXX` | Proposed → Accepted / Rejected → Superseded / Deprecated | `/record-decision`, `/supersede-decision`, or the Writer |
+| Solution Design | `architecture/designs/`, `SD-XXX` | Draft → In Review → Approved, with baseline versions | `/design-solution` or the Writer |
 
-Every artifact ships as an English/French pair, links to at least one Initiative, Epic, or Feature (which links back under `Architecture references`), and is listed in the [architecture index](../../technical/README.md). Each has a quality score from `/validate assessment|adr|design <id>`; **the score is advisory and never blocks a status change.** The status gate depends on a complete checklist, no unresolved clarification markers, and no open questions. As Solution Architect, you alone accept ADRs, recommend assessments, and approve designs. Copilot never does this without your explicit confirmation.
+Every artifact ships as an English/French pair, links to at least one Initiative, Epic, or Feature (which links back under `Architecture references`), and is listed in the [architecture index](../../architecture/README.md). Each has a quality score from `/validate assessment|adr|design <id>`; **the score is advisory and never blocks a status change.** The status gate depends on a complete checklist, no unresolved clarification markers, and no open questions. As Solution Architect, you alone accept ADRs, recommend assessments, and approve designs. Copilot never does this without your explicit confirmation.
 
 ## Assess Options and Record Decisions
 
@@ -59,11 +59,11 @@ When assessment is warranted, compare feasible options against the business outc
 
 For each option, capture the relevant tradeoffs: business fit, integration and data impact, security/privacy, quality attributes, operational impact, cost/complexity, delivery risk, and reversibility. State assumptions and unresolved evidence needs; separate recommendations from approved decisions.
 
-Use an ADR for consequential architecture decisions, drafted from the [ADR template](../../templates/adr-template.md). Keep assessments, ADRs, and designs under `technical/` and link them to the relevant business artifacts; the business tables of contents exclude technical documentation except for the root-level System Register in the Registers section.
+Use an ADR for consequential architecture decisions, drafted from the [ADR template](../../templates/adr-template.md). Keep assessments, ADRs, and designs under `architecture/` and link them to the relevant business artifacts; the business tables of contents exclude technical documentation except for the root-level System Register in the Registers section.
 
 ## Documenting a Solution
 
-Create technical documents only when they help resolve material uncertainty, communicate a decision, or enable delivery. Keep them in `technical/` and link to the relevant Initiative, Epic, or Feature using its ID and title. Keep business outcomes and user-visible scope in the business artifact; the technical document explains how the selected solution supports them.
+Create technical documents only when they help resolve material uncertainty, communicate a decision, or enable delivery. Keep them in `architecture/` and link to the relevant Initiative, Epic, or Feature using its ID and title. Keep business outcomes and user-visible scope in the business artifact; the technical document explains how the selected solution supports them.
 
 ### Architecture Assessment
 

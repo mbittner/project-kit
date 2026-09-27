@@ -1,4 +1,4 @@
-﻿---
+---
 name: feature-documentation
 description: "Use when drafting, reviewing, or quality-scoring a Feature Canvas document in this repo's features/ folder, or when explaining what makes a good Feature — creating a new FEAT-XXX, writing the feature statement, benefit hypothesis, primary beneficiary, scope, feature-level acceptance criteria, personas, business rules, dependencies, non-functional considerations, KPIs, risks/assumptions, or candidate story breakdown, or assessing whether a feature is ready for story decomposition. Trigger phrases: new feature, feature canvas, decompose epic into features, feature quality score, is this feature ready, what's a good feature, what makes a good feature, how do I write a good feature, acceptance criteria."
 ---
@@ -77,7 +77,7 @@ A feature must describe necessary product behavior, but should not prescribe tec
 - **Not allowed without justification:** naming a specific vendor product, JavaScript component, storage technology, or integration product; specifying page position, button color, or exact screen design; describing database schema or API implementation.
 - **Allowed:** "Enable authenticated advisors to upload supporting documents."
 - **Component-only features are a violation** unless they state what they enable, why it's necessary, which business features depend on it, and how completion will be demonstrated (e.g., not "Upgrade the integration layer" but "Increase integration capacity to support real-time onboarding-status updates").
-- **Architecture decisions live in `technical/`**, not in the feature. When the feature shows architecture triggers, suggest `/screen-architecture feature <id>`. The `Architecture references` header lists linked assessments, ADRs, and designs; it is maintained by [architecture-traceability-validation](../architecture-traceability-validation/SKILL.md) and is not a scoring criterion.
+- **Architecture decisions live in `architecture/`**, not in the feature. When the feature shows architecture triggers, suggest `/screen-architecture feature <id>`. The `Architecture references` header lists linked assessments, ADRs, and designs; it is maintained by [architecture-traceability-validation](../architecture-traceability-validation/SKILL.md) and is not a scoring criterion.
 
 ## Guardrail 2: Traceability and Ownership
 

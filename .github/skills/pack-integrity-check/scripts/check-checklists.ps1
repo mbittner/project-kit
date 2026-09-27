@@ -7,7 +7,7 @@ unchecked checklist items, unresolved [NEEDS CLARIFICATION] markers,
 unresolved (Open/Ouverte) Open Questions Log entries, or a
 missing/insufficient "Last validated" evidence line recording the
 quality score that earned the Approved status. Architecture scores are advisory,
-so technical/ documents have no score threshold.
+so architecture/ documents have no score threshold.
 #>
 
 $RepoRoot = Resolve-Path "$PSScriptRoot/../../../.."

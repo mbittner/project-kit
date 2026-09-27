@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-Checks ADR lifecycle integrity under technical/decisions/: valid decision
+Checks ADR lifecycle integrity under architecture/decisions/: valid decision
 statuses, a named owner and decision date on decided ADRs, reciprocal
 Supersedes / Superseded by links, and no supersession cycles. English copies
 are authoritative for the chain; check-document-headers.ps1 verifies that the
@@ -8,13 +8,13 @@ French status matches.
 #>
 
 $RepoRoot = (Resolve-Path "$PSScriptRoot/../../../..").Path
-$decisionsPath = Join-Path $RepoRoot 'technical/decisions'
+$decisionsPath = Join-Path $RepoRoot 'architecture/decisions'
 $validStatuses = @('Proposed', 'Accepted', 'Rejected', 'Superseded', 'Deprecated')
 $decidedStatuses = @('Accepted', 'Superseded', 'Deprecated')
 $issues = @()
 
 if (-not (Test-Path $decisionsPath)) {
-    Write-Output 'OK: no ADRs recorded yet (technical/decisions/ has not been created).'
+    Write-Output 'OK: no ADRs recorded yet (architecture/decisions/ has not been created).'
     exit 0
 }
 
@@ -37,14 +37,14 @@ $adrs = @{}
 $englishFiles = Get-ChildItem -Path $decisionsPath -Filter 'adr-*.md' -File | Where-Object { $_.Name -notmatch '-fr\.md$' }
 foreach ($file in $englishFiles) {
     if ($file.Name -notmatch '^adr-(\d{3})-') {
-        $issues += "BAD FILENAME: technical/decisions/$($file.Name) must start with adr-NNN-"
+        $issues += "BAD FILENAME: architecture/decisions/$($file.Name) must start with adr-NNN-"
         continue
     }
     $id = 'ADR-' + $Matches[1]
     $text = [System.IO.File]::ReadAllText($file.FullName)
     $adrs[$id] = [PSCustomObject]@{
         Id = $id
-        File = "technical/decisions/$($file.Name)"
+        File = "architecture/decisions/$($file.Name)"
         Status = Get-Field -Text $text -Label 'Decision status'
         Date = Get-Field -Text $text -Label 'Decision date'
         Owner = Get-Field -Text $text -Label 'Decision owner'

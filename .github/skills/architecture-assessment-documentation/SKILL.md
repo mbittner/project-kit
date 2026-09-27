@@ -1,6 +1,6 @@
 ---
 name: architecture-assessment-documentation
-description: "Use when drafting, reviewing, or quality-scoring an Architecture Assessment (ARCH-XXX) in technical/assessments/, or when explaining what makes a good architecture assessment — framing the decision question, business context, constraints and assumptions, evidence gaps, options including doing nothing, evaluation criteria, tradeoff analysis, risks, and recommendation, or assessing whether an assessment is ready to support a decision. Trigger phrases: new architecture assessment, compare options, options analysis, tradeoff analysis, build vs buy, which option should we choose, is this assessment ready, what makes a good architecture assessment."
+description: "Use when drafting, reviewing, or quality-scoring an Architecture Assessment (ARCH-XXX) in architecture/assessments/, or when explaining what makes a good architecture assessment — framing the decision question, business context, constraints and assumptions, evidence gaps, options including doing nothing, evaluation criteria, tradeoff analysis, risks, and recommendation, or assessing whether an assessment is ready to support a decision. Trigger phrases: new architecture assessment, compare options, options analysis, tradeoff analysis, build vs buy, which option should we choose, is this assessment ready, what makes a good architecture assessment."
 ---
 
 # Architecture Assessment Documentation
@@ -17,10 +17,10 @@ Create one only when [architecture-screening](../architecture-screening/SKILL.md
 
 ## Where It Lives in This Repo
 
-- Folder: `technical/assessments/`
+- Folder: `architecture/assessments/`
 - Filename: `arch-XXX-slug.md` + `arch-XXX-slug-fr.md`
 - Template: [templates/arch-assessment-template.md](../../../templates/arch-assessment-template.md) and [templates/arch-assessment-template-fr.md](../../../templates/arch-assessment-template-fr.md)
-- Index: add a row to [technical/README.md](../../../technical/README.md) and [technical/README-fr.md](../../../technical/README-fr.md)
+- Index: add a row to [architecture/README.md](../../../architecture/README.md) and [architecture/README-fr.md](../../../architecture/README-fr.md)
 - Not listed in the business tables of contents.
 
 ## Workflow

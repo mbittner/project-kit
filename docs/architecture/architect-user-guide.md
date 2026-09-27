@@ -13,7 +13,7 @@ This guide explains what happens when a Solution Architect uses Copilot Chat in 
 | Specialized assistants | Solution Architecture Writer drafts; Solution Architecture Reviewer gives an independent critique; Lifecycle Navigator recommends a next step | Choose drafting, independent review, or evidence-based next-step guidance |
 | Slash commands | Run repeatable tasks such as screening a Feature, recording a decision, or proposing a design | Makes multi-step processes easier to request consistently |
 | Integrity scripts | Check what can be verified mechanically: IDs, language pairs, links, headers, decision chains, traceability, and system references | Catches omissions that are easy to miss in review |
-| Registers | The [architecture index](../../technical/README.md), the [System Register](../../system-register.md), and the [Documentation Status Register](../../documentation-register.md) | Makes decisions, systems, and approved design baselines easy to find |
+| Registers | The [architecture index](../../architecture/README.md), the [System Register](../../system-register.md), and the [Documentation Status Register](../../documentation-register.md) | Makes decisions, systems, and approved design baselines easy to find |
 
 Select **Solution Architecture Writer** in Copilot Chat for drafting, or **Solution Architecture Reviewer** for a separate review that does not change files. Choose **Lifecycle Navigator** when you are unsure whether architecture work is needed at all. None of them accept a decision or approve a design on your behalf.
 

@@ -1,7 +1,7 @@
 <#
 .SYNOPSIS
 Checks System Register references: the English and French registers list the
-same system IDs; every SYS-NNN cited under technical/ is registered; and each
+same system IDs; every SYS-NNN cited under architecture/ is registered; and each
 architecture artifact citing a system appears in the matching register's
 Technical References table.
 #>
@@ -44,7 +44,7 @@ if (Test-Path $technicalPath) {
         $relative = $file.FullName.Substring($RepoRoot.Length + 1).Replace('\', '/')
         $language = if ($file.Name -match '-fr\.md$') { 'FR' } else { 'EN' }
         $registerName = if ($language -eq 'FR') { 'system-register-fr.md' } else { 'system-register.md' }
-        $isArtifact = $relative -match '^technical/(assessments|decisions|designs)/'
+        $isArtifact = $relative -match '^architecture/(assessments|decisions|designs)/'
         $ids = @([regex]::Matches([System.IO.File]::ReadAllText($file.FullName), 'SYS-\d{3}') | ForEach-Object { $_.Value } | Sort-Object -Unique)
 
         foreach ($id in $ids) {
@@ -64,7 +64,7 @@ if (Test-Path $technicalPath) {
 }
 
 if ($issues.Count -eq 0) {
-    Write-Output "OK: $($registered['EN'].Count) registered system(s); $citations system citation(s) under technical/ are registered and referenced."
+    Write-Output "OK: $($registered['EN'].Count) registered system(s); $citations system citation(s) under architecture/ are registered and referenced."
 } else {
     Write-Output "FOUND $($issues.Count) system reference issue(s):"
     $issues | ForEach-Object { Write-Output " - $_" }

@@ -1,4 +1,4 @@
-﻿# Ensemble de documentation de projet
+# Ensemble de documentation de projet
 
 *[Read this document in English](README.md)*
 
@@ -40,7 +40,7 @@ Partagez dans la conversation vos idées pour améliorer le fonctionnement de Co
 
 ## Pour les architectes de solutions
 
-Le travail d'architecture côtoie les exigences d'affaires et y renvoie toujours. Il existe trois types de documents d'architecture, chacun rédigé en français et en anglais et répertorié dans l'[index de l'architecture](technical/README-fr.md) :
+Le travail d'architecture côtoie les exigences d'affaires et y renvoie toujours. Il existe trois types de documents d'architecture, chacun rédigé en français et en anglais et répertorié dans l'[index de l'architecture](architecture/README-fr.md) :
 
 - **Évaluation d'architecture** : compare les options pour une décision et en recommande une.
 - **Registre de décision d'architecture** : consigne une décision importante, ses raisons et ses coûts. Une décision acceptée n'est jamais réécrite; une nouvelle décision la remplace et l'historique est conservé.
@@ -103,15 +103,15 @@ Consultez le [Registre des parties prenantes](stakeholder-register-fr.md) pour l
 
 ## Structure des dossiers
 
-- `initiative/` : futurs artéfacts d'initiative de portefeuille
-- `epics/` : futurs artéfacts d'épopée
-- `features/` : futurs artéfacts de fonctionnalité
-- `stories/` : futurs artéfacts de récit utilisateur
-- `change-management/` : futurs bilans de gestion du changement
+- `initiative/` : artéfacts d'initiative de portefeuille
+- `epics/` : artéfacts d'épopée
+- `features/` : artéfacts de fonctionnalité
+- `stories/` : artéfacts de récit utilisateur
+- `change-management/` : bilans de gestion du changement
 - `docs/business/` : guides pratiques pour les gens d'affaires
 - `docs/architecture/` : guides pratiques pour les architectes de solutions
 - `docs/technical/` : garanties de comportement, intégrations actuelles, architecture et notes de version
-- [technical/](technical/README-fr.md) : évaluations d'architecture, registres de décision et conceptions de solution du projet
+- [architecture/](architecture/README-fr.md) : évaluations d'architecture, registres de décision et conceptions de solution du projet
 - `templates/` : points de départ vierges (vous n'aurez normalement pas besoin de les ouvrir vous-même — demandez simplement à Copilot de rédiger quelque chose)
 - `stakeholder-register.md` : la liste de qui est impliqué et qui est touché, décrite ci-dessus
 - [documentation-register-fr.md](documentation-register-fr.md) : état actuel des documents, travail actif et versions de base approuvées

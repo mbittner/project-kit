@@ -21,7 +21,7 @@ The organizational SharePoint catalog is version 4.0 and contains 39 NFRs coveri
 ### Proposed Structure
 
 ```text
-technical/
+architecture/
 	nfrs/
 		README.md
 		README-fr.md

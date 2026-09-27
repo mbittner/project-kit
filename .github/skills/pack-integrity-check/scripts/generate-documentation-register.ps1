@@ -65,7 +65,7 @@ function Get-ArtifactType {
     if ($RelativePath -match '^features/') { return 'Features' }
     if ($RelativePath -match '^stories/') { return 'User Stories' }
     if ($RelativePath -match '^change-management/') { return 'Change Management' }
-    if ($RelativePath -match '^technical/designs/') { return 'Solution Designs' }
+    if ($RelativePath -match '^architecture/designs/') { return 'Solution Designs' }
     return 'Other Business Documents'
 }
 
@@ -77,7 +77,7 @@ $allMarkdown = Get-ChildItem -Path $RepoRoot -Recurse -Filter '*.md' -File | Whe
         if ($excludedDirectories -contains $part) { $excluded = $true; break }
     }
     # Solution Designs carry approved baselines, unlike other technical documents.
-    if ($relative -match '^technical/designs/[^/]+\.md$') { $excluded = $false }
+    if ($relative -match '^architecture/designs/[^/]+\.md$') { $excluded = $false }
     -not $excluded
 }
 

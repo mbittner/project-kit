@@ -10,7 +10,7 @@ Supersede the ADR identified by `${input}` (e.g. `004` or `ADR-004`).
 ## Steps
 
 1. Load [adr-documentation](../skills/adr-documentation/SKILL.md), [architecture-decision-consistency](../skills/architecture-decision-consistency/SKILL.md), [architecture-traceability-validation](../skills/architecture-traceability-validation/SKILL.md), and [system-register-validation](../skills/system-register-validation/SKILL.md) in full.
-2. Resolve `technical/decisions/adr-<nnn>-*.md`. If it is not `Accepted`, explain that only an Accepted ADR can be superseded. A Proposed ADR can simply be edited or Rejected. Then stop.
+2. Resolve `architecture/decisions/adr-<nnn>-*.md`. If it is not `Accepted`, explain that only an Accepted ADR can be superseded. A Proposed ADR can simply be edited or Rejected. Then stop.
 3. Ask what changed: the new evidence, constraint, or outcome that reopens the decision. If the change is only a correction (typo, link, translation), recommend editing the existing ADR instead, and stop.
 4. Follow the [get-latest](get-latest.prompt.md) workflow if shared changes may exist, then confirm the next free `ADR-XXX` with `check-ids.ps1`.
 5. Propose the new ADR: context (referencing the old ADR and what changed), decision, options (including keeping the old decision), rationale, consequences, and migration or transition follow-ups. List every Solution Design that names the old ADR as governing, and every business artifact it links to. Run the consistency check.

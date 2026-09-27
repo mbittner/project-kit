@@ -35,7 +35,7 @@ More than one verdict can apply in sequence (e.g. Assessment, then Design). Repo
 
 ## Also Check Existing Architecture
 
-Before recommending new work, search `technical/` for Accepted ADRs and Approved designs that already cover the systems or scope. Reuse beats duplication. If an existing ADR applies, cite it. If the artifact would contradict it, recommend a superseding ADR.
+Before recommending new work, search `architecture/` for Accepted ADRs and Approved designs that already cover the systems or scope. Reuse beats duplication. If an existing ADR applies, cite it. If the artifact would contradict it, recommend a superseding ADR.
 
 ## Output Format
 

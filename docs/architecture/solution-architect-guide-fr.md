@@ -12,12 +12,12 @@ Les exigences d'affaires (initiative → épopée → fonctionnalité → récit
 
 | Aide | À quoi elle sert |
 |---|---|
-| **Solution Architecture Writer** | Rédiger, mettre à jour et remplacer les évaluations, registres de décision et conceptions dans [technical/](../../technical/README-fr.md) |
+| **Solution Architecture Writer** | Rédiger, mettre à jour et remplacer les évaluations, registres de décision et conceptions dans [architecture/](../../architecture/README-fr.md) |
 | **Solution Architecture Reviewer** | Fournir une critique indépendante en lecture seule d'un document d'architecture |
 | **Lifecycle Navigator** | Conseiller en lecture seule la prochaine étape, y compris si votre intervention est nécessaire |
 | **BA Requirements Writer** / **BA Requirements Reviewer** | Clarifier ou réviser l'artéfact d'affaires dont dépend votre travail |
 
-Copilot garde chaque document en français et en anglais, tient à jour l'[index de l'architecture](../../technical/README-fr.md), ajoute les liens `Références d'architecture` à l'épopée ou la fonctionnalité concernée et rapproche chaque système nommé du [registre des systèmes](../../system-register-fr.md).
+Copilot garde chaque document en français et en anglais, tient à jour l'[index de l'architecture](../../architecture/README-fr.md), ajoute les liens `Références d'architecture` à l'épopée ou la fonctionnalité concernée et rapproche chaque système nommé du [registre des systèmes](../../system-register-fr.md).
 
 ## Quand intervenir
 

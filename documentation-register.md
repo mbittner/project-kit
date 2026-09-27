@@ -2,7 +2,7 @@
 
 *[Registre de l'état de la documentation en français](documentation-register-fr.md)*
 
-**Source of truth:** Each document's status and `Document version` header. This page summarizes active work and approved baselines; it does not replace document history. Business documents and Solution Designs (under `technical/designs/`) are included; other architecture documents are tracked in the [architecture index](technical/README.md).
+**Source of truth:** Each document's status and `Document version` header. This page summarizes active work and approved baselines; it does not replace document history. Business documents and Solution Designs (under `architecture/designs/`) are included; other architecture documents are tracked in the [architecture index](architecture/README.md).
 
 ## Portfolio Snapshot
 <!-- GENERATED PORTFOLIO SNAPSHOT START -->

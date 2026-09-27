@@ -1,6 +1,6 @@
 ---
 name: solution-design-documentation
-description: "Use when drafting, reviewing, quality-scoring, or approving a Solution Design (SD-XXX) in technical/designs/, or when explaining what makes a good solution design — scope and traceability, system context, components, interfaces and integrations, data, security/privacy/accessibility, non-functional requirements, deployment and operations, verification, dependencies, and risks. Trigger phrases: new solution design, design the solution, technical design, integration design, is this design ready, approve design, what makes a good solution design."
+description: "Use when drafting, reviewing, quality-scoring, or approving a Solution Design (SD-XXX) in architecture/designs/, or when explaining what makes a good solution design — scope and traceability, system context, components, interfaces and integrations, data, security/privacy/accessibility, non-functional requirements, deployment and operations, verification, dependencies, and risks. Trigger phrases: new solution design, design the solution, technical design, integration design, is this design ready, approve design, what makes a good solution design."
 ---
 
 # Solution Design Documentation
@@ -11,10 +11,10 @@ A **Solution Design** explains how a selected approach delivers one or more busi
 
 ## Where It Lives in This Repo
 
-- Folder: `technical/designs/`
+- Folder: `architecture/designs/`
 - Filename: `sd-XXX-slug.md` + `sd-XXX-slug-fr.md`
 - Template: [templates/solution-design-template.md](../../../templates/solution-design-template.md) and [templates/solution-design-template-fr.md](../../../templates/solution-design-template-fr.md)
-- Index: [technical/README.md](../../../technical/README.md) and [technical/README-fr.md](../../../technical/README-fr.md)
+- Index: [architecture/README.md](../../../architecture/README.md) and [architecture/README-fr.md](../../../architecture/README-fr.md)
 - Solution Designs carry a `Document version` baseline and appear in the [Documentation Status Register](../../../documentation-register.md). They follow the [Approved Baselines contract](../../../docs/technical/tool-capability-contracts.md#approved-baselines).
 
 ## Workflow

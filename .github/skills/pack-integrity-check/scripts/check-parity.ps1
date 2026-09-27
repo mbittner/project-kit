@@ -8,7 +8,7 @@ have the same number of level-2 (##) headings.
 $RepoRoot = Resolve-Path "$PSScriptRoot/../../../.."
 $foldersToCheck = @(
     'initiative', 'epics', 'features', 'stories', 'change-management',
-    'technical', 'technical/assessments', 'technical/decisions', 'technical/designs'
+    'technical', 'architecture/assessments', 'architecture/decisions', 'architecture/designs'
 )
 $issues = @()
 

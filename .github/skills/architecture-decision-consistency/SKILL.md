@@ -9,7 +9,7 @@ The architecture counterpart of [sibling-overlap-validation](../sibling-overlap-
 
 ## Procedure
 
-1. **Collect the comparison set.** From the Decision Log in [technical/README.md](../../../technical/README.md), take every ADR with status `Accepted` (and `Proposed` ones, flagged as pending) that shares at least one of the following with the target: a `SYS-###` system, a linked business artifact, or the same decision topic.
+1. **Collect the comparison set.** From the Decision Log in [architecture/README.md](../../../architecture/README.md), take every ADR with status `Accepted` (and `Proposed` ones, flagged as pending) that shares at least one of the following with the target: a `SYS-###` system, a linked business artifact, or the same decision topic.
 2. **Compare decision statements.** For each pair, classify it as:
    - **Independent:** different questions. No action.
    - **Duplicate:** the same question already decided the same way. Recommend reusing the existing ADR instead of creating a new one.

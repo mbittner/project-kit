@@ -2,7 +2,7 @@
 
 *[Documentation Status Register in English](documentation-register.md)*
 
-**Source de vérité :** Le statut et l'en-tête `Version du document` de chaque document. Cette page résume le travail actif et les bases approuvées; elle ne remplace pas l'historique des documents. Les documents d'affaires et les conceptions de solution (dans `technical/designs/`) y figurent; les autres documents d'architecture sont suivis dans l'[index de l'architecture](technical/README-fr.md).
+**Source de vérité :** Le statut et l'en-tête `Version du document` de chaque document. Cette page résume le travail actif et les bases approuvées; elle ne remplace pas l'historique des documents. Les documents d'affaires et les conceptions de solution (dans `architecture/designs/`) y figurent; les autres documents d'architecture sont suivis dans l'[index de l'architecture](architecture/README-fr.md).
 
 ## État du portefeuille
 <!-- GENERATED PORTFOLIO SNAPSHOT START -->

@@ -1,6 +1,6 @@
 ---
 name: adr-documentation
-description: "Use when drafting, reviewing, quality-scoring, accepting, or superseding an Architecture Decision Record (ADR-XXX) in technical/decisions/, or when explaining what makes a good ADR — context, decision, options considered, rationale, consequences, affected designs, review trigger, decision owner, and the Proposed/Accepted/Rejected/Superseded/Deprecated lifecycle. Trigger phrases: new ADR, record a decision, architecture decision record, accept this decision, supersede ADR, deprecate a decision, is this ADR ready, what makes a good ADR."
+description: "Use when drafting, reviewing, quality-scoring, accepting, or superseding an Architecture Decision Record (ADR-XXX) in architecture/decisions/, or when explaining what makes a good ADR — context, decision, options considered, rationale, consequences, affected designs, review trigger, decision owner, and the Proposed/Accepted/Rejected/Superseded/Deprecated lifecycle. Trigger phrases: new ADR, record a decision, architecture decision record, accept this decision, supersede ADR, deprecate a decision, is this ADR ready, what makes a good ADR."
 ---
 
 # ADR Documentation
@@ -13,10 +13,10 @@ The Solution Architect is the decision owner and the only role who can accept an
 
 ## Where It Lives in This Repo
 
-- Folder: `technical/decisions/`
+- Folder: `architecture/decisions/`
 - Filename: `adr-XXX-slug.md` + `adr-XXX-slug-fr.md`
 - Template: [templates/adr-template.md](../../../templates/adr-template.md) and [templates/adr-template-fr.md](../../../templates/adr-template-fr.md)
-- Index: the Decision Log in [technical/README.md](../../../technical/README.md) and [technical/README-fr.md](../../../technical/README-fr.md)
+- Index: the Decision Log in [architecture/README.md](../../../architecture/README.md) and [architecture/README-fr.md](../../../architecture/README-fr.md)
 
 ## Workflow
 

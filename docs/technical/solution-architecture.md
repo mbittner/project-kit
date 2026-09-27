@@ -21,7 +21,7 @@ flowchart LR
     Navigator --> ArchSkills
     ArchSkills --> SharedSkills
     ArchSkills --> Templates
-    Templates --> TechArtifacts[Assessments, ADRs, designs in technical/, EN and FR]
+    Templates --> TechArtifacts[Assessments, ADRs, designs in architecture/, EN and FR]
     TechArtifacts -. backlinks .-> Artifacts
     Commands --> ArchCommands[Screen, record, supersede, design]
     ArchCommands --> ArchSkills
@@ -78,7 +78,7 @@ Custom assistants live in `.github/agents/` as `*.agent.md` files. Their YAML fr
 | [BA Requirements Writer](../../.github/agents/ba-requirements-writer.agent.md) | Drafts, edits, reviews, and decomposes Initiative, Epic, Feature, User Story, and Change Management documents. It selects the artifact-specific workflow, uses templates, keeps English/French pairs aligned, and maintains links. | Read, edit, search, todo, execute, agent |
 | [BA Requirements Reviewer](../../.github/agents/ba-requirements-reviewer.agent.md) | Gives a second opinion on one named artifact and its relevant parent, siblings, and language pair. It reports evidence-based findings and does not modify files. | Read, search |
 | [Lifecycle Navigator](../../.github/agents/lifecycle-navigator.agent.md) | Gives a read-only, evidence-based next-step recommendation for an Initiative, Epic, Feature, or delivery question; identifies when a specialist should be involved, using architecture screening for architecture questions. | Read, search |
-| [Solution Architecture Writer](../../.github/agents/solution-architecture-writer.agent.md) | Drafts, updates, and supersedes Architecture Assessments, ADRs, and Solution Designs under `technical/`; keeps EN/FR pairs, the architecture index, System Register references, and business backlinks aligned. | Read, edit, search, todo, execute, agent |
+| [Solution Architecture Writer](../../.github/agents/solution-architecture-writer.agent.md) | Drafts, updates, and supersedes Architecture Assessments, ADRs, and Solution Designs under `architecture/`; keeps EN/FR pairs, the architecture index, System Register references, and business backlinks aligned. | Read, edit, search, todo, execute, agent |
 | [Solution Architecture Reviewer](../../.github/agents/solution-architecture-reviewer.agent.md) | Gives a read-only second opinion on one architecture artifact. | Read, search |
 
 The writer is the authoring surface; the reviewer is an optional independent pass. The reviewer does not replace `/validate` or claim that deterministic scripts have passed.
@@ -158,7 +158,7 @@ The current scripts under `.github/skills/pack-integrity-check/scripts/` are:
 | `check-system-mentions.ps1` | Advisory scan for systems named without a `SYS-NNN` ID in architecture documents' `Related systems` headers and design interface tables. |
 | `generate-documentation-register.ps1` | Regenerates register snapshots from document headers, including Solution Designs; this is a generator, not a validation check. |
 
-The TOC coverage and documentation-register scripts exclude `.github/`, templates, and `docs/`, along with the named technical-documentation folders, from business-document indexing. Technical docs and release notes are not entries in the business tables of contents. The one exception is that Solution Designs under `technical/designs/` appear in the documentation registers because they carry approved baselines.
+The TOC coverage and documentation-register scripts exclude `.github/`, templates, and `docs/`, along with the named technical-documentation folders, from business-document indexing. Technical docs and release notes are not entries in the business tables of contents. The one exception is that Solution Designs under `architecture/designs/` appear in the documentation registers because they carry approved baselines.
 
 ## Automatic Documentation Maintenance
 
@@ -167,7 +167,7 @@ The behavior and documentation-maintenance rules are defined in the [tool capabi
 ## Change Boundaries
 
 - Artifact skills and templates are the maintained sources for business-document structure and policy. Avoid duplicating detailed quality thresholds in this architecture overview.
-- Update the English and French business documents together. Keep tooling documentation in `docs/` and project architecture documentation in `technical/`; do not add either to the business tables of contents.
+- Update the English and French business documents together. Keep tooling documentation in `docs/` and project architecture documentation in `architecture/`; do not add either to the business tables of contents.
 - When changing customization files under `.github/agents/`, `.github/skills/`, or `.github/prompts/`, follow `.github/copilot-instructions.md`, including keeping both user-facing READMEs synchronized.
 - After changing documentation paths or links, run `check-links.ps1`. After changing tooling exclusions or business-document structure, also run `check-toc-coverage.ps1`, `check-parity.ps1`, and any relevant focused checks.
 

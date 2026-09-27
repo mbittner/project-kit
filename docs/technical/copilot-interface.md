@@ -15,7 +15,7 @@ The interface delegates storage and collaboration operations to the [current ver
 | BA Requirements Reviewer | Provides a separate, read-only review. |
 | Lifecycle Navigator | Provides read-only, evidence-based next-step advice and can be delegated to by the Writer for sequencing questions. |
 | Solution Architect Guide | Role-specific guidance for Solution Architects: when to engage, which architecture artifact to use, and the related assistants and commands. |
-| Solution Architecture Writer | Drafts Architecture Assessments, ADRs, and Solution Designs under `technical/`, following the [Architecture Decisions contract](tool-capability-contracts.md#architecture-decisions); can delegate to the Navigator and the Architecture Reviewer. |
+| Solution Architecture Writer | Drafts Architecture Assessments, ADRs, and Solution Designs under `architecture/`, following the [Architecture Decisions contract](tool-capability-contracts.md#architecture-decisions); can delegate to the Navigator and the Architecture Reviewer. |
 | Solution Architecture Reviewer | Provides a separate, read-only review of one architecture artifact. |
 | `/screen-architecture`, `/record-decision`, `/supersede-decision`, `/design-solution` | Expose architecture screening, decision recording, supersession, and design proposal; all file-creating steps are confirmation-gated. `/validate` also accepts `assessment`, `adr`, and `design`. |
 | Architecture skills | `architecture-assessment-documentation`, `adr-documentation`, and `solution-design-documentation` own architecture structure, guardrails, advisory scoring, and status gates; `architecture-screening`, `architecture-decision-consistency`, and `architecture-traceability-validation` are shared checks. |

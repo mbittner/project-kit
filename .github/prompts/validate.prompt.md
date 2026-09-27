@@ -35,12 +35,12 @@ If the type is missing, misspelled, or not one of these, **stop and ask the user
    - `story` → `stories/story-<zero-padded number>-*.md`
    - `cm-epic` → `change-management/cm-epic-<zero-padded number>-*.md`
    - `cm-feature` → `change-management/cm-feat-<zero-padded number>-*.md`
-   - `assessment` → `technical/assessments/arch-<zero-padded number>-*.md`
-   - `adr` → `technical/decisions/adr-<zero-padded number>-*.md`
-   - `design` → `technical/designs/sd-<zero-padded number>-*.md`
+   - `assessment` → `architecture/assessments/arch-<zero-padded number>-*.md`
+   - `adr` → `architecture/decisions/adr-<zero-padded number>-*.md`
+   - `design` → `architecture/designs/sd-<zero-padded number>-*.md`
 
    If no match is found, list the existing IDs for that type and ask which one to validate.
-3. Read the target document plus whatever context its guardrails need: parent initiative + sibling epics (for an epic), parent epic + sibling features (for a feature), parent feature + sibling stories (for a story), the source epic/feature (for a CM brief), or the linked business artifacts, related ADRs from the `technical/README.md` Decision Log, and cited System Register entries (for an assessment, ADR, or design).
+3. Read the target document plus whatever context its guardrails need: parent initiative + sibling epics (for an epic), parent epic + sibling features (for a feature), parent feature + sibling stories (for a story), the source epic/feature (for a CM brief), or the linked business artifacts, related ADRs from the `architecture/README.md` Decision Log, and cited System Register entries (for an assessment, ADR, or design).
 4. Run every Guardrail defined by that skill, using [sibling-overlap-validation](../skills/sibling-overlap-validation/SKILL.md) for the epic/feature/story overlap guardrail and [stakeholder-register-validation](../skills/stakeholder-register-validation/SKILL.md) for any named stakeholder/user/persona. For `assessment`, `adr`, and `design`, also run [architecture-decision-consistency](../skills/architecture-decision-consistency/SKILL.md), [architecture-traceability-validation](../skills/architecture-traceability-validation/SKILL.md), and [system-register-validation](../skills/system-register-validation/SKILL.md).
 5. Run the [pack-integrity-check](../skills/pack-integrity-check/SKILL.md) checks `check-ids.ps1`, `check-parity.ps1`, `check-links.ps1`, `check-checklists.ps1`, `check-stakeholders.ps1`, `check-document-headers.ps1`, and `check-toc-coverage.ps1` (plus `check-adr-chain.ps1`, `check-arch-traceability.ps1`, `check-system-refs.ps1`, and `check-system-mentions.ps1` for `assessment`, `adr`, and `design`); fold any findings about this artifact or its immediate family into the relevant guardrail results (ignore unrelated findings elsewhere in the repo).
 6. Score the artifact with its skill's Quality Scoring Model / Scorecard (weighted dimensions, mandatory minimums) and determine its Readiness Threshold.

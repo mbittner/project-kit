@@ -36,7 +36,7 @@ Follow the repository-wide conventions: zero-padded sequential IDs matching the 
 3. **Copy the matching template** (both EN and FR) — do not invent new section names or skip mandatory sections.
 4. **Derive content from the source artifact, don't re-invent it:** Change Summary from the epic's Epic Summary/Hypothesis or the feature's Business Objective/Description; stakeholder groups from the epic's Users/Stakeholders or the feature's Personas; risks partly carried forward from the source artifact's own Risks section, filtered to adoption-relevant ones only (see Guardrail 5).
 5. **When working from a short prompt, apply the AI Generation rules below** — use reasonable defaults for structural/process gaps, document every assumption, and cap true unknowns at 5 `[NEEDS CLARIFICATION]` markers (log any overflow in the Open Questions Log). Never invent hard numbers, names, or dates.
-6. **Run all five Guardrail checks** (below) as a final pass — before/after explicit, stakeholder/role impact (including the [stakeholder-register-validation](../stakeholder-register-validation/SKILL.md) check), adoption ≠ deployment, training/communication/documentation explicit, and no technical/change-risk conflation — and rewrite anything found.
+6. **Run all five Guardrail checks** (below) as a final pass — before/after explicit, stakeholder/role impact (including the [stakeholder-register-validation](../stakeholder-register-validation/SKILL.md) check), adoption ≠ deployment, training/communication/documentation explicit, and no architecture/change-risk conflation — and rewrite anything found.
 7. **Run the quality scoring model** (below) against the draft and report the score/rating back to the user before calling it done.
 8. **Update cross-links:** confirm the source epic/feature header links back to this brief, and update [table-of-content.md](../../../table-of-content.md)/[table-of-content-fr.md](../../../table-of-content-fr.md) if a link changed. Update a portfolio rollup only if the project maintains one. Run `check-parity.ps1` and `check-links.ps1` after saving.
 
@@ -94,7 +94,7 @@ Never leave the current state or the future state implied. Treat as a violation:
 ## Guardrail 3: Success ≠ Deployment — Adoption Metrics Are Mandatory
 
 - "Released", "deployed", "live in production" are delivery milestones, not adoption evidence. Every CM brief needs at least one adoption/behavioral measure (adoption rate, usage rate, time-to-proficiency, support ticket volume, error/exception rate) with a baseline and target — deployment alone never satisfies this guardrail.
-- Deployment is not adoption — never let a Readiness/Go-Live Criteria checklist consist only of technical/delivery items; at least one item must be about people being ready (trained, briefed, supported), not just the system being ready.
+- Deployment is not adoption — never let a Readiness/Go-Live Criteria checklist consist only of architecture/delivery items; at least one item must be about people being ready (trained, briefed, supported), not just the system being ready.
 
 ## Guardrail 4: Training, Communication, and Documentation Must Be Explicit
 

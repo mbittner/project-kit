@@ -1,4 +1,4 @@
-﻿# Project Documentation Pack
+# Project Documentation Pack
 
 *[Lire ce document en français](README-fr.md)*
 
@@ -40,7 +40,7 @@ Share ideas for improving how Copilot works or the supporting tools and workflow
 
 ## For Solution Architects
 
-Architecture work sits alongside the business requirements and always links back to them. There are three kinds of architecture document, each written in English and French and kept in the [architecture index](technical/README.md):
+Architecture work sits alongside the business requirements and always links back to them. There are three kinds of architecture document, each written in English and French and kept in the [architecture index](architecture/README.md):
 
 - **Architecture Assessment**: compares options for one decision and recommends one.
 - **Architecture Decision Record**: records one important decision, why it was made, and what it costs. Accepted decisions are never rewritten; a new decision replaces them and the history is kept.
@@ -103,15 +103,15 @@ Use the [Stakeholder Register](stakeholder-register.md) for governance roles, im
 
 ## Folder Structure
 
-- `initiative/` — future portfolio-level initiative artifacts
-- `epics/` — future epic artifacts
-- `features/` — future feature artifacts
-- `stories/` — future user story artifacts
-- `change-management/` — future change-management briefs
+- `initiative/` — portfolio-level initiative artifacts
+- `epics/` — epic artifacts
+- `features/` — feature artifacts
+- `stories/` — user story artifacts
+- `change-management/` — change-management briefs
 - `docs/business/` — practical guides for business users
 - `docs/architecture/` — practical guides for Solution Architects
 - `docs/technical/` — behavior guarantees, current integrations, architecture, and release notes
-- [technical/](technical/README.md) — the project's architecture assessments, decision records, and solution designs
+- [architecture/](architecture/README.md) — the project's architecture assessments, decision records, and solution designs
 - `templates/` — blank starting points (you normally won't need to open these yourself — just ask Copilot to draft something)
 - `stakeholder-register.md` — the list of who's involved and who's affected, described above
 - [documentation-register.md](documentation-register.md) — current document status, active work, and approved baseline versions

@@ -28,7 +28,7 @@ Run a portfolio-wide audit, scoped to the initiative given in `${input}` (and it
 8. **Architecture coverage.** Load [architecture-screening](../skills/architecture-screening/SKILL.md) and [architecture-decision-consistency](../skills/architecture-decision-consistency/SKILL.md). For every in-scope epic and feature:
    - Screen it. Flag any with a verdict other than "Not needed" that has no linked assessment, ADR, or design in its `Architecture references`.
    - List every linked technical artifact with its status, and its advisory score from the matching skill (assessment, ADR, or design).
-   - Across `technical/decisions/`, report conflicting or duplicate Accepted ADRs, designs governed by Superseded or Deprecated ADRs, and technical artifacts linked to no in-scope business artifact.
+   - Across `architecture/decisions/`, report conflicting or duplicate Accepted ADRs, designs governed by Superseded or Deprecated ADRs, and technical artifacts linked to no in-scope business artifact.
    - From the [System Register](../../system-register.md), list systems with `To confirm` owner or CMCD values and open questions still Open.
 9. Produce one consolidated report with these sections:
    - **Repository mechanics** — raw script findings, or "clean" if none.
