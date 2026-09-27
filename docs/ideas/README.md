@@ -10,8 +10,8 @@ Every idea file must link back to this README, and every idea must be listed her
 ## Ideas
 
 - [IDEA-001 — Persistent tooling improvement ideas register](idea-001-tool-improvement-ideas-register.md)
-- High-level change: Keep suggestions for improving the pack's tooling and workflows in a numbered, indexed register instead of relying on memory.
+	- High-level change: Keep suggestions for improving the pack's tooling and workflows in a numbered, indexed register instead of relying on memory.
 - [IDEA-002 — Solution Architect toolkit](idea-002-solution-architect-toolkit.md)
-- High-level change: Organize Solution Architect work like business requirements, with dedicated assistants, guidance, commands, checks, and templates for assessments, decisions, and designs.
+	- High-level change: Organize Solution Architect work like business requirements, with dedicated assistants, guidance, commands, checks, and templates for assessments, decisions, and designs.
 - [IDEA-003 — Governed non-functional requirements component](idea-003-governed-non-functional-requirements.md)
-- High-level change: Add a bilingual, source-linked NFR register and project-specific applicability and verification profiles that can be referenced by Features and Solution Designs.
+	- High-level change: Add a bilingual, source-linked NFR register and project-specific applicability and verification profiles that can be referenced by Features and Solution Designs.
