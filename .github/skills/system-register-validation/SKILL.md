@@ -24,6 +24,11 @@ When reconciling documents, distinguish project systems from tools used only to 
 7. When status or system relationships change, update the register rather than removing the record. Preserve retired systems for traceability.
 8. Before finishing, report systems reconciled and outstanding owner/CMCD questions. Do not claim a Hopex lookup, technical validation, or owner confirmation that did not occur.
 
+## Mechanical Checks
+
+- `check-system-refs.ps1` verifies that every cited `SYS-NNN` ID exists in both registers and that each citing architecture document has a Technical References row.
+- `check-system-mentions.ps1` is an advisory warning, like the stakeholder check. It flags systems named without an ID in the `Related systems` header and in a design's Interfaces table: a registered name or alias should be cited with its ID, and an unknown name is a possible unregistered system. For each warning, cite the ID, register the system after the Solution Architect confirms it, or confirm that it is not an independently managed system. Never register a system based on the warning alone.
+
 ## Boundaries
 
 - The register is a technical documentation index, not a CMDB or a replacement for Hopex.

@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-Checks EN/FR structural parity for the Modern BA Practice Markdown Pack:
+Checks EN/FR structural parity for the Project Documentation Pack:
 every English doc has a French counterpart (and vice versa), and both
 have the same number of level-2 (##) headings.
 #>

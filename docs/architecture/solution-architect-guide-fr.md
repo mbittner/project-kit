@@ -37,16 +37,7 @@ Chaque document reçoit un score de qualité avec `/validate assessment|adr|desi
 
 ## Exemple : de la fonctionnalité à la conception
 
-*Démonstration illustrative; les identifiants et systèmes sont fictifs.*
-
-1. **Évaluer le besoin.** Le propriétaire de produit demande si `FEAT-011` exige votre intervention. `/screen-architecture feature 011` relève un nouvel échange de documents avec un système de dossiers existant (déclencheur d'intégration) et des renseignements personnels (déclencheur de confidentialité), sans décision existante qui les couvre. Verdict : *Évaluation*.
-2. **Comparer les options.** Vous demandez une évaluation à Solution Architecture Writer. Il rédige `ARCH-001` à partir du gabarit : question de décision, résultats et contraintes de la fonctionnalité, options (dont le maintien du processus manuel actuel), compromis et lacunes de données, comme des volumes « À confirmer ». Il vous demande le responsable et le nom/ID CMCD du système de dossiers et l'inscrit sous `SYS-###`.
-3. **Vérifier et recommander.** `/validate assessment 001` liste les lacunes. Une fois la liste complète et les questions résolues, vous confirmez le passage à `Recommandée`.
-4. **Décider.** `/record-decision 001` rédige `ADR-001` au statut `Proposée`, vérifié par rapport aux décisions acceptées antérieures. Sur votre confirmation, il devient `Acceptée` à la date du jour, et `ARCH-001` est `Clôturée`.
-5. **Concevoir.** `/design-solution 011` propose un plan de taille appropriée régi par `ADR-001`. Vous confirmez, et `SD-001` est créé dans les deux langues. Un écart de portée relevé est transmis au propriétaire de produit sous forme de question ouverte; la fonctionnalité elle-même n'est pas modifiée.
-6. **Approuver et enregistrer.** `/validate design 001`, votre approbation, une version `1.0` confirmée, puis `/save-my-work`. `FEAT-011` liste maintenant `ARCH-001`, `ADR-001` et `SD-001` sous `Références d'architecture`.
-
-Plus tard, si de nouvelles données changent la décision, lancez `/supersede-decision 001`. La commande crée un nouveau registre de décision, conserve l'original pour mémoire et liste les conceptions à revoir.
+Le [Guide d'utilisation pour les architectes](architect-user-guide-fr.md) déroule étape par étape un exemple illustratif de fonctionnalité : triage, évaluation, inscription des systèmes, décision, conception, approbation de la base et remplacement ultérieur de la décision. Il décrit ce que Copilot vérifie à chaque étape et ce que vous y gagnez.
 
 ## Relier la conception à la livraison
 

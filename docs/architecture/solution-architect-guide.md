@@ -37,16 +37,7 @@ Each document has a quality score from `/validate assessment|adr|design <ID>`. T
 
 ## Example: From Feature to Design
 
-*Illustrative walk-through; the IDs and systems are placeholders.*
-
-1. **Screen.** The Product Owner asks whether `FEAT-011` needs you. `/screen-architecture feature 011` finds a new exchange of documents with an existing records system (integration trigger) and personal data (privacy trigger), and no existing decision covering it. Verdict: *Assessment*.
-2. **Compare options.** You ask Solution Architecture Writer for an assessment. It drafts `ARCH-001` from the template: the decision question, the Feature's outcomes and constraints, options including reusing the current manual process, the tradeoffs, and evidence gaps such as volumes marked `To confirm`. The Writer asks you for the records system's owner and CMCD name/ID and registers it as `SYS-###`.
-3. **Check and recommend.** `/validate assessment 001` lists the gaps. Once the checklist is complete and the open questions are resolved, you confirm the status change to `Recommended`.
-4. **Decide.** `/record-decision 001` drafts `ADR-001` as `Proposed`, checked against earlier accepted decisions. When you confirm, it becomes `Accepted` with today's date, and `ARCH-001` is `Closed`.
-5. **Design.** `/design-solution 011` proposes a right-sized outline governed by `ADR-001`. You confirm, and `SD-001` is created in both languages. A scope gap it uncovers goes to the Product Owner as an open question; the Feature itself is not changed.
-6. **Approve and save.** `/validate design 001`, your approval, a confirmed version `1.0`, then `/save-my-work`. `FEAT-011` now lists `ARCH-001`, `ADR-001`, and `SD-001` under `Architecture references`.
-
-Later, if new evidence changes the decision, run `/supersede-decision 001`. It creates a new decision record, keeps the original for the record, and lists the designs that need revisiting.
+The [Architect User Guide](architect-user-guide.md) walks step by step through an illustrative Feature: screening, assessment, system registration, decision, design, baseline approval, and later superseding the decision. It describes what Copilot checks at each step and what you gain.
 
 ## Connect Design to Delivery
 

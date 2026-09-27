@@ -17,4 +17,4 @@ Supersede the ADR identified by `${input}` (e.g. `004` or `ADR-004`).
 6. Ask the Solution Architect to confirm. Create nothing before confirmation.
 7. After confirmation, create the new EN/FR ADR with status `Proposed` and `Supersedes` set to the old ADR. When the architect accepts the new ADR (status gate passed, Decision date recorded), set the old ADR to `Superseded` and `Superseded by` to the new ADR in both languages. Change no other content in the old ADR.
 8. Update the Decision Log rows in both indexes and backlinks. Tell the user which designs now need revision; do not rewrite them without a request.
-9. Run `check-ids.ps1`, `check-parity.ps1`, `check-links.ps1`, `check-checklists.ps1`, `check-adr-chain.ps1`, `check-arch-traceability.ps1`, and `check-system-refs.ps1`, then report the findings.
+9. Run `check-ids.ps1`, `check-parity.ps1`, `check-links.ps1`, `check-checklists.ps1`, `check-adr-chain.ps1`, `check-arch-traceability.ps1`, `check-system-refs.ps1`, and `check-system-mentions.ps1`, then report the findings.

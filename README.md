@@ -1,8 +1,8 @@
-﻿# Modern BA Practice Markdown Pack
+﻿# Project Documentation Pack
 
 *[Lire ce document en français](README-fr.md)*
 
-This workspace helps Product Managers and Product Owners draft, review, and track bilingual business requirements with Copilot Chat. It includes reusable templates, guided checks, and documentation status tracking, with no project-specific requirements preloaded.
+This workspace helps Product Managers, Product Owners, and Solution Architects draft, review, and track bilingual project documentation (business requirements and architecture) with Copilot Chat. It includes reusable templates, guided checks, and documentation status tracking, with no project-specific requirements preloaded.
 Browse the business requirements in the [Table of Contents](table-of-content.md). Supporting material is organized under `docs/business/` and `docs/technical/`. Suggestions for improving the pack itself are tracked separately in the [Tool Improvement Ideas Register](docs/ideas/README.md), outside the requirements index.
 
 ## The Big Picture
@@ -46,7 +46,7 @@ Architecture work sits alongside the business requirements and always links back
 - **Architecture Decision Record**: records one important decision, why it was made, and what it costs. Accepted decisions are never rewritten; a new decision replaces them and the history is kept.
 - **Solution Design**: explains, only in as much detail as needed, how the chosen approach will be built, tested, deployed, and supported.
 
-Choose **Solution Architecture Writer** in Copilot Chat to draft these, or **Solution Architecture Reviewer** for an independent second opinion. Each document gets a quality score to guide improvement, but the score never blocks it. Only the Solution Architect accepts a decision or approves a design. Copilot also keeps the [System Register](system-register.md) and the links from epics and features up to date. See the [Solution Architect Guide](docs/architecture/solution-architect-guide.md).
+Choose **Solution Architecture Writer** in Copilot Chat to draft these, or **Solution Architecture Reviewer** for an independent second opinion. Each document gets a quality score to guide improvement, but the score never blocks it. Only the Solution Architect accepts a decision or approves a design. Copilot also keeps the [System Register](system-register.md) and the links from epics and features up to date. See the [Solution Architect Guide](docs/architecture/solution-architect-guide.md) and the step-by-step [Architect User Guide](docs/architecture/architect-user-guide.md).
 
 ## Useful Commands
 
@@ -77,6 +77,7 @@ Replace the placeholder with an ID from the current project.
 - [Business User Cheat Sheet](docs/business/business-user-cheat-sheet.md) and [French sheet](docs/business/business-user-cheat-sheet-fr.md)
 - [Solution Architecture](docs/technical/solution-architecture.md)
 - [Solution Architect Guide](docs/architecture/solution-architect-guide.md) and [French guide](docs/architecture/solution-architect-guide-fr.md)
+- [Architect User Guide](docs/architecture/architect-user-guide.md) and [French guide](docs/architecture/architect-user-guide-fr.md)
 - [System Register](system-register.md) and [French register](system-register-fr.md)
 - [Tool Behavior and Guarantees](docs/technical/tool-capability-contracts.md)
 - [How Work Is Saved and Shared](docs/technical/version-control-adapter.md)
@@ -108,7 +109,7 @@ Use the [Stakeholder Register](stakeholder-register.md) for governance roles, im
 - `stories/` — future user story artifacts
 - `change-management/` — future change-management briefs
 - `docs/business/` — practical guides for business users
-- `docs/architecture/` — practical guide for Solution Architects
+- `docs/architecture/` — practical guides for Solution Architects
 - `docs/technical/` — behavior guarantees, current integrations, architecture, and release notes
 - [technical/](technical/README.md) — the project's architecture assessments, decision records, and solution designs
 - `templates/` — blank starting points (you normally won't need to open these yourself — just ask Copilot to draft something)

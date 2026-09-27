@@ -1,11 +1,11 @@
 ---
 name: pack-integrity-check
-description: "Use for deterministic, script-based repository health checks across the whole Modern BA Practice Markdown Pack — EN/FR structural parity, ID gaps/duplicates, broken relative links, possible unregistered stakeholders, and the Approved-status gate (unchecked checklist items, unresolved clarification markers, unresolved Open Questions Log entries, missing or below-threshold recorded quality score) on documents whose header status says Approved. These are mechanical checks a script can verify exactly, complementing the judgment-based guardrails in initiative-documentation, epic-documentation, and feature-documentation. Trigger phrases: check links, check EN/FR parity, audit the pack, validate all documents, are there broken links, check ID gaps, repo health check, run integrity checks, can this be marked approved, status gate, unregistered stakeholder."
+description: "Use for deterministic, script-based repository health checks across the whole Project Documentation Pack — EN/FR structural parity, ID gaps/duplicates, broken relative links, possible unregistered stakeholders, and the Approved-status gate (unchecked checklist items, unresolved clarification markers, unresolved Open Questions Log entries, missing or below-threshold recorded quality score) on documents whose header status says Approved. These are mechanical checks a script can verify exactly, complementing the judgment-based guardrails in initiative-documentation, epic-documentation, and feature-documentation. Trigger phrases: check links, check EN/FR parity, audit the pack, validate all documents, are there broken links, check ID gaps, repo health check, run integrity checks, can this be marked approved, status gate, unregistered stakeholder."
 ---
 
 # Pack Integrity Check
 
-Ten PowerShell checks and one register generator that catch omissions and inconsistencies across the pack. Run them from the repo root with `powershell -File <script>` (no arguments needed — they resolve the repo root relative to their own location).
+Eleven PowerShell checks and one register generator that catch omissions and inconsistencies across the pack. Run them from the repo root with `powershell -File <script>` (no arguments needed — they resolve the repo root relative to their own location).
 
 | Script | Checks |
 |--------|--------|
@@ -19,6 +19,7 @@ Ten PowerShell checks and one register generator that catch omissions and incons
 | [scripts/check-adr-chain.ps1](./scripts/check-adr-chain.ps1) | ADR statuses are valid; decided ADRs have a named owner and a `YYYY-MM-DD` decision date; `Supersedes` / `Superseded by` links are reciprocal; no supersession cycles |
 | [scripts/check-arch-traceability.ps1](./scripts/check-arch-traceability.ps1) | Every assessment, ADR, and design links to an existing business artifact in the same language, each linked business artifact lists it under `Architecture references`, and it appears in the matching `technical/README` index |
 | [scripts/check-system-refs.ps1](./scripts/check-system-refs.ps1) | English and French System Registers list the same IDs; every `SYS-NNN` cited under `technical/` is registered; each citing architecture artifact has a Technical References row |
+| [scripts/check-system-mentions.ps1](./scripts/check-system-mentions.ps1) | **Advisory only, never blocking.** Scans the `Related systems` header of assessments, ADRs, and designs and the From → To column of a design's Interfaces and Integrations table for systems named without a `SYS-NNN` ID. Flags names that match a registered canonical name or alias (cite the ID) and names not found in the register (possible unregistered system), per [system-register-validation](../system-register-validation/SKILL.md) |
 | [scripts/generate-documentation-register.ps1](./scripts/generate-documentation-register.ps1) | **Generator, not a check.** Rebuilds the register's portfolio counts and approved-baseline table from paired business-document and Solution Design headers; leaves the manually maintained Active Work section untouched |
 
 ## Status Gate Model
@@ -54,6 +55,7 @@ powershell -File .github/skills/pack-integrity-check/scripts/check-document-head
 powershell -File .github/skills/pack-integrity-check/scripts/check-adr-chain.ps1
 powershell -File .github/skills/pack-integrity-check/scripts/check-arch-traceability.ps1
 powershell -File .github/skills/pack-integrity-check/scripts/check-system-refs.ps1
+powershell -File .github/skills/pack-integrity-check/scripts/check-system-mentions.ps1
 ```
 
 Run `generate-documentation-register.ps1` after changing document status or baseline version, or after editing Active Work details, to refresh the generated snapshot without overwriting the manual work list.

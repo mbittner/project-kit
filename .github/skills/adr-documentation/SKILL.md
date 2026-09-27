@@ -26,7 +26,7 @@ The Solution Architect is the decision owner and the only role who can accept an
 4. **Run [architecture-decision-consistency](../architecture-decision-consistency/SKILL.md)** against Accepted ADRs that share a system or scope.
 5. **Run [system-register-validation](../system-register-validation/SKILL.md)** and [architecture-traceability-validation](../architecture-traceability-validation/SKILL.md).
 6. **Score** with the Quality Scoring Model and report the gaps. The score is advisory.
-7. **Update the Decision Log, the source assessment's `Resulting decision`, and backlinks.** Then run `check-parity.ps1`, `check-links.ps1`, `check-adr-chain.ps1`, `check-arch-traceability.ps1`, and `check-system-refs.ps1`.
+7. **Update the Decision Log, the source assessment's `Resulting decision`, and backlinks.** Then run `check-parity.ps1`, `check-links.ps1`, `check-adr-chain.ps1`, `check-arch-traceability.ps1`, `check-system-refs.ps1`, and `check-system-mentions.ps1`.
 
 ## Mandatory Sections
 

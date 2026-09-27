@@ -155,6 +155,7 @@ The current scripts under `.github/skills/pack-integrity-check/scripts/` are:
 | `check-adr-chain.ps1` | Checks ADR statuses, owners, decision dates, and reciprocal supersession links. |
 | `check-arch-traceability.ps1` | Checks technical-to-business links, business backlinks, and architecture index coverage. |
 | `check-system-refs.ps1` | Checks that cited `SYS-NNN` IDs are registered in both System Registers and referenced from the Technical References table. |
+| `check-system-mentions.ps1` | Advisory scan for systems named without a `SYS-NNN` ID in architecture documents' `Related systems` headers and design interface tables. |
 | `generate-documentation-register.ps1` | Regenerates register snapshots from document headers, including Solution Designs; this is a generator, not a validation check. |
 
 The TOC coverage and documentation-register scripts exclude `.github/`, templates, and `docs/`, along with the named technical-documentation folders, from business-document indexing. Technical docs and release notes are not entries in the business tables of contents. The one exception is that Solution Designs under `technical/designs/` appear in the documentation registers because they carry approved baselines.

@@ -16,4 +16,4 @@ Record an architecture decision from the assessment identified by `${input}` (e.
 5. Ask the Solution Architect to confirm or edit the proposed decision. Create nothing before confirmation.
 6. After confirmation, create the EN/FR ADR pair from the templates with status `Proposed`. Update the assessment's `Resulting decision` (set its status to `Closed` only if the user confirms), the Decision Log in both `technical/README.md` files, business-artifact backlinks, and the System Register references.
 7. Ask whether the Solution Architect wants to accept the decision now. If yes, run the ADR status gate (`/validate adr <id>` steps). Set `Accepted` and the Decision date only if the gate passes and the architect confirms.
-8. Run `check-ids.ps1`, `check-parity.ps1`, `check-links.ps1`, `check-checklists.ps1`, `check-adr-chain.ps1`, `check-arch-traceability.ps1`, and `check-system-refs.ps1`, then report the findings.
+8. Run `check-ids.ps1`, `check-parity.ps1`, `check-links.ps1`, `check-checklists.ps1`, `check-adr-chain.ps1`, `check-arch-traceability.ps1`, `check-system-refs.ps1`, and `check-system-mentions.ps1`, then report the findings.

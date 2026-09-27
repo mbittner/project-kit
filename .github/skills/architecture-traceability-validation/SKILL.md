@@ -20,7 +20,7 @@ The architecture counterpart of [stakeholder-register-validation](../stakeholder
 
 1. Read the target technical document (EN and FR) and each business artifact it links.
 2. Apply rules 1–6, fixing missing backlinks and index rows when you are authoring. Report them when you are reviewing.
-3. Run `check-arch-traceability.ps1` and `check-system-refs.ps1` from [pack-integrity-check](../pack-integrity-check/SKILL.md) and `check-links.ps1`, then report the findings.
+3. Run `check-arch-traceability.ps1`, `check-system-refs.ps1`, and `check-system-mentions.ps1` from [pack-integrity-check](../pack-integrity-check/SKILL.md) and `check-links.ps1`, then report the findings.
 
 ## Boundaries
 

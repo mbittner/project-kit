@@ -1,8 +1,8 @@
-﻿# Ensemble de documents Markdown — Pratique moderne d'analyse d'affaires
+﻿# Ensemble de documentation de projet
 
 *[Read this document in English](README.md)*
 
-Cet espace de travail aide les gestionnaires et propriétaires de produit à rédiger, réviser et suivre des exigences d'affaires bilingues avec Copilot Chat. Il comprend des gabarits réutilisables, des processus guidés, des vérifications et des registres, sans exigences propres à un projet préchargées.
+Cet espace de travail aide les gestionnaires et propriétaires de produit ainsi que les architectes de solutions à rédiger, réviser et suivre une documentation de projet bilingue (exigences d'affaires et architecture) avec Copilot Chat. Il comprend des gabarits réutilisables, des processus guidés, des vérifications et des registres, sans exigences propres à un projet préchargées.
 Consultez les exigences d'affaires dans la [Table des matières](table-of-content-fr.md). Les documents d'accompagnement se trouvent dans `docs/business/` et `docs/technical/`. Les suggestions d'amélioration de l'ensemble lui-même sont consignées séparément dans le [registre des idées d'amélioration des outils](docs/ideas/README.md), à l'extérieur de l'index des exigences.
 
 ## La vue d'ensemble
@@ -46,7 +46,7 @@ Le travail d'architecture côtoie les exigences d'affaires et y renvoie toujours
 - **Registre de décision d'architecture** : consigne une décision importante, ses raisons et ses coûts. Une décision acceptée n'est jamais réécrite; une nouvelle décision la remplace et l'historique est conservé.
 - **Conception de solution** : explique, avec seulement le niveau de détail nécessaire, comment l'approche retenue sera construite, testée, déployée et soutenue.
 
-Choisissez **Solution Architecture Writer** dans Copilot Chat pour les rédiger, ou **Solution Architecture Reviewer** pour un deuxième avis indépendant. Chaque document reçoit un score de qualité pour guider son amélioration, mais ce score ne le bloque jamais. Seul l'architecte de solutions accepte une décision ou approuve une conception. Copilot tient aussi à jour le [registre des systèmes](system-register-fr.md) et les liens depuis les épopées et fonctionnalités. Consultez le [Guide de l'architecte de solutions](docs/architecture/solution-architect-guide-fr.md).
+Choisissez **Solution Architecture Writer** dans Copilot Chat pour les rédiger, ou **Solution Architecture Reviewer** pour un deuxième avis indépendant. Chaque document reçoit un score de qualité pour guider son amélioration, mais ce score ne le bloque jamais. Seul l'architecte de solutions accepte une décision ou approuve une conception. Copilot tient aussi à jour le [registre des systèmes](system-register-fr.md) et les liens depuis les épopées et fonctionnalités. Consultez le [Guide de l'architecte de solutions](docs/architecture/solution-architect-guide-fr.md) et le [Guide d'utilisation pour les architectes](docs/architecture/architect-user-guide-fr.md), qui déroule un exemple étape par étape.
 
 ## Commandes utiles
 
@@ -77,6 +77,7 @@ Remplacez les paramètres entre chevrons par les identifiants du projet courant.
 - [Guide d'utilisation pour les gens d'affaires](docs/business/business-user-guide-fr.md) et [version anglaise](docs/business/business-user-guide.md)
 - [Architecture de la solution](docs/technical/solution-architecture.md)
 - [Guide de l'architecte de solutions](docs/architecture/solution-architect-guide-fr.md) et [version anglaise](docs/architecture/solution-architect-guide.md)
+- [Guide d'utilisation pour les architectes](docs/architecture/architect-user-guide-fr.md) et [version anglaise](docs/architecture/architect-user-guide.md)
 - [Registre des systèmes](system-register-fr.md) et [version anglaise](system-register.md)
 - [Comportement et garanties des processus](docs/technical/tool-capability-contracts.md)
 - [Enregistrement et partage du travail](docs/technical/version-control-adapter.md)
@@ -108,7 +109,7 @@ Consultez le [Registre des parties prenantes](stakeholder-register-fr.md) pour l
 - `stories/` : futurs artéfacts de récit utilisateur
 - `change-management/` : futurs bilans de gestion du changement
 - `docs/business/` : guides pratiques pour les gens d'affaires
-- `docs/architecture/` : guide pratique pour les architectes de solutions
+- `docs/architecture/` : guides pratiques pour les architectes de solutions
 - `docs/technical/` : garanties de comportement, intégrations actuelles, architecture et notes de version
 - [technical/](technical/README-fr.md) : évaluations d'architecture, registres de décision et conceptions de solution du projet
 - `templates/` : points de départ vierges (vous n'aurez normalement pas besoin de les ouvrir vous-même — demandez simplement à Copilot de rédiger quelque chose)

@@ -32,7 +32,7 @@ Create one only when [architecture-screening](../architecture-screening/SKILL.md
 5. **Apply the AI generation rules** below. Never invent costs, volumes, SLAs, owners, or dates.
 6. **Run the guardrails**, [system-register-validation](../system-register-validation/SKILL.md) for every system named, and [architecture-traceability-validation](../architecture-traceability-validation/SKILL.md) for links in both directions.
 7. **Score the draft** with the Quality Scoring Model and report the gaps. The score is advisory.
-8. **Update the index and backlinks**, then run `check-parity.ps1`, `check-links.ps1`, `check-arch-traceability.ps1`, and `check-system-refs.ps1`.
+8. **Update the index and backlinks**, then run `check-parity.ps1`, `check-links.ps1`, `check-arch-traceability.ps1`, `check-system-refs.ps1`, and `check-system-mentions.ps1`.
 
 ## Mandatory Sections
 

@@ -44,7 +44,7 @@ Whenever you create, rename, move, or remove a business-facing requirements, gov
 - Whenever one is created, renamed, or changes status, update the [architecture index](../technical/README.md) and its [French index](../technical/README-fr.md), and add the `Architecture references` backlink to each linked Epic or Feature in both languages, per [architecture-traceability-validation](skills/architecture-traceability-validation/SKILL.md). The backlink is the only permitted edit to a business document.
 - Only the Solution Architect can accept an ADR, recommend an assessment, or approve a design, and only after the status gate passes. Architecture quality scores are advisory and never block status. Never edit the substance of an Accepted ADR; supersede it.
 - Solution Designs carry baseline versions and appear in the documentation registers; run `generate-documentation-register.ps1` after a design's status or version changes.
-- Run `check-adr-chain.ps1`, `check-arch-traceability.ps1`, and `check-system-refs.ps1` alongside the parity and link checks after architecture changes.
+- Run `check-adr-chain.ps1`, `check-arch-traceability.ps1`, `check-system-refs.ps1`, and the advisory `check-system-mentions.ps1` alongside the parity and link checks after architecture changes.
 
 ## Keep the Ideas Register Current
 

@@ -25,7 +25,7 @@ A **Solution Design** explains how a selected approach delivers one or more busi
 4. **Draft Scope and Traceability first**, then context, then detail.
 5. **Run the guardrails**, [system-register-validation](../system-register-validation/SKILL.md), [architecture-decision-consistency](../architecture-decision-consistency/SKILL.md) against governing and related ADRs, and [architecture-traceability-validation](../architecture-traceability-validation/SKILL.md).
 6. **Score** and report the gaps. The score is advisory.
-7. **Update the index, the governing ADRs' Affected Designs, and backlinks.** Then run `check-parity.ps1`, `check-links.ps1`, `check-document-headers.ps1`, `check-arch-traceability.ps1`, `check-system-refs.ps1`, and `generate-documentation-register.ps1`.
+7. **Update the index, the governing ADRs' Affected Designs, and backlinks.** Then run `check-parity.ps1`, `check-links.ps1`, `check-document-headers.ps1`, `check-arch-traceability.ps1`, `check-system-refs.ps1`, `check-system-mentions.ps1`, and `generate-documentation-register.ps1`.
 
 ## Mandatory Sections
 
