@@ -4,16 +4,20 @@ name: "Share My Work"
 agent: "agent"
 tools: [read, edit, search, execute]
 ---
-Share the user's saved changes with their teammate.
+Share the user's saved changes with their teammate by publishing them to the configured shared destination.
 
 ## Steps
 
-1. Load the [version-history](../skills/version-history/SKILL.md) skill in full — follow its ground rules.
-2. If the user has unsaved changes (per `/save-my-work`), save them first using the same summarization approach, unless the user says they only want to share what's already saved.
-3. **Get the latest updates first** (this reduces the chance of an ID collision or being out of date). If this brings in new or changed documents, briefly tell the user what came in.
-4. **If there's a conflict** between the user's changes and the teammate's: follow the version-history skill's "Handling Conflicts" procedure exactly — identify the conflicting document(s), explain both sides in plain language, ask the user to choose or combine, and only continue once resolved. Never guess and silently pick a side.
-5. Once there's nothing left to resolve, if a document status or baseline version changed, run [generate-documentation-register.ps1](../skills/pack-integrity-check/scripts/generate-documentation-register.ps1) from the workspace root; then run the [pack-integrity-check](../skills/pack-integrity-check/SKILL.md) checks (`check-ids.ps1`, `check-parity.ps1`, `check-links.ps1`, `check-checklists.ps1`, `check-document-headers.ps1`, `check-toc-coverage.ps1`) against what's about to be shared.
-6. Report any findings in plain language (e.g., "Heads up — FEAT-022 links to a document that doesn't exist" or "EPIC-004 and its French version don't match"). **This is informational only — there is no approval gate on this team.** Ask if they want to fix anything first, but proceed with sharing if they say to go ahead regardless.
-7. Confirm that the documentation register reflects any active-work or approved-baseline changes included in this share. Keep the register's English and French copies aligned; do not invent an owner, next action, approval, or version.
-8. Share the changes with the team.
-9. Confirm success in plain language: "Your changes are now shared with [teammate]." If there was nothing new to share, say so instead.
+1. Load the [version-history](../skills/version-history/SKILL.md) skill in full and follow its ground rules.
+2. If the user has unsaved changes, run the `/save-my-work` workflow first unless they explicitly want to share only previously saved work.
+3. Run `/get-latest` to retrieve the latest updates. If unsaved edits remain, ask the user to save them before continuing. If updates conflict with local work, explain both sides and ask the user how to resolve them; do not continue past an unresolved conflict.
+4. Run [Automatic Documentation Maintenance](../skills/version-history/SKILL.md#automatic-documentation-maintenance) on the complete pending source change set. Reuse a release note already created by `/save-my-work`; document additional incoming source changes in that unshared note or a separate note for a distinct change set. Do not generate a note for release-note or documentation outputs alone.
+5. Run the [pack-integrity-check](../skills/pack-integrity-check/SKILL.md) checks (`check-ids.ps1`, `check-parity.ps1`, `check-links.ps1`, `check-checklists.ps1`, `check-document-headers.ps1`, `check-toc-coverage.ps1`) against the complete set about to be shared.
+6. Summarize the business changes, technical changes, documentation updates, release note, and integrity findings in plain language. Ask the user to confirm before publishing. Findings are advisory; the user may proceed despite them or ask for fixes first.
+7. After the user confirms, publish the complete intended change set:
+	- Confirm the configured remote and current shared branch are available. If either is missing or ambiguous, stop and explain what setup is needed; do not claim the changes were shared.
+	- Stage only files in the summarized change set. Leave unrelated pre-existing edits untouched.
+	- If the changes do not already have a local commit, create one using the human-readable summary. Do not create an empty or duplicate commit for changes already recorded locally.
+	- Push the pending local commit(s) to the configured remote and shared branch. Never force-push or rewrite shared history.
+	- Verify the push succeeded and no intended outgoing changes remain.
+8. Report success only after publication is verified. If recording or publishing fails, state clearly that the changes were not shared, explain the failure, and preserve local work for retry. If there was nothing new to publish, say so.

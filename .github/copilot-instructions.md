@@ -1,5 +1,13 @@
 # Repository Instructions
 
+## Keep Capability Contracts Separate From Implementations
+
+- [Tool Capability Contracts](../docs/technical/tool-capability-contracts.md) are the provider-neutral source of behavior for cross-cutting work lifecycle, versioning, and automatic documentation maintenance.
+- The `.github/` assistants, guidance files, and commands are the Copilot interface. They should refer to the contracts rather than duplicate or redefine them.
+- [Version-Control Adapter](../docs/technical/version-control-adapter.md) records current storage and collaboration mechanics; [Copilot Interface Adapter](../docs/technical/copilot-interface.md) records how this interface maps to the contracts.
+- A behavior change updates the contract and affected interface; an implementation change updates its adapter and the solution architecture. Update both README languages for user-visible behavior changes as described above.
+- Artifact-specific business quality models remain governed by their practice guidance and templates; do not move provider mechanics into those rules.
+
 ## Keep the READMEs in Sync With Meta-Tooling Changes
 
 Whenever you add, modify, or remove anything under `.github/agents/`, `.github/skills/`, or `.github/prompts/` in this repository, you must also update [README.md](../README.md) and [README-fr.md](../README-fr.md) in the same pass so the user-facing documentation never goes stale. Specifically:

@@ -24,6 +24,8 @@ Initiative  →  Épopée              →  Fonctionnalité      →  Récit uti
 Aucune exigence d'affaires propre au projet n'est préchargée. Commencez par une initiative lorsque le projet est prêt et laissez Copilot signaler les inconnues importantes plutôt que d'inventer des réponses.
 Commencez par l'artéfact qui correspond à la décision à prendre; le [Guide d'utilisation pour les gens d'affaires](docs/business/business-user-guide-fr.md) explique le processus, de la rédaction au partage.
 
+Les règles des processus sont documentées séparément de l'interface Copilot et du stockage actuel, qui s'appuie sur GitHub. L'interface ou le stockage peut changer sans modifier les règles d'affaires ni les garanties offertes.
+
 ## Comment utiliser cet outil
 
 Ouvrez Copilot Chat et décrivez le résultat d'affaires ou l'artéfact souhaité. Par exemple :
@@ -33,6 +35,7 @@ Ouvrez Copilot Chat et décrivez le résultat d'affaires ou l'artéfact souhait�
 > « Mon épopée est-elle prête pour la découverte des fonctionnalités? »
 
 Copilot crée les paires anglaise et française, consigne les hypothèses et questions ouvertes, vérifie les parties prenantes et les chevauchements de portée, et n'invente pas les faits à confirmer. Les détails figurent dans le [Guide d'utilisation pour les gens d'affaires](docs/business/business-user-guide-fr.md).
+Copilot crée les paires anglaise et française, consigne les hypothèses et questions ouvertes, vérifie les parties prenantes et les chevauchements de portée, et n'invente pas les faits à confirmer. Pour savoir quoi faire ensuite ou quand consulter une personne spécialiste, choisissez **Lifecycle Navigator**; il formule une recommandation en lecture seule fondée sur les éléments disponibles. Les détails figurent dans le [Guide d'utilisation pour les gens d'affaires](docs/business/business-user-guide-fr.md).
 
 ## Commandes utiles
 
@@ -45,8 +48,8 @@ Utilisez ces raccourcis dans Copilot Chat pour les processus répétables :
 | `/decompose-epic <ID>` | Propose des fonctionnalités pour une épopée et vérifie les chevauchements avant de créer les fichiers. |
 | `/decompose-feature <ID>` | Propose des récits utilisateur pour une fonctionnalité et vérifie les chevauchements avant de créer les fichiers. |
 | `/audit-pack` | Vérifie tout l'ensemble ou une initiative nommée et ses artéfacts descendants (`/audit-pack <identifiant d'initiative>`). |
-| `/save-my-work` | Enregistre vos changements pour qu'ils soient bien conservés. Ne les envoie pas encore à votre collègue. |
-| `/share-my-work` | Récupère d'abord les dernières mises à jour de votre collègue, puis envoie vos changements enregistrés. Vous avertit des problèmes de qualité d'abord, mais ne vous empêche pas de partager. |
+| `/save-my-work` | Actualise la documentation d'affaires ou technique pertinente, crée une note de version datée, puis consigne vos changements localement. |
+| `/share-my-work` | Récupère les dernières mises à jour, résout les conflits, actualise la documentation, exécute les vérifications, puis publie dans l'espace partagé après votre confirmation et vérifie le résultat. |
 | `/get-latest` | Récupère les derniers changements et vous dit ce qui est nouveau; la création d'épopée le fait automatiquement, mais vous pouvez aussi lancer la commande au besoin. |
 | `/show-history <identifiant de document>` | Montre qui a modifié un document et quand; omettez l'identifiant pour consulter l'historique récent du projet. |
 | `/undo-my-last-change` | Annule votre dernier changement en toute sécurité, en vous montrant toujours ce qui serait perdu avant de vous demander de confirmer. |
@@ -57,7 +60,10 @@ Remplacez les paramètres entre chevrons par les identifiants du projet courant.
 
 - [Guide d'utilisation pour les gens d'affaires](docs/business/business-user-guide-fr.md) et [version anglaise](docs/business/business-user-guide.md)
 - [Architecture de la solution](docs/technical/solution-architecture.md)
-- [Notes de version les plus récentes](docs/technical/release-notes/2026-09-26-documentation-governance-and-epic-workflows.md)
+- [Comportement et garanties des processus](docs/technical/tool-capability-contracts.md)
+- [Enregistrement et partage du travail](docs/technical/version-control-adapter.md)
+- [Utilisation des processus dans Copilot](docs/technical/copilot-interface.md)
+- [Notes de version les plus récentes](docs/technical/release-notes/2026-09-27-lifecycle-navigator.md)
 
 ## Statut du document : Ébauche → En révision → Approuvé
 
@@ -69,7 +75,7 @@ Le champ `Version du document` indique la base approuvée; il ne change pas à c
 
 ## Enregistrer et partager votre travail
 
-Utilisez `/save-my-work` pour consigner le travail et `/share-my-work` pour récupérer les dernières mises à jour, résoudre les conflits, exécuter les vérifications et partager. `/get-latest`, `/show-history` et `/undo-my-last-change` restent disponibles au besoin. Le [Guide d'utilisation pour les gens d'affaires](docs/business/business-user-guide-fr.md) explique ces processus.
+Utilisez `/save-my-work` ou `/share-my-work` pour que Copilot classe les changements, actualise la documentation d'affaires et technique pertinente, crée une note de version datée et inclue ces mises à jour dans le résumé du travail consigné. Le partage récupère aussi les changements des collègues, résout les conflits et exécute les vérifications; après votre confirmation, il publie les changements prévus et en vérifie la réussite. En cas d'échec, le travail local est conservé et le problème est signalé. `/get-latest`, `/show-history` et `/undo-my-last-change` restent disponibles au besoin. Le [Guide d'utilisation pour les gens d'affaires](docs/business/business-user-guide-fr.md) explique ces processus.
 
 ## Qui est impliqué
 
@@ -83,7 +89,7 @@ Consultez le [Registre des parties prenantes](stakeholder-register-fr.md) pour l
 - `stories/` : futurs artéfacts de récit utilisateur
 - `change-management/` : futurs bilans de gestion du changement
 - `docs/business/` : guides pratiques pour les gens d'affaires
-- `docs/technical/` : notes d'architecture et notes de version
+- `docs/technical/` : garanties de comportement, intégrations actuelles, architecture et notes de version
 - `templates/` : points de départ vierges (vous n'aurez normalement pas besoin de les ouvrir vous-même — demandez simplement à Copilot de rédiger quelque chose)
 - `stakeholder-register.md` : la liste de qui est impliqué et qui est touché, décrite ci-dessus
 - [documentation-register-fr.md](documentation-register-fr.md) : état actuel des documents, travail actif et versions de base approuvées

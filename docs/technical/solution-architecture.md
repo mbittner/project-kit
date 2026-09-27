@@ -1,17 +1,23 @@
+Each substantive source change set gets one dated release note summarizing applicable business changes, technical changes, documentation updates, and checks. Documentation created by the procedure does not recursively trigger another note; share reuses the pending note from save and captures any additional incoming changes. After the user confirms sharing, the workflow records only the intended changes if needed, publishes them to the configured remote and shared branch, and verifies the result. If publication fails, local work is preserved and the workflow reports failure rather than claiming success.
 # Solution Architecture
 
-This document describes the repository's Copilot customizations and validation model. Business requirements and templates remain the source of truth for product content; the tooling here guides, checks, and reports on that content.
+This document maps the business practice, provider-neutral work capabilities, and their current technical implementations. Business requirements and templates remain the source of truth for product content. Cross-cutting work behavior is specified independently from the Copilot interface and the configured storage provider.
 
 ## Component Map
 
 ```mermaid
 flowchart LR
-    User[User in Copilot Chat] --> Writer[BA Requirements Writer]
-    User --> Reviewer[BA Requirements Reviewer]
-    User --> Commands[Slash-command prompts]
+    User[User] --> CopilotInterface[Copilot Chat interface]
+    CopilotInterface --> Writer[BA Requirements Writer]
+    CopilotInterface --> Reviewer[BA Requirements Reviewer]
+    CopilotInterface --> Navigator[Lifecycle Navigator]
+    CopilotInterface --> Commands[Copilot commands]
 
     Writer --> ArtifactSkills[Artifact documentation skills]
+    Writer -. delegates what-next questions .-> Navigator
     Reviewer --> ArtifactSkills
+    Navigator --> CapabilityContracts
+    Navigator --> ArtifactSkills
     ArtifactSkills --> SharedSkills[Shared validation skills]
     ArtifactSkills --> Templates[Templates]
     Templates --> Artifacts[Business documents, EN and FR]
@@ -20,6 +26,11 @@ flowchart LR
     Commands --> Decompose[Decompose commands]
     Commands --> Audit[Audit Pack]
     Commands --> VersionCommands[Save, share, history, undo]
+    VersionCommands --> CapabilityContracts[Provider-neutral capability contracts]
+    CapabilityContracts --> DocumentationMaintenance[Documentation maintenance]
+    DocumentationMaintenance --> BusinessDocs[Business documentation and registers]
+    DocumentationMaintenance --> TechnicalDocs[Architecture and technical specifications]
+    DocumentationMaintenance --> ReleaseNotes[Dated release notes]
 
     Validate --> ArtifactSkills
     Validate --> SharedSkills
@@ -31,9 +42,14 @@ flowchart LR
     Audit --> SharedSkills
     Audit --> Scripts
     VersionCommands --> VersionHistory[Version-history skill]
+    VersionHistory --> StateAdapter[Version-control adapter]
+    VersionHistory --> CapabilityContracts
     VersionHistory --> Scripts
-    VersionHistory --> AzureDevOps[Azure DevOps Git and wiki]
+    StateAdapter --> LocalHistory[Local version history]
+    StateAdapter --> SharedState[GitHub-hosted shared state]
 ```
+
+The map shows responsibilities, not a runtime plugin API. See [Tool Capability Contracts](tool-capability-contracts.md) for behavior guarantees, [Version-Control Adapter](version-control-adapter.md) for current persistence mechanics, and [Copilot Interface Adapter](copilot-interface.md) for the command and assistant mapping.
 
 The BA Requirements Reviewer is a separate, read-only custom assistant. It is not automatically dispatched by the writer or by a slash command; users select it when they want an independent review. Prompts currently run with the generic `agent` target declared in their frontmatter.
 
@@ -44,9 +60,12 @@ Custom assistants live in `.github/agents/` as `*.agent.md` files. Their YAML fr
 | Assistant | Responsibility | Tool boundary |
 |---|---|---|
 | [BA Requirements Writer](../../.github/agents/ba-requirements-writer.agent.md) | Drafts, edits, reviews, and decomposes Initiative, Epic, Feature, User Story, and Change Management documents. It selects the artifact-specific workflow, uses templates, keeps English/French pairs aligned, and maintains links. | Read, edit, search, todo, execute |
+| [BA Requirements Writer](../../.github/agents/ba-requirements-writer.agent.md) | Drafts, edits, reviews, and decomposes Initiative, Epic, Feature, User Story, and Change Management documents. It selects the artifact-specific workflow, uses templates, keeps English/French pairs aligned, and maintains links. | Read, edit, search, todo, execute, agent |
 | [BA Requirements Reviewer](../../.github/agents/ba-requirements-reviewer.agent.md) | Gives a second opinion on one named artifact and its relevant parent, siblings, and language pair. It reports evidence-based findings and does not modify files. | Read, search |
+| [Lifecycle Navigator](../../.github/agents/lifecycle-navigator.agent.md) | Gives a read-only, evidence-based next-step recommendation for an Initiative, Epic, Feature, or delivery question; identifies when a specialist should be involved. | Read, search |
 
 The writer is the authoring surface; the reviewer is an optional independent pass. The reviewer does not replace `/validate` or claim that deterministic scripts have passed.
+The writer is the authoring surface; the reviewer is an optional independent pass; the navigator recommends sequencing and role involvement. The Writer may delegate what-next questions to the read-only Navigator. Neither advisory role replaces `/validate` or makes business decisions.
 
 ## Skills
 
@@ -62,9 +81,9 @@ Skills live under `.github/skills/<name>/SKILL.md`. Their `name` and `descriptio
 | [sibling-overlap-validation](../../.github/skills/sibling-overlap-validation/SKILL.md) | Compares sibling epics, features, or stories under the same parent for scope and behavior overlap. |
 | [stakeholder-register-validation](../../.github/skills/stakeholder-register-validation/SKILL.md) | Checks named stakeholders, users, personas, and impacted groups against the central register. |
 | [pack-integrity-check](../../.github/skills/pack-integrity-check/SKILL.md) | Defines repository-wide deterministic checks and their scripts. |
-| [version-history](../../.github/skills/version-history/SKILL.md) | Governs save/share/retrieval/history/undo workflows and approved baseline versions. |
+| [version-history](../../.github/skills/version-history/SKILL.md) | Executes the Copilot work-lifecycle workflows by following the neutral contracts and configured adapter. |
 
-The five artifact-specific skills own their quality models and status gates. The sibling and stakeholder skills are reusable cross-cutting checks. The integrity skill is mechanical, while version-history governs collaboration and baseline-version changes.
+The five artifact-specific skills own their quality models and status gates. The sibling and stakeholder skills are reusable cross-cutting checks. The integrity skill is mechanical; the version-history skill applies the cross-cutting capability contract through the configured adapter.
 
 ## Slash-Command Prompts
 
@@ -77,13 +96,14 @@ Prompts live in `.github/prompts/*.prompt.md`. Their frontmatter declares the co
 | `/decompose-epic <id>` | Proposes features for an epic and checks the proposed sibling set for overlap before asking for confirmation. |
 | `/decompose-feature <id>` | Proposes stories for a feature and checks the proposed sibling set for overlap before asking for confirmation. |
 | `/audit-pack [initiative-id]` | Runs repository checks and a portfolio audit including artifact scoring, sibling overlap, KPI traceability, stakeholder impact, and change-fatigue analysis. The quality-score sweep covers initiatives, epics, and features; an optional initiative ID scopes the audit. |
-| `/save-my-work` | Uses version-history rules to record local changes. |
-| `/share-my-work` | Gets the latest updates, handles conflicts, runs advisory integrity checks, then shares changes when the user confirms. |
+| `/save-my-work` | Classifies changes, updates relevant business/technical documentation, generates a dated release note, then records local changes. |
+| `/save-my-work` | Classifies changes, updates relevant documentation, generates a dated release note, then runs `git add` and `git commit` for the intended paths (local only). |
+| `/share-my-work` | Gets and integrates latest updates, resolves conflicts, maintains docs and release notes, then runs `git push` for the intended saved change set after confirmation and verifies success. |
 | `/get-latest` | Retrieves the teammate's latest changes and summarizes them in plain language. |
 | `/show-history [document-id]` | Reports the change history for a document or the project. |
 | `/undo-my-last-change` | Explains the proposed undo and requires confirmation before discarding work. |
 
-Decomposition is confirmation-gated: proposals are checked first, and documents are created only after the user confirms. Version commands use plain-language interactions while the version-history skill defines the underlying Azure DevOps workflow.
+Decomposition is confirmation-gated: proposals are checked first, and documents are created only after the user confirms. Version commands implement the provider-neutral work-lifecycle contract through the current version-control adapter.
 
 ## Validation Model
 
@@ -108,6 +128,10 @@ The current scripts under `.github/skills/pack-integrity-check/scripts/` are:
 
 The TOC coverage and documentation-register scripts exclude `.github/`, templates, and `docs/`, along with the named technical-documentation folders, from business-document indexing. Technical docs and release notes are not entries in the business tables of contents or documentation registers.
 
+## Automatic Documentation Maintenance
+
+The behavior and documentation-maintenance rules are defined in the [tool capability contract](tool-capability-contracts.md). `/save-my-work` and `/share-my-work` are Copilot entry points; the [Copilot interface](copilot-interface.md) maps those commands to the contract, while the [version-control adapter](version-control-adapter.md) supplies the current local-history and GitHub-sharing mechanics.
+
 ## Change Boundaries
 
 - Artifact skills and templates are the maintained sources for business-document structure and policy. Avoid duplicating detailed quality thresholds in this architecture overview.
@@ -117,4 +141,4 @@ The TOC coverage and documentation-register scripts exclude `.github/`, template
 
 ## Release Notes
 
-Historical change notes are kept in [release-notes](release-notes/). The existing note describing the BA assistant, skills, and guardrails is [2026-09-25-ba-agent-skills-and-guardrails.md](release-notes/2026-09-25-ba-agent-skills-and-guardrails.md).
+Historical change notes are kept in [release-notes](release-notes/). The latest update describing the Lifecycle Navigator is [2026-09-27-lifecycle-navigator.md](release-notes/2026-09-27-lifecycle-navigator.md). Earlier notes cover [automatic documentation maintenance](release-notes/2026-09-27-automatic-documentation-maintenance.md) and [capability contracts and adapters](release-notes/2026-09-27-tool-capability-contracts-and-adapters.md).

@@ -11,12 +11,14 @@ Ce guide explique ce qui se passe lorsque les gestionnaires de produit et propri
 | Instructions de l'espace de travail | Appliquent les conventions communes : identifiants, paires bilingues, liens parentaux et présence dans les tables des matières | Les documents suivent les mêmes règles sans que vous ayez à les mémoriser |
 | Guides par type d'artéfact | Fournissent le processus détaillé et les critères de qualité pour les initiatives, épopées, fonctionnalités, récits et bilans de gestion du changement | Chaque document reste au bon niveau et les renseignements importants manquants sont signalés |
 | Assistants spécialisés | BA Requirements Writer aide à rédiger; BA Requirements Reviewer fournit une critique indépendante en lecture seule | Choisissez une aide ciblée pour créer ou réviser un artéfact d'affaires |
+| Assistants spécialisés | BA Requirements Writer aide à rédiger; BA Requirements Reviewer fournit une critique indépendante; Lifecycle Navigator recommande la prochaine étape | Choisissez la rédaction, la révision indépendante ou une recommandation fondée sur les éléments disponibles |
 | Commandes obliques | Exécutent des tâches répétables : proposer des fonctionnalités, valider un artéfact ou partager du travail | Les processus à plusieurs étapes sont plus faciles à demander de façon cohérente |
 | Scripts d'intégrité | Vérifient les éléments pouvant être vérifiés mécaniquement : liens, identifiants, paires linguistiques, en-têtes et présence dans les tables des matières | Ils détectent des omissions faciles à manquer en révision |
 | Registres | Résument les parties prenantes et l'état de la documentation | Ils facilitent la consultation des responsables, des impacts, du travail actif et des bases approuvées |
 
-Une commande oblique est un raccourci vers un processus enregistré. Les guides fournissent à Copilot les étapes propres au domaine. Les scripts réalisent des vérifications ciblées; ils ne remplacent pas le jugement d'affaires.
 Une commande oblique est un raccourci vers un processus enregistré. Les guides fournissent à Copilot les étapes propres au domaine. Les scripts réalisent des vérifications ciblées; ils ne remplacent pas le jugement d'affaires. Vous pouvez utiliser la conversation Copilot habituelle pour les demandes courantes, choisir **BA Requirements Writer** pour une aide spécialisée à la rédaction ou **BA Requirements Reviewer** pour une révision distincte qui ne modifie aucun fichier.
+Choisissez **Lifecycle Navigator** lorsque vous hésitez entre poursuivre la découverte, avancer vers la livraison, vérifier une hypothèse ou consulter une personne spécialiste. Il lit l'artéfact pertinent et formule une recommandation en lecture seule; il n'approuve pas le travail et ne décide pas à votre place.
+Les garanties de gestion du travail sont documentées indépendamment de l'interface et du stockage actuels. Copilot Chat et la copie partagée hébergée sur GitHub sont les choix actuels; les remplacer ne change pas ce que l'enregistrement ou le partage garantit.
 
 ## Exemple : de l'idée à l'épopée
 
@@ -77,7 +79,7 @@ La commande lit le résultat, la portée et la liste de fonctionnalités existan
 Lorsque l'épopée est prête pour une révision de qualité et de préparation, utilisez :
 
 ```text
-/validate epic 001
+/validate epic <numéro d'épopée>
 ```
 
 Le validateur applique le modèle de qualité, les garde-fous, la liste de contrôle et la barrière d'approbation de l'épopée. Il indique un score, les lacunes précises et si l'épopée est admissible à la découverte des fonctionnalités. Le seuil de préparation d'une épopée est de 90/100, avec des scores minimums obligatoires dans des dimensions clés. La validation est en lecture seule, sauf si vous demandez explicitement des changements.
@@ -90,9 +92,9 @@ Si l'épopée réussit et que vous demandez son approbation, Copilot la compare 
 
 ### 8. Le travail est enregistré, partagé et suivi
 
-Utilisez `/save-my-work` pour consigner les modifications. Si l'artéfact est encore en cours, la section **Travail actif** du registre est mise à jour; les coordonnées et la prochaine étape manquantes sont demandées ou restent « À confirmer ». Le générateur de registre actualise les totaux du portefeuille et les bases approuvées à partir des en-têtes, sans écraser les notes de Travail actif.
+Utilisez `/save-my-work` pour consigner les modifications et mettre à jour la section **Travail actif** du registre lorsqu'une exigence est toujours en cours. Copilot demande les renseignements manquants sur le responsable et la prochaine étape; les inconnues restent « À confirmer ». Pour chaque ensemble de changements significatif, Copilot classe les changements d'affaires et techniques, actualise automatiquement la documentation pertinente et crée une note de version datée. Le générateur actualise les totaux et les bases approuvées sans écraser les notes de Travail actif.
 
-Utilisez `/share-my-work` lorsque vous êtes prête ou prêt à partager. La commande récupère d'abord les dernières mises à jour, explique les conflits à résoudre, exécute les vérifications d'intégrité, puis partage si vous confirmez. `/show-history <identifiant de document>` explique la chronologie des modifications; `/undo-my-last-change` explique ce qui serait perdu avant de demander votre confirmation.
+Utilisez `/share-my-work` lorsque vous êtes prête ou prêt à partager. La commande récupère d'abord les dernières mises à jour, explique les conflits à résoudre, actualise la documentation pour les changements reçus, réutilise la note de version en attente ou consigne un ajout distinct, puis exécute les vérifications. Elle demande votre confirmation avant de publier les changements prévus dans l'espace partagé, vérifie la réussite et signale tout échec sans perdre le travail local. `/show-history <identifiant de document>` explique la chronologie des modifications; `/undo-my-last-change` explique ce qui serait perdu avant de demander votre confirmation.
 
 **Valeur :** Le travail a un responsable et une prochaine étape visibles, le sommaire des bases approuvées reste cohérent avec les en-têtes et les changements sont traçables.
 
@@ -103,9 +105,9 @@ Utilisez `/share-my-work` lorsque vous êtes prête ou prêt à partager. La com
 | `/decompose-initiative <numéro d'initiative>` | Proposer un ensemble non chevauchant d'épopées sous une initiative |
 | `/decompose-epic <numéro d'épopée>` | Proposer des fonctionnalités sous une épopée; confirmer l'ensemble avant la création des fichiers |
 | `/decompose-feature <numéro de fonctionnalité>` | Proposer des récits sous une fonctionnalité; confirmer l'ensemble avant la création des fichiers |
-| `/validate epic 001` | Évaluer une épopée et vérifier sa préparation; remplacez `epic` par le type d'artéfact à valider |
+| `/validate epic <numéro d'épopée>` | Évaluer une épopée et vérifier sa préparation; remplacez `epic` par le type d'artéfact à valider |
 | `/audit-pack <identifiant d'initiative>` | Examiner une initiative et ses descendants : qualité, chevauchements, traçabilité des ICP et fatigue liée au changement |
-| `/get-latest` | Récupérer les dernières mises à jour des collègues avant de commencer un nouveau travail |
+| `/get-latest` | Actualiser manuellement les mises à jour pour les processus sans vérification automatique de fraîcheur |
 | `/save-my-work` / `/share-my-work` | Consigner le travail, puis le réviser et le partager |
 
 ## Ce qui demande toujours votre jugement

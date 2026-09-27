@@ -24,6 +24,8 @@ Initiative  →  Epic          →  Feature          →  User Story
 No project-specific business requirements are preloaded. Begin with an Initiative when the project is ready, and let Copilot flag material unknowns rather than inventing answers.
 Start with the artifact that matches the decision you need to make; the [Business User Guide](docs/business/business-user-guide.md) explains the workflow from drafting through sharing.
 
+The workflow behavior is defined separately from the current Copilot interface and GitHub-backed storage. The interface or storage can change without changing the business rules and user guarantees.
+
 ## How to Use This
 
 Open Copilot Chat and describe the business outcome or artifact you need. For example:
@@ -33,6 +35,7 @@ Open Copilot Chat and describe the business outcome or artifact you need. For ex
 > "Is my epic ready for feature discovery?"
 
 Copilot creates English/French pairs, records assumptions and open questions, checks stakeholders and scope overlaps, and avoids inventing unconfirmed facts. The detailed behavior is covered in the [Business User Guide](docs/business/business-user-guide.md).
+Copilot creates English/French pairs, records assumptions and open questions, checks stakeholders and scope overlaps, and avoids inventing unconfirmed facts. For questions about what to do next or when to involve a specialist, choose **Lifecycle Navigator**; it gives a read-only, evidence-based recommendation. The detailed behavior is covered in the [Business User Guide](docs/business/business-user-guide.md).
 
 ## Useful Commands
 
@@ -45,8 +48,8 @@ Use these shortcuts in Copilot Chat when you need a repeatable workflow:
 | `/decompose-epic <ID>` | Proposes features for an epic and checks sibling overlap before creating files. |
 | `/decompose-feature <ID>` | Proposes user stories for a feature and checks sibling overlap before creating files. |
 | `/audit-pack` | Runs a health check across the pack or a named initiative and its descendants (`/audit-pack <initiative ID>`). |
-| `/save-my-work` | Saves your changes so they're safely recorded. Doesn't send them to your teammate yet. |
-| `/share-my-work` | Gets your teammate's latest updates first, then sends your saved changes to them. Warns you about any quality issues first, but won't stop you from sharing. |
+| `/save-my-work` | Updates relevant business/technical documentation, creates a dated release note, then records your changes locally. |
+| `/share-my-work` | Gets the latest updates, resolves conflicts, updates documentation, runs checks, then publishes to the shared project after you confirm and verifies success. |
 | `/get-latest` | Brings in your teammate's latest changes and tells you what's new; epic creation does this automatically, but you can still run it on demand. |
 | `/show-history <document ID>` | Shows who changed a document and when; leave the ID off to see the project's recent history. |
 | `/undo-my-last-change` | Safely undoes your last change, always showing you what would be lost first and asking you to confirm. |
@@ -57,7 +60,10 @@ Replace the placeholder with an ID from the current project.
 
 - [Business User Guide](docs/business/business-user-guide.md) and [French guide](docs/business/business-user-guide-fr.md)
 - [Solution Architecture](docs/technical/solution-architecture.md)
-- [Latest Release Notes](docs/technical/release-notes/2026-09-26-documentation-governance-and-epic-workflows.md)
+- [Tool Behavior and Guarantees](docs/technical/tool-capability-contracts.md)
+- [How Work Is Saved and Shared](docs/technical/version-control-adapter.md)
+- [How Copilot Uses These Workflows](docs/technical/copilot-interface.md)
+- [Latest Release Notes](docs/technical/release-notes/2026-09-27-lifecycle-navigator.md)
 
 ## Document Status: Draft → In Review → Approved
 
@@ -69,7 +75,7 @@ The `Document version` field records the approved baseline; it does not change o
 
 ## Saving and Sharing Your Work
 
-Use `/save-my-work` to record your current work and `/share-my-work` to retrieve recent teammate changes, resolve conflicts, run checks, and share. `/get-latest`, `/show-history`, and `/undo-my-last-change` remain available when needed. The [Business User Guide](docs/business/business-user-guide.md) explains these workflows.
+Use `/save-my-work` or `/share-my-work` to have Copilot classify changes, update relevant business and technical documentation, create a dated release note, and include those updates in the saved summary. Share additionally retrieves teammate changes, resolves conflicts, and runs checks; after you confirm, it publishes the intended changes and verifies success. If publishing fails, your local work is preserved and the failure is reported. `/get-latest`, `/show-history`, and `/undo-my-last-change` remain available when needed. The [Business User Guide](docs/business/business-user-guide.md) explains these workflows.
 
 ## Who's Involved
 
@@ -83,7 +89,7 @@ Use the [Stakeholder Register](stakeholder-register.md) for governance roles, im
 - `stories/` — future user story artifacts
 - `change-management/` — future change-management briefs
 - `docs/business/` — practical guides for business users
-- `docs/technical/` — architecture documentation and release notes
+- `docs/technical/` — behavior guarantees, current integrations, architecture, and release notes
 - `templates/` — blank starting points (you normally won't need to open these yourself — just ask Copilot to draft something)
 - `stakeholder-register.md` — the list of who's involved and who's affected, described above
 - [documentation-register.md](documentation-register.md) — current document status, active work, and approved baseline versions
