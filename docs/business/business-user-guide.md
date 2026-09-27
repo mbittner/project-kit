@@ -10,7 +10,6 @@ This guide explains what happens when product managers and product owners use Co
 |---|---|---|
 | Workspace instructions | Apply shared conventions such as IDs, bilingual files, parent links, and contents-page coverage | Documents follow the same rules without you having to remember them |
 | Artifact guidance | Provides the detailed workflow and quality bar for initiatives, epics, features, stories, and change-management briefs | Keeps each document at the right level and asks for important missing information |
-| Specialized agents | BA Requirements Writer supports drafting; BA Requirements Reviewer gives an independent, read-only critique | Choose focused help for creating or reviewing a business artifact |
 | Specialized assistants | BA Requirements Writer supports drafting; BA Requirements Reviewer gives an independent critique; Lifecycle Navigator recommends a next step | Choose drafting, independent review, or evidence-based next-step guidance |
 | Slash commands | Runs repeatable tasks such as proposing child features, validating an artifact, or sharing work | Makes multi-step processes easier to request consistently |
 | Integrity scripts | Check facts that can be verified mechanically, such as links, IDs, language pairs, headers, and contents coverage | Catches omissions that are easy to miss in review |
@@ -19,6 +18,7 @@ This guide explains what happens when product managers and product owners use Co
 A slash command is a shortcut to a saved workflow. The workflow guidance gives Copilot the domain-specific steps. The scripts are narrower checks; they do not replace business judgment. You can start in normal Copilot Chat for routine drafting, select **BA Requirements Writer** for specialized drafting help, or select **BA Requirements Reviewer** for a separate review that does not change files.
 Choose **Lifecycle Navigator** when you are unsure whether to continue discovery, move toward delivery, test an assumption, or involve a specialist. It reads the relevant artifact and gives a read-only recommendation; it does not approve the work or make the decision for you.
 The work-management guarantees are documented separately from today's interface and storage. Copilot Chat and the GitHub-backed shared copy are the current choices; changing either does not change what saving or sharing promises.
+For a one-page command and artifact reference, see the [Business User Cheat Sheet](business-user-cheat-sheet.md).
 
 ## Example: From Idea to Epic
 
@@ -92,7 +92,7 @@ If the epic passes and you ask to approve it, Copilot compares it with its previ
 
 ### 8. Save, share, and track the work
 
-Use `/save-my-work` to record the current changes and update the register's manually maintained **Active Work** section when a requirement remains in progress. It asks for missing owner and next-action details; unknowns stay “To confirm.” For every meaningful change set, Copilot classifies business and technical changes, updates relevant documentation automatically, and creates a dated release note. The register generator refreshes counts and approved baselines without overwriting Active Work notes.
+Use `/save-my-work` to record the current changes and update the register's manually maintained **Active Work** section when a requirement remains in progress. It asks for missing owner and next-action details; unknowns stay “To confirm.” For every meaningful change set, Copilot classifies business and technical changes, updates relevant documentation automatically, and creates a time-stamped release note. The register generator refreshes counts and approved baselines without overwriting Active Work notes.
 
 Use `/share-my-work` when you are ready to share. It gets the latest updates first, explains conflicts for you to resolve, updates documentation for any additional incoming changes, reuses the pending release note or records a distinct delta, and runs integrity checks. It asks before publishing the intended changes to the shared project, verifies success, and reports failures without losing your local work. `/show-history <document ID>` explains a document's change timeline; `/undo-my-last-change` explains what would be lost before asking you to confirm.
 

@@ -1,4 +1,3 @@
-Each substantive source change set gets one dated release note summarizing applicable business changes, technical changes, documentation updates, and checks. Documentation created by the procedure does not recursively trigger another note; share reuses the pending note from save and captures any additional incoming changes. After the user confirms sharing, the workflow records only the intended changes if needed, publishes them to the configured remote and shared branch, and verifies the result. If publication fails, local work is preserved and the workflow reports failure rather than claiming success.
 # Solution Architecture
 
 This document maps the business practice, provider-neutral work capabilities, and their current technical implementations. Business requirements and templates remain the source of truth for product content. Cross-cutting work behavior is specified independently from the Copilot interface and the configured storage provider.
@@ -30,7 +29,7 @@ flowchart LR
     CapabilityContracts --> DocumentationMaintenance[Documentation maintenance]
     DocumentationMaintenance --> BusinessDocs[Business documentation and registers]
     DocumentationMaintenance --> TechnicalDocs[Architecture and technical specifications]
-    DocumentationMaintenance --> ReleaseNotes[Dated release notes]
+    DocumentationMaintenance --> ReleaseNotes[UTC timestamped release notes]
 
     Validate --> ArtifactSkills
     Validate --> SharedSkills
@@ -50,6 +49,7 @@ flowchart LR
 ```
 
 The map shows responsibilities, not a runtime plugin API. See [Tool Capability Contracts](tool-capability-contracts.md) for behavior guarantees, [Version-Control Adapter](version-control-adapter.md) for current persistence mechanics, and [Copilot Interface Adapter](copilot-interface.md) for the command and assistant mapping.
+For role-specific guidance, see the [Solution Architect Guide](solution-architect-guide.md).
 
 The BA Requirements Reviewer is a separate, read-only custom assistant. It is not automatically dispatched by the writer or by a slash command; users select it when they want an independent review. Prompts currently run with the generic `agent` target declared in their frontmatter.
 
@@ -96,14 +96,14 @@ Prompts live in `.github/prompts/*.prompt.md`. Their frontmatter declares the co
 | `/decompose-epic <id>` | Proposes features for an epic and checks the proposed sibling set for overlap before asking for confirmation. |
 | `/decompose-feature <id>` | Proposes stories for a feature and checks the proposed sibling set for overlap before asking for confirmation. |
 | `/audit-pack [initiative-id]` | Runs repository checks and a portfolio audit including artifact scoring, sibling overlap, KPI traceability, stakeholder impact, and change-fatigue analysis. The quality-score sweep covers initiatives, epics, and features; an optional initiative ID scopes the audit. |
-| `/save-my-work` | Classifies changes, updates relevant business/technical documentation, generates a dated release note, then records local changes. |
-| `/save-my-work` | Classifies changes, updates relevant documentation, generates a dated release note, then runs `git add` and `git commit` for the intended paths (local only). |
+| `/save-my-work` | Classifies changes, updates relevant documentation, generates a UTC time-stamped release note, then runs `git add` and `git commit` for the intended paths (local only). |
 | `/share-my-work` | Gets and integrates latest updates, resolves conflicts, maintains docs and release notes, then runs `git push` for the intended saved change set after confirmation and verifies success. |
 | `/get-latest` | Retrieves the teammate's latest changes and summarizes them in plain language. |
 | `/show-history [document-id]` | Reports the change history for a document or the project. |
 | `/undo-my-last-change` | Explains the proposed undo and requires confirmation before discarding work. |
 
 Decomposition is confirmation-gated: proposals are checked first, and documents are created only after the user confirms. Version commands implement the provider-neutral work-lifecycle contract through the current version-control adapter.
+Decomposition is confirmation-gated: proposals are checked first, and documents are created only after the user confirms. Version commands implement the provider-neutral work-lifecycle contract through the current version-control adapter. Save/share release-note filenames and timestamps follow the UTC format defined in the contract.
 
 ## Validation Model
 
@@ -130,7 +130,7 @@ The TOC coverage and documentation-register scripts exclude `.github/`, template
 
 ## Automatic Documentation Maintenance
 
-The behavior and documentation-maintenance rules are defined in the [tool capability contract](tool-capability-contracts.md). `/save-my-work` and `/share-my-work` are Copilot entry points; the [Copilot interface](copilot-interface.md) maps those commands to the contract, while the [version-control adapter](version-control-adapter.md) supplies the current local-history and GitHub-sharing mechanics.
+The behavior and documentation-maintenance rules are defined in the [tool capability contract](tool-capability-contracts.md). `/save-my-work` and `/share-my-work` are Copilot entry points; the [Copilot interface](copilot-interface.md) maps those commands to the contract, while the [version-control adapter](version-control-adapter.md) supplies the current local-history and GitHub-sharing mechanics. Release notes created or materially updated by these commands use UTC timestamps to the second, as defined in the contract.
 
 ## Change Boundaries
 
@@ -141,4 +141,4 @@ The behavior and documentation-maintenance rules are defined in the [tool capabi
 
 ## Release Notes
 
-Historical change notes are kept in [release-notes](release-notes/). The latest update describing the Lifecycle Navigator is [2026-09-27-lifecycle-navigator.md](release-notes/2026-09-27-lifecycle-navigator.md). Earlier notes cover [automatic documentation maintenance](release-notes/2026-09-27-automatic-documentation-maintenance.md) and [capability contracts and adapters](release-notes/2026-09-27-tool-capability-contracts-and-adapters.md).
+Historical change notes are kept in [release-notes](release-notes/). The latest update is the [Solution Architect Guide](release-notes/2026-09-27-072053Z-solution-architect-guide.md). Earlier notes cover [timestamped release notes](release-notes/2026-09-27-065859Z-release-note-timestamps.md), the [Lifecycle Navigator](release-notes/2026-09-27-lifecycle-navigator.md), [automatic documentation maintenance](release-notes/2026-09-27-automatic-documentation-maintenance.md), and [capability contracts and adapters](release-notes/2026-09-27-tool-capability-contracts-and-adapters.md).

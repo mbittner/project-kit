@@ -26,8 +26,21 @@ Whenever you create, rename, move, or remove a business-facing requirements, gov
 
 - Add each business document to the appropriate section and include its English/French counterpart. Keep parent/child and change-management links current.
 - Apply this rule to existing artifact types and any new business-facing document type, regardless of its folder. The stakeholder and documentation-status registers belong in the Registers section.
-- Do not add technical documentation, implementation notes, tooling guides, or release notes to these tables of contents.
-- Do not add technical documentation, implementation notes, tooling guides, or release notes to these tables of contents. The coverage check excludes `.github/`, `templates/`, `docs/`, `technical/`, `technical-docs/`, `technical-documentation/`, and `implementation/`; keep technical material in those locations and index business documents elsewhere.
+- Apply this rule to existing artifact types and any new business-facing document type, regardless of its folder. The stakeholder, documentation-status, and System Registers belong in the Registers section.
+- Do not add technical documentation, implementation notes, tooling guides, or release notes to these tables of contents. The root-level System Register is the register exception and belongs in the Registers section; other technical material remains excluded. The coverage check excludes `.github/`, `templates/`, `docs/`, `technical/`, `technical-docs/`, `technical-documentation/`, and `implementation/` from business-document indexing.
 - Remove or update stale entries when a business document is moved, renamed, or removed.
 - Run `check-parity.ps1` and `check-links.ps1` after changes to confirm the bilingual tables match and links resolve.
 - Run `check-parity.ps1`, `check-links.ps1`, `check-toc-coverage.ps1`, and `check-document-headers.ps1` after changes to confirm the bilingual tables match, business documents are indexed, and links and version headers are valid.
+
+## Keep the System Register Current
+
+- When creating, editing, or reviewing project technical/architecture documentation, use [system-register-validation](skills/system-register-validation/SKILL.md) to reconcile system references with the bilingual [System Register](../system-register.md) and [French register](../system-register-fr.md).
+- `/save-my-work` and `/share-my-work` must run this scan on every invocation against the complete current or pending technical change set, including incoming changes. If there are no relevant technical documents or candidate systems, report that no system-register update was needed.
+- Ask the Solution Architect for the system owner and CMCD real name/ID. Hopex is optional. If owner or CMCD information is not supplied, mark it `To confirm` and add a specific open question to both register versions; do not block the technical documentation or guess.
+
+## Keep the Ideas Register Current
+
+- When the user shares an idea to improve this pack's agents, skills, prompts, scripts, or workflows, record it in the [Ideas Register](../docs/ideas/README.md), even if they do not explicitly ask to save it. Do not use this register for business requirements or changes to a project solution.
+- Assign the next unused `IDEA-NNN` ID after checking the register and existing filenames. Never reuse an ID. Create one idea file with a concise high-level description and add a linked row to the README index.
+- Assign the next unused `IDEA-NNN` ID after checking the register and existing filenames. Never reuse an ID. Create one idea file with a concise high-level description and add a linked row to the README index. Every idea file must link back to that README.
+- Record only the idea the user supplied; do not invent details or implement it unless the user separately asks for implementation.

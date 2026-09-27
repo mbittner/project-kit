@@ -3,8 +3,7 @@
 *[Read this document in English](README.md)*
 
 Cet espace de travail aide les gestionnaires et propriétaires de produit à rédiger, réviser et suivre des exigences d'affaires bilingues avec Copilot Chat. Il comprend des gabarits réutilisables, des processus guidés, des vérifications et des registres, sans exigences propres à un projet préchargées.
-
-Consultez les exigences d'affaires dans la [Table des matières](table-of-content-fr.md). Les documents d'accompagnement se trouvent dans `docs/business/` et `docs/technical/`; ils ne font pas partie de l'index des exigences.
+Consultez les exigences d'affaires dans la [Table des matières](table-of-content-fr.md). Les documents d'accompagnement se trouvent dans `docs/business/` et `docs/technical/`. Les suggestions d'amélioration de l'ensemble lui-même sont consignées séparément dans le [registre des idées d'amélioration des outils](docs/ideas/README.md), à l'extérieur de l'index des exigences.
 
 ## La vue d'ensemble
 
@@ -34,8 +33,10 @@ Ouvrez Copilot Chat et décrivez le résultat d'affaires ou l'artéfact souhait�
 
 > « Mon épopée est-elle prête pour la découverte des fonctionnalités? »
 
-Copilot crée les paires anglaise et française, consigne les hypothèses et questions ouvertes, vérifie les parties prenantes et les chevauchements de portée, et n'invente pas les faits à confirmer. Les détails figurent dans le [Guide d'utilisation pour les gens d'affaires](docs/business/business-user-guide-fr.md).
 Copilot crée les paires anglaise et française, consigne les hypothèses et questions ouvertes, vérifie les parties prenantes et les chevauchements de portée, et n'invente pas les faits à confirmer. Pour savoir quoi faire ensuite ou quand consulter une personne spécialiste, choisissez **Lifecycle Navigator**; il formule une recommandation en lecture seule fondée sur les éléments disponibles. Les détails figurent dans le [Guide d'utilisation pour les gens d'affaires](docs/business/business-user-guide-fr.md).
+Copilot crée les paires anglaise et française, consigne les hypothèses et questions ouvertes, vérifie les parties prenantes et les chevauchements de portée, et n'invente pas les faits à confirmer. Pour savoir quoi faire ensuite ou quand consulter une personne spécialiste, choisissez **Lifecycle Navigator**; il formule une recommandation en lecture seule fondée sur les éléments disponibles. Les détails figurent dans le [Guide d'utilisation pour les gens d'affaires](docs/business/business-user-guide-fr.md).
+
+Partagez dans la conversation vos idées pour améliorer le fonctionnement de Copilot ou les outils et processus qui l'appuient; Copilot les consigne dans le [registre numéroté des idées](docs/ideas/README.md) pour que vous n'ayez pas à les mémoriser.
 
 ## Commandes utiles
 
@@ -48,7 +49,7 @@ Utilisez ces raccourcis dans Copilot Chat pour les processus répétables :
 | `/decompose-epic <ID>` | Propose des fonctionnalités pour une épopée et vérifie les chevauchements avant de créer les fichiers. |
 | `/decompose-feature <ID>` | Propose des récits utilisateur pour une fonctionnalité et vérifie les chevauchements avant de créer les fichiers. |
 | `/audit-pack` | Vérifie tout l'ensemble ou une initiative nommée et ses artéfacts descendants (`/audit-pack <identifiant d'initiative>`). |
-| `/save-my-work` | Actualise la documentation d'affaires ou technique pertinente, crée une note de version datée, puis consigne vos changements localement. |
+| `/save-my-work` | Actualise la documentation d'affaires ou technique pertinente, crée une note de version horodatée, puis consigne vos changements localement. |
 | `/share-my-work` | Récupère les dernières mises à jour, résout les conflits, actualise la documentation, exécute les vérifications, puis publie dans l'espace partagé après votre confirmation et vérifie le résultat. |
 | `/get-latest` | Récupère les derniers changements et vous dit ce qui est nouveau; la création d'épopée le fait automatiquement, mais vous pouvez aussi lancer la commande au besoin. |
 | `/show-history <identifiant de document>` | Montre qui a modifié un document et quand; omettez l'identifiant pour consulter l'historique récent du projet. |
@@ -57,13 +58,18 @@ Utilisez ces raccourcis dans Copilot Chat pour les processus répétables :
 Remplacez les paramètres entre chevrons par les identifiants du projet courant.
 
 ## Documentation complémentaire
+- [Aide-mémoire pour les gens d'affaires](docs/business/business-user-cheat-sheet-fr.md) et [version anglaise](docs/business/business-user-cheat-sheet.md)
 
 - [Guide d'utilisation pour les gens d'affaires](docs/business/business-user-guide-fr.md) et [version anglaise](docs/business/business-user-guide.md)
 - [Architecture de la solution](docs/technical/solution-architecture.md)
+- [Guide de l'architecte de solutions (anglais)](docs/technical/solution-architect-guide.md)
+- [Guide de l'architecte de solutions (anglais)](docs/technical/solution-architect-guide.md)
+- [Registre des systèmes](system-register-fr.md) et [version anglaise](system-register.md)
 - [Comportement et garanties des processus](docs/technical/tool-capability-contracts.md)
 - [Enregistrement et partage du travail](docs/technical/version-control-adapter.md)
 - [Utilisation des processus dans Copilot](docs/technical/copilot-interface.md)
-- [Notes de version les plus récentes](docs/technical/release-notes/2026-09-27-lifecycle-navigator.md)
+- [Notes de version les plus récentes](docs/technical/release-notes/2026-09-27-065859Z-release-note-timestamps.md)
+- [Politique d'horodatage des notes de version](docs/technical/release-notes/2026-09-27-065859Z-release-note-timestamps.md)
 
 ## Statut du document : Ébauche → En révision → Approuvé
 
@@ -75,7 +81,7 @@ Le champ `Version du document` indique la base approuvée; il ne change pas à c
 
 ## Enregistrer et partager votre travail
 
-Utilisez `/save-my-work` ou `/share-my-work` pour que Copilot classe les changements, actualise la documentation d'affaires et technique pertinente, crée une note de version datée et inclue ces mises à jour dans le résumé du travail consigné. Le partage récupère aussi les changements des collègues, résout les conflits et exécute les vérifications; après votre confirmation, il publie les changements prévus et en vérifie la réussite. En cas d'échec, le travail local est conservé et le problème est signalé. `/get-latest`, `/show-history` et `/undo-my-last-change` restent disponibles au besoin. Le [Guide d'utilisation pour les gens d'affaires](docs/business/business-user-guide-fr.md) explique ces processus.
+Utilisez `/save-my-work` ou `/share-my-work` pour que Copilot classe les changements, actualise la documentation d'affaires et technique pertinente, crée une note de version horodatée et inclue ces mises à jour dans le résumé du travail consigné. Le partage récupère aussi les changements des collègues, résout les conflits et exécute les vérifications; après votre confirmation, il publie les changements prévus et en vérifie la réussite. En cas d'échec, le travail local est conservé et le problème est signalé. `/get-latest`, `/show-history` et `/undo-my-last-change` restent disponibles au besoin. Le [Guide d'utilisation pour les gens d'affaires](docs/business/business-user-guide-fr.md) explique ces processus.
 
 ## Qui est impliqué
 

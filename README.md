@@ -3,8 +3,7 @@
 *[Lire ce document en français](README-fr.md)*
 
 This workspace helps Product Managers and Product Owners draft, review, and track bilingual business requirements with Copilot Chat. It includes reusable templates, guided checks, and documentation status tracking, with no project-specific requirements preloaded.
-
-Browse the business requirements in the [Table of Contents](table-of-content.md). Supporting material is organized under `docs/business/` and `docs/technical/` and is not part of the requirements index.
+Browse the business requirements in the [Table of Contents](table-of-content.md). Supporting material is organized under `docs/business/` and `docs/technical/`. Suggestions for improving the pack itself are tracked separately in the [Tool Improvement Ideas Register](docs/ideas/README.md), outside the requirements index.
 
 ## The Big Picture
 
@@ -34,8 +33,10 @@ Open Copilot Chat and describe the business outcome or artifact you need. For ex
 
 > "Is my epic ready for feature discovery?"
 
-Copilot creates English/French pairs, records assumptions and open questions, checks stakeholders and scope overlaps, and avoids inventing unconfirmed facts. The detailed behavior is covered in the [Business User Guide](docs/business/business-user-guide.md).
 Copilot creates English/French pairs, records assumptions and open questions, checks stakeholders and scope overlaps, and avoids inventing unconfirmed facts. For questions about what to do next or when to involve a specialist, choose **Lifecycle Navigator**; it gives a read-only, evidence-based recommendation. The detailed behavior is covered in the [Business User Guide](docs/business/business-user-guide.md).
+Copilot creates English/French pairs, records assumptions and open questions, checks stakeholders and scope overlaps, and avoids inventing unconfirmed facts. For questions about what to do next or when to involve a specialist, choose **Lifecycle Navigator**; it gives a read-only, evidence-based recommendation. The detailed behavior is covered in the [Business User Guide](docs/business/business-user-guide.md).
+
+Share ideas for improving how Copilot works or the supporting tools and workflows in conversation; Copilot records them in the numbered [Ideas Register](docs/ideas/README.md) so you do not have to remember them.
 
 ## Useful Commands
 
@@ -48,7 +49,7 @@ Use these shortcuts in Copilot Chat when you need a repeatable workflow:
 | `/decompose-epic <ID>` | Proposes features for an epic and checks sibling overlap before creating files. |
 | `/decompose-feature <ID>` | Proposes user stories for a feature and checks sibling overlap before creating files. |
 | `/audit-pack` | Runs a health check across the pack or a named initiative and its descendants (`/audit-pack <initiative ID>`). |
-| `/save-my-work` | Updates relevant business/technical documentation, creates a dated release note, then records your changes locally. |
+| `/save-my-work` | Updates relevant business/technical documentation, creates a time-stamped release note, then records your changes locally. |
 | `/share-my-work` | Gets the latest updates, resolves conflicts, updates documentation, runs checks, then publishes to the shared project after you confirm and verifies success. |
 | `/get-latest` | Brings in your teammate's latest changes and tells you what's new; epic creation does this automatically, but you can still run it on demand. |
 | `/show-history <document ID>` | Shows who changed a document and when; leave the ID off to see the project's recent history. |
@@ -59,11 +60,15 @@ Replace the placeholder with an ID from the current project.
 ## Further Reading
 
 - [Business User Guide](docs/business/business-user-guide.md) and [French guide](docs/business/business-user-guide-fr.md)
+- [Business User Cheat Sheet](docs/business/business-user-cheat-sheet.md) and [French sheet](docs/business/business-user-cheat-sheet-fr.md)
 - [Solution Architecture](docs/technical/solution-architecture.md)
+- [Solution Architect Guide](docs/technical/solution-architect-guide.md)
+- [System Register](system-register.md) and [French register](system-register-fr.md)
 - [Tool Behavior and Guarantees](docs/technical/tool-capability-contracts.md)
 - [How Work Is Saved and Shared](docs/technical/version-control-adapter.md)
 - [How Copilot Uses These Workflows](docs/technical/copilot-interface.md)
-- [Latest Release Notes](docs/technical/release-notes/2026-09-27-lifecycle-navigator.md)
+- [Latest Release Notes](docs/technical/release-notes/2026-09-27-065859Z-release-note-timestamps.md)
+- [Release-Note Timestamp Policy](docs/technical/release-notes/2026-09-27-065859Z-release-note-timestamps.md)
 
 ## Document Status: Draft → In Review → Approved
 
@@ -75,7 +80,7 @@ The `Document version` field records the approved baseline; it does not change o
 
 ## Saving and Sharing Your Work
 
-Use `/save-my-work` or `/share-my-work` to have Copilot classify changes, update relevant business and technical documentation, create a dated release note, and include those updates in the saved summary. Share additionally retrieves teammate changes, resolves conflicts, and runs checks; after you confirm, it publishes the intended changes and verifies success. If publishing fails, your local work is preserved and the failure is reported. `/get-latest`, `/show-history`, and `/undo-my-last-change` remain available when needed. The [Business User Guide](docs/business/business-user-guide.md) explains these workflows.
+Use `/save-my-work` or `/share-my-work` to have Copilot classify changes, update relevant business and technical documentation, create a time-stamped release note, and include those updates in the saved summary. Share additionally retrieves teammate changes, resolves conflicts, and runs checks; after you confirm, it publishes the intended changes and verifies success. If publishing fails, your local work is preserved and the failure is reported. `/get-latest`, `/show-history`, and `/undo-my-last-change` remain available when needed. The [Business User Guide](docs/business/business-user-guide.md) explains these workflows.
 
 ## Who's Involved
 

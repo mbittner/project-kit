@@ -40,7 +40,8 @@ foreach ($folder in $foldersToCheck) {
 
 # Root-level EN/FR pairs (README, table of contents) are checked the same way.
 # Root-level guidance, contents, and registers are checked the same way.
-$rootFiles = @('README.md', 'table-of-content.md', 'stakeholder-register.md', 'documentation-register.md')
+# Root-level EN/FR pairs (README, table of contents, and registers) are checked the same way.
+$rootFiles = @('README.md', 'table-of-content.md', 'stakeholder-register.md', 'documentation-register.md', 'system-register.md')
 foreach ($enName in $rootFiles) {
     $enPath = Join-Path $RepoRoot $enName
     if (-not (Test-Path $enPath)) { continue }

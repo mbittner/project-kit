@@ -7,6 +7,7 @@ This clean-start index lists the project registers. Add new business artifacts h
 ## Registers
 - [Stakeholder Register](stakeholder-register.md) · [Version française](stakeholder-register-fr.md)
 - [Documentation Status Register](documentation-register.md) · [Version française](documentation-register-fr.md)
+- [System Register](system-register.md) · [Version française](system-register-fr.md)
 
 ## Business Requirements
 

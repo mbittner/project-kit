@@ -40,13 +40,19 @@ If an operation cannot complete, preserve recoverable local work, explain what d
 
 ## Documentation Maintenance
 
+User-provided ideas for improving the pack's own agents, skills, prompts, scripts, or workflows are captured in the Ideas Register under `docs/ideas/`; project business requirements and solution proposals do not belong there. Assign the next unused `IDEA-NNN` ID, write a concise high-level change description, and link it from the register README. Recording an idea does not authorize its implementation.
+User-provided ideas for improving the pack's own agents, skills, prompts, scripts, or workflows are captured in the Ideas Register under `docs/ideas/`; project business requirements and solution proposals do not belong there. Assign the next unused `IDEA-NNN` ID, write a concise high-level change description, and link it from the register README. Every idea file links back to that README. Recording an idea does not authorize its implementation.
+
 For each non-empty source change set, classify changes as business, technical, or cross-cutting and update only the documentation those changes warrant:
 
 - Business requirements remain the source of truth. Maintain applicable stakeholder references, parent/child links, bilingual contents pages, and status registers.
 - Changes to user-facing workflow or guidance update the business-user guides.
 - Changes to tooling, integrations, data, security, deployment, or architecture update the relevant technical documentation.
-- Every substantive source change set receives one dated release note summarizing the business and technical changes, supporting documentation, and checks run. Omit empty categories.
-- Reuse an unshared note when a save is followed by share. Include newly received changes without duplicating the note. Never alter a note for already-shared work.
+- Technical system references in solution documentation are reconciled with the bilingual System Register by the [system-register-validation](../../.github/skills/system-register-validation/SKILL.md) guidance on every save/share invocation and whenever technical architecture documentation is edited. Ask the Solution Architect for the system owner and CMCD real name/ID. Hopex is optional. If owner or CMCD data is missing, record `To confirm` and a specific open question in both register versions; do not block the document.
+- Every substantive source change set handled by save/share receives one release note summarizing the business and technical changes, supporting documentation, and checks run. Omit empty categories. Record the creation time in UTC to the second in both the filename (`YYYY-MM-DD-HHMMSSZ-<description>.md`) and the note header (`Date/time: YYYY-MM-DD HH:MM:SS UTC`).
+- Preserve historical filenames and links. Backfill a historical note's header time only from reliable recorded metadata; if no trustworthy time is available, state that it was not recorded rather than inferring one.
+- If save/share materially updates an unshared note with additional source changes, add or refresh `Updated at: YYYY-MM-DD HH:MM:SS UTC` and include the new changes without creating a duplicate note for the same change set. Keep the original timestamp in its filename. Never alter a note for already-shared work.
+- When share reuses an unchanged note, preserve its original timestamps. A no-op save/share or a documentation-only maintenance pass does not create a release note.
 - Outputs created by this maintenance pass do not recursively trigger another note. Documentation-only changes with no substantive source change do not require a note.
 
 ## Approved Baselines

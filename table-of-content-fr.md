@@ -7,6 +7,7 @@ Cet index de départ répertorie les registres du projet. Ajoutez les nouveaux a
 ## Registres
 - [Registre des parties prenantes](stakeholder-register-fr.md) · [English version](stakeholder-register.md)
 - [Registre de l'état de la documentation](documentation-register-fr.md) · [English version](documentation-register.md)
+- [Registre des systèmes](system-register-fr.md) · [English version](system-register.md)
 
 ## Exigences d'affaires
 
