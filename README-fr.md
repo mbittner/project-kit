@@ -38,17 +38,31 @@ Copilot crée les paires anglaise et française, consigne les hypothèses et que
 
 Partagez dans la conversation vos idées pour améliorer le fonctionnement de Copilot ou les outils et processus qui l'appuient; Copilot les consigne dans le [registre numéroté des idées](docs/ideas/README.md) pour que vous n'ayez pas à les mémoriser.
 
+## Pour les architectes de solutions
+
+Le travail d'architecture côtoie les exigences d'affaires et y renvoie toujours. Il existe trois types de documents d'architecture, chacun rédigé en français et en anglais et répertorié dans l'[index de l'architecture](technical/README-fr.md) :
+
+- **Évaluation d'architecture** : compare les options pour une décision et en recommande une.
+- **Registre de décision d'architecture** : consigne une décision importante, ses raisons et ses coûts. Une décision acceptée n'est jamais réécrite; une nouvelle décision la remplace et l'historique est conservé.
+- **Conception de solution** : explique, avec seulement le niveau de détail nécessaire, comment l'approche retenue sera construite, testée, déployée et soutenue.
+
+Choisissez **Solution Architecture Writer** dans Copilot Chat pour les rédiger, ou **Solution Architecture Reviewer** pour un deuxième avis indépendant. Chaque document reçoit un score de qualité pour guider son amélioration, mais ce score ne le bloque jamais. Seul l'architecte de solutions accepte une décision ou approuve une conception. Copilot tient aussi à jour le [registre des systèmes](system-register-fr.md) et les liens depuis les épopées et fonctionnalités. Consultez le [Guide de l'architecte de solutions](docs/architecture/solution-architect-guide-fr.md).
+
 ## Commandes utiles
 
 Utilisez ces raccourcis dans Copilot Chat pour les processus répétables :
 
 | Commande | Ce qu'elle fait |
 |---|---|
-| `/validate <type> <ID>` | Vérifie l'initiative, l'épopée, la fonctionnalité, le récit ou le bilan de gestion du changement nommé et signale les lacunes précises. |
+| `/validate <type> <ID>` | Vérifie l'initiative, l'épopée, la fonctionnalité, le récit, le bilan de gestion du changement, l'évaluation d'architecture, le registre de décision ou la conception de solution nommé et signale les lacunes précises. |
 | `/decompose-initiative <ID>` | Propose un ensemble d'épopées sans chevauchement, actualise les mises à jour automatiquement et s'actualise de nouveau après votre confirmation avant la création des fichiers. |
 | `/decompose-epic <ID>` | Propose des fonctionnalités pour une épopée et vérifie les chevauchements avant de créer les fichiers. |
 | `/decompose-feature <ID>` | Propose des récits utilisateur pour une fonctionnalité et vérifie les chevauchements avant de créer les fichiers. |
-| `/audit-pack` | Vérifie tout l'ensemble ou une initiative nommée et ses artéfacts descendants (`/audit-pack <identifiant d'initiative>`). |
+| `/audit-pack` | Vérifie tout l'ensemble ou une initiative nommée et ses artéfacts descendants (`/audit-pack <identifiant d'initiative>`), y compris les épopées et fonctionnalités qui pourraient exiger un travail d'architecture. |
+| `/screen-architecture <type> <ID>` | Indique si une initiative, une épopée ou une fonctionnalité exige un architecte de solutions et, le cas échéant, la plus petite prochaine étape utile. Ne modifie rien. |
+| `/record-decision <identifiant d'évaluation>` | Transforme une comparaison d'options terminée en décision d'architecture proposée, après vérification par rapport aux décisions antérieures. Demande votre accord avant de créer les fichiers. |
+| `/supersede-decision <identifiant de décision>` | Remplace une décision d'architecture acceptée par une nouvelle, tout en conservant l'originale pour mémoire, et liste les conceptions à revoir. |
+| `/design-solution <identifiant de fonctionnalité>` | Propose une conception de solution de taille appropriée pour une fonctionnalité et la crée dans les deux langues après votre confirmation. |
 | `/save-my-work` | Actualise la documentation d'affaires ou technique pertinente, crée une note de version horodatée, puis consigne vos changements localement. |
 | `/share-my-work` | Récupère les dernières mises à jour, résout les conflits, actualise la documentation, exécute les vérifications, puis publie dans l'espace partagé après votre confirmation et vérifie le résultat. |
 | `/get-latest` | Récupère les derniers changements et vous dit ce qui est nouveau; la création d'épopée le fait automatiquement, mais vous pouvez aussi lancer la commande au besoin. |
@@ -62,13 +76,12 @@ Remplacez les paramètres entre chevrons par les identifiants du projet courant.
 
 - [Guide d'utilisation pour les gens d'affaires](docs/business/business-user-guide-fr.md) et [version anglaise](docs/business/business-user-guide.md)
 - [Architecture de la solution](docs/technical/solution-architecture.md)
-- [Guide de l'architecte de solutions (anglais)](docs/technical/solution-architect-guide.md)
-- [Guide de l'architecte de solutions (anglais)](docs/technical/solution-architect-guide.md)
+- [Guide de l'architecte de solutions](docs/architecture/solution-architect-guide-fr.md) et [version anglaise](docs/architecture/solution-architect-guide.md)
 - [Registre des systèmes](system-register-fr.md) et [version anglaise](system-register.md)
 - [Comportement et garanties des processus](docs/technical/tool-capability-contracts.md)
 - [Enregistrement et partage du travail](docs/technical/version-control-adapter.md)
 - [Utilisation des processus dans Copilot](docs/technical/copilot-interface.md)
-- [Notes de version les plus récentes](docs/technical/release-notes/2026-09-27-065859Z-release-note-timestamps.md)
+- [Notes de version les plus récentes](docs/technical/release-notes/2026-09-27-161924Z-solution-architect-toolkit.md)
 - [Politique d'horodatage des notes de version](docs/technical/release-notes/2026-09-27-065859Z-release-note-timestamps.md)
 
 ## Statut du document : Ébauche → En révision → Approuvé
@@ -95,7 +108,9 @@ Consultez le [Registre des parties prenantes](stakeholder-register-fr.md) pour l
 - `stories/` : futurs artéfacts de récit utilisateur
 - `change-management/` : futurs bilans de gestion du changement
 - `docs/business/` : guides pratiques pour les gens d'affaires
+- `docs/architecture/` : guide pratique pour les architectes de solutions
 - `docs/technical/` : garanties de comportement, intégrations actuelles, architecture et notes de version
+- [technical/](technical/README-fr.md) : évaluations d'architecture, registres de décision et conceptions de solution du projet
 - `templates/` : points de départ vierges (vous n'aurez normalement pas besoin de les ouvrir vous-même — demandez simplement à Copilot de rédiger quelque chose)
 - `stakeholder-register.md` : la liste de qui est impliqué et qui est touché, décrite ci-dessus
 - [documentation-register-fr.md](documentation-register-fr.md) : état actuel des documents, travail actif et versions de base approuvées

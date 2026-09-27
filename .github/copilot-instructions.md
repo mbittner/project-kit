@@ -38,6 +38,14 @@ Whenever you create, rename, move, or remove a business-facing requirements, gov
 - `/save-my-work` and `/share-my-work` must run this scan on every invocation against the complete current or pending technical change set, including incoming changes. If there are no relevant technical documents or candidate systems, report that no system-register update was needed.
 - Ask the Solution Architect for the system owner and CMCD real name/ID. Hopex is optional. If owner or CMCD information is not supplied, mark it `To confirm` and add a specific open question to both register versions; do not block the technical documentation or guess.
 
+## Keep Architecture Documentation Traceable
+
+- Project architecture work lives under `technical/`: Architecture Assessments in `assessments/` (`ARCH-XXX`), ADRs in `decisions/` (`ADR-XXX`), and Solution Designs in `designs/` (`SD-XXX`). Draft them from the matching `templates/` pair and skill; every document ships as an EN/FR pair.
+- Whenever one is created, renamed, or changes status, update the [architecture index](../technical/README.md) and its [French index](../technical/README-fr.md), and add the `Architecture references` backlink to each linked Epic or Feature in both languages, per [architecture-traceability-validation](skills/architecture-traceability-validation/SKILL.md). The backlink is the only permitted edit to a business document.
+- Only the Solution Architect can accept an ADR, recommend an assessment, or approve a design, and only after the status gate passes. Architecture quality scores are advisory and never block status. Never edit the substance of an Accepted ADR; supersede it.
+- Solution Designs carry baseline versions and appear in the documentation registers; run `generate-documentation-register.ps1` after a design's status or version changes.
+- Run `check-adr-chain.ps1`, `check-arch-traceability.ps1`, and `check-system-refs.ps1` alongside the parity and link checks after architecture changes.
+
 ## Keep the Ideas Register Current
 
 - When the user shares an idea to improve this pack's agents, skills, prompts, scripts, or workflows, record it in the [Ideas Register](../docs/ideas/README.md), even if they do not explicitly ask to save it. Do not use this register for business requirements or changes to a project solution.

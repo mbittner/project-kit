@@ -77,6 +77,7 @@ A feature must describe necessary product behavior, but should not prescribe tec
 - **Not allowed without justification:** naming a specific vendor product, JavaScript component, storage technology, or integration product; specifying page position, button color, or exact screen design; describing database schema or API implementation.
 - **Allowed:** "Enable authenticated advisors to upload supporting documents."
 - **Component-only features are a violation** unless they state what they enable, why it's necessary, which business features depend on it, and how completion will be demonstrated (e.g., not "Upgrade the integration layer" but "Increase integration capacity to support real-time onboarding-status updates").
+- **Architecture decisions live in `technical/`**, not in the feature. When the feature shows architecture triggers, suggest `/screen-architecture feature <id>`. The `Architecture references` header lists linked assessments, ADRs, and designs; it is maintained by [architecture-traceability-validation](../architecture-traceability-validation/SKILL.md) and is not a scoring criterion.
 
 ## Guardrail 2: Traceability and Ownership
 

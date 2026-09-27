@@ -107,6 +107,7 @@ Use `/share-my-work` when you are ready to share. It gets the latest updates fir
 | `/decompose-feature <feature number>` | Propose stories under a feature; confirm the set before files are created |
 | `/validate epic <epic number>` | Score an epic and check readiness; replace `epic` with the artifact type you are validating |
 | `/audit-pack <initiative ID>` | Review an initiative and its descendants, including quality, overlap, KPI traceability, and stakeholder change fatigue |
+| `/screen-architecture <type> <number>` | Find out whether an epic or feature needs a Solution Architect before delivery; nothing is changed |
 | `/get-latest` | Manually refresh teammate updates for workflows without an automatic freshness check |
 | `/save-my-work` / `/share-my-work` | Record work, then review and share it |
 

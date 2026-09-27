@@ -4,7 +4,7 @@ Checks bilingual document status/version headers and Markdown line rendering.
 #>
 
 $RepoRoot = (Resolve-Path "$PSScriptRoot/../../../..").Path
-$foldersToCheck = @('initiative', 'epics', 'features', 'stories', 'change-management', 'templates')
+$foldersToCheck = @('initiative', 'epics', 'features', 'stories', 'change-management', 'technical', 'templates')
 $issues = @()
 
 function Get-HeaderField {
@@ -45,6 +45,20 @@ function Normalize-Status {
         'en revision' { return 'In Review' }
         'approved' { return 'Approved' }
         'approuve' { return 'Approved' }
+        'recommended' { return 'Recommended' }
+        'recommandee' { return 'Recommended' }
+        'closed' { return 'Closed' }
+        'cloturee' { return 'Closed' }
+        'proposed' { return 'Proposed' }
+        'proposee' { return 'Proposed' }
+        'accepted' { return 'Accepted' }
+        'acceptee' { return 'Accepted' }
+        'rejected' { return 'Rejected' }
+        'rejetee' { return 'Rejected' }
+        'superseded' { return 'Superseded' }
+        'remplacee' { return 'Superseded' }
+        'deprecated' { return 'Deprecated' }
+        'obsolete' { return 'Deprecated' }
         default { return $value }
     }
 }
@@ -120,6 +134,45 @@ foreach ($folder in $foldersToCheck) {
         if (-not (Test-Path $englishPath)) {
             $relative = $french.FullName.Substring($RepoRoot.Length + 1).Replace('\', '/')
             $issues += "ORPHAN FRENCH HEADER: $relative"
+        }
+    }
+}
+
+# Assessments and ADRs use their own status field instead of a baseline version.
+$architectureStatuses = @{
+    'Assessment' = @('Draft', 'In Review', 'Recommended', 'Closed')
+    'Decision' = @('Proposed', 'Accepted', 'Rejected', 'Superseded', 'Deprecated')
+}
+foreach ($folder in @('technical', 'templates')) {
+    $folderPath = Join-Path $RepoRoot $folder
+    if (-not (Test-Path $folderPath)) { continue }
+
+    $englishFiles = Get-ChildItem -Path $folderPath -Filter '*.md' -File -Recurse | Where-Object { $_.Name -notmatch '-fr\.md$' }
+    foreach ($english in $englishFiles) {
+        $englishText = [System.IO.File]::ReadAllText($english.FullName)
+        $englishMatch = [regex]::Match($englishText, '(?m)^> \*\*(Assessment|Decision) status:\*\*\s*(.*?)\s*$')
+        if (-not $englishMatch.Success) { continue }
+        $kind = $englishMatch.Groups[1].Value
+        $relative = $english.FullName.Substring($RepoRoot.Length + 1).Replace('\', '/')
+        $englishValue = Normalize-Status $englishMatch.Groups[2].Value
+        if ($architectureStatuses[$kind] -notcontains $englishValue) {
+            $issues += "INVALID $($kind.ToUpperInvariant()) STATUS: $relative has '$($englishMatch.Groups[2].Value)'; valid values are $($architectureStatuses[$kind] -join ', ')"
+        }
+
+        $frenchPath = Join-Path $english.DirectoryName ($english.BaseName + '-fr.md')
+        if (-not (Test-Path $frenchPath)) {
+            $issues += "MISSING FR HEADER PAIR: $relative"
+            continue
+        }
+        $frenchRelative = $frenchPath.Substring($RepoRoot.Length + 1).Replace('\', '/')
+        $frenchLabel = if ($kind -eq 'Assessment') { "Statut de l'.valuation" } else { 'Statut de la d.cision' }
+        $frenchMatch = [regex]::Match([System.IO.File]::ReadAllText($frenchPath), "(?m)^> \*\*$frenchLabel :\*\*\s*(.*?)\s*$")
+        if (-not $frenchMatch.Success) {
+            $issues += "MISSING FRENCH STATUS: $frenchRelative must carry the French $($kind.ToLowerInvariant()) status field"
+            continue
+        }
+        if ((Normalize-Status $frenchMatch.Groups[1].Value) -ne $englishValue) {
+            $issues += "STATUS MISMATCH: $relative and $frenchRelative have different $($kind.ToLowerInvariant()) statuses"
         }
     }
 }

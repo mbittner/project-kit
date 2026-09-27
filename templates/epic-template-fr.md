@@ -7,6 +7,7 @@
 > **Last validated:** Not recorded  
 > **Initiative parente :** [INIT-XXX <Nom de l'initiative>](../initiative/init-XXX-slug-fr.md)
 > **Bilan de gestion du changement :** [CM-EPIC-XXX <Nom de l'épopée>](../change-management/cm-epic-XXX-slug-fr.md)
+> **Références d'architecture :** Aucune
 > **Important :** Ceci est un gabarit. Remplissez chaque espace réservé entre crochets et retirez le texte d'orientation avant publication.
 > **Barrière de statut :** Valeurs valides : Ébauche, En révision, Approuvé. Ne passer à Approuvé qu'après avoir exécuté `/validate epic <id>` et confirmé un score de 90+ avec tous les minimums obligatoires atteints, une liste de vérification entièrement cochée, et aucun marqueur `[NEEDS CLARIFICATION]` restant — puis remplacer « Not recorded » par : `> **Last validated:** <date> — Score <NN>/100 (Ready for Feature Discovery)` (cette ligne technique reste en anglais pour la cohérence des outils).
 

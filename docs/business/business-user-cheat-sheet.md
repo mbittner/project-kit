@@ -40,6 +40,7 @@ Business outcome
 | `/decompose-epic <ID>` | Proposes non-overlapping Features under an Epic. Confirms before creating files. |
 | `/decompose-feature <ID>` | Proposes User Stories under a Feature. Confirms before creating files. |
 | `/audit-pack [initiative ID]` | Checks the whole pack or a named Initiative and its descendants. |
+| `/screen-architecture <type> <ID>` | Says whether an Initiative, Epic, or Feature needs a Solution Architect and what the next step would be. Read-only. |
 | `/save-my-work [note]` | Updates relevant documentation and registers, creates a timestamped release note for substantive changes, and records the work locally. It does not share it. |
 | `/share-my-work` | Gets the latest changes, resolves conflicts, updates relevant documentation, runs checks, summarizes the change set, and asks before publishing it to the team. |
 | `/get-latest` | Retrieves teammate changes and summarizes what is new. Epic creation does this automatically. |

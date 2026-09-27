@@ -107,6 +107,7 @@ Utilisez `/share-my-work` lorsque vous êtes prête ou prêt à partager. La com
 | `/decompose-feature <numéro de fonctionnalité>` | Proposer des récits sous une fonctionnalité; confirmer l'ensemble avant la création des fichiers |
 | `/validate epic <numéro d'épopée>` | Évaluer une épopée et vérifier sa préparation; remplacez `epic` par le type d'artéfact à valider |
 | `/audit-pack <identifiant d'initiative>` | Examiner une initiative et ses descendants : qualité, chevauchements, traçabilité des ICP et fatigue liée au changement |
+| `/screen-architecture <type> <numéro>` | Savoir si une épopée ou une fonctionnalité exige un architecte de solutions avant la livraison; rien n'est modifié |
 | `/get-latest` | Actualiser manuellement les mises à jour pour les processus sans vérification automatique de fraîcheur |
 | `/save-my-work` / `/share-my-work` | Consigner le travail, puis le réviser et le partager |
 

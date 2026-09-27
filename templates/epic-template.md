@@ -7,6 +7,7 @@
 > **Last validated:** Not recorded  
 > **Parent initiative:** [INIT-XXX <Initiative Name>](../initiative/init-XXX-slug.md)
 > **Change management brief:** [CM-EPIC-XXX <Epic Name>](../change-management/cm-epic-XXX-slug.md)
+> **Architecture references:** None
 > **Important:** This is a template. Populate every bracketed placeholder and remove guidance text before publishing.
 > **Status gate:** Valid values are Draft, In Review, Approved. Only set Approved after running `/validate epic <id>` and confirming the score is 90+ with all mandatory minimums met, the checklist is fully checked, and no `[NEEDS CLARIFICATION]` markers remain — then replace `Not recorded` with `> **Last validated:** <date> — Score <NN>/100 (Ready for Feature Discovery)`.
 

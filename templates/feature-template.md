@@ -7,6 +7,7 @@
 > **Last validated:** Not recorded  
 > **Parent epic:** [EPIC-XXX <Epic Name>](../epics/epic-XXX-slug.md)
 > **Change management brief:** [CM-FEAT-XXX <Feature Name>](../change-management/cm-feat-XXX-slug.md)
+> **Architecture references:** None
 > **Important:** This is a template. Populate every bracketed placeholder and remove guidance text before publishing.
 > **Status gate:** Valid values are Draft, In Review, Approved. Only set Approved after running `/validate feature <id>` and confirming the score is 90+ with all mandatory minimums met, the checklist is fully checked, and no `[NEEDS CLARIFICATION]` markers remain — then replace `Not recorded` with `> **Last validated:** <date> — Score <NN>/100 (Story-ready)`.
 

@@ -73,6 +73,8 @@ An epic must describe a business capability, never a technology implementation. 
 
 **Validation question:** *Would the epic still make sense if the underlying technology changed?* If not, it's solutioning — rewrite one level up in abstraction, and move any true solution detail to a linked feature canvas instead.
 
+Architecture decisions belong in `technical/` (assessments, ADRs, designs). The epic's `Architecture references` header lists them; it is maintained by [architecture-traceability-validation](../architecture-traceability-validation/SKILL.md) and is not a scoring criterion.
+
 ## Guardrail 2: Correct Altitude
 
 An epic is not an initiative and not a feature. Check for:

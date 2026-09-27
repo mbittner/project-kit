@@ -7,6 +7,7 @@
 > **Last validated:** Not recorded  
 > **Épopée parente :** [EPIC-XXX <Nom de l'épopée>](../epics/epic-XXX-slug-fr.md)
 > **Bilan de gestion du changement :** [CM-FEAT-XXX <Nom de la fonctionnalité>](../change-management/cm-feat-XXX-slug-fr.md)
+> **Références d'architecture :** Aucune
 > **Important :** Ceci est un gabarit. Remplissez chaque espace réservé entre crochets et retirez le texte d'orientation avant publication.
 > **Barrière de statut :** Valeurs valides : Ébauche, En révision, Approuvé. Ne passer à Approuvé qu'après avoir exécuté `/validate feature <id>` et confirmé un score de 90+ avec tous les minimums obligatoires atteints, une liste de vérification entièrement cochée, et aucun marqueur `[NEEDS CLARIFICATION]` restant — puis remplacer « Not recorded » par : `> **Last validated:** <date> — Score <NN>/100 (Story-ready)` (cette ligne technique reste en anglais pour la cohérence des outils).
 

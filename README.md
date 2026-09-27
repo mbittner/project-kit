@@ -38,17 +38,31 @@ Copilot creates English/French pairs, records assumptions and open questions, ch
 
 Share ideas for improving how Copilot works or the supporting tools and workflows in conversation; Copilot records them in the numbered [Ideas Register](docs/ideas/README.md) so you do not have to remember them.
 
+## For Solution Architects
+
+Architecture work sits alongside the business requirements and always links back to them. There are three kinds of architecture document, each written in English and French and kept in the [architecture index](technical/README.md):
+
+- **Architecture Assessment**: compares options for one decision and recommends one.
+- **Architecture Decision Record**: records one important decision, why it was made, and what it costs. Accepted decisions are never rewritten; a new decision replaces them and the history is kept.
+- **Solution Design**: explains, only in as much detail as needed, how the chosen approach will be built, tested, deployed, and supported.
+
+Choose **Solution Architecture Writer** in Copilot Chat to draft these, or **Solution Architecture Reviewer** for an independent second opinion. Each document gets a quality score to guide improvement, but the score never blocks it. Only the Solution Architect accepts a decision or approves a design. Copilot also keeps the [System Register](system-register.md) and the links from epics and features up to date. See the [Solution Architect Guide](docs/architecture/solution-architect-guide.md).
+
 ## Useful Commands
 
 Use these shortcuts in Copilot Chat when you need a repeatable workflow:
 
 | Command | What it does |
 |---|---|
-| `/validate <type> <ID>` | Checks the named initiative, epic, feature, story, or change-management brief against its quality checklist and reports specific gaps. |
+| `/validate <type> <ID>` | Checks the named initiative, epic, feature, story, change-management brief, architecture assessment, decision record, or solution design against its quality checklist and reports specific gaps. |
 | `/decompose-initiative <ID>` | Proposes a non-overlapping epic set, refreshes updates automatically, and refreshes again after you confirm before creating files. |
 | `/decompose-epic <ID>` | Proposes features for an epic and checks sibling overlap before creating files. |
 | `/decompose-feature <ID>` | Proposes user stories for a feature and checks sibling overlap before creating files. |
-| `/audit-pack` | Runs a health check across the pack or a named initiative and its descendants (`/audit-pack <initiative ID>`). |
+| `/audit-pack` | Runs a health check across the pack or a named initiative and its descendants (`/audit-pack <initiative ID>`), including which epics and features may need architecture work. |
+| `/screen-architecture <type> <ID>` | Tells you whether an initiative, epic, or feature needs a Solution Architect, and if so, the smallest useful next step. Changes nothing. |
+| `/record-decision <assessment ID>` | Turns a completed options comparison into a proposed architecture decision, after checking it against earlier decisions. Asks before creating files. |
+| `/supersede-decision <decision ID>` | Replaces an accepted architecture decision with a new one while keeping the original for the record, and lists the designs to revisit. |
+| `/design-solution <feature ID>` | Proposes a right-sized solution design for a feature and creates it in both languages after you confirm. |
 | `/save-my-work` | Updates relevant business/technical documentation, creates a time-stamped release note, then records your changes locally. |
 | `/share-my-work` | Gets the latest updates, resolves conflicts, updates documentation, runs checks, then publishes to the shared project after you confirm and verifies success. |
 | `/get-latest` | Brings in your teammate's latest changes and tells you what's new; epic creation does this automatically, but you can still run it on demand. |
@@ -62,12 +76,12 @@ Replace the placeholder with an ID from the current project.
 - [Business User Guide](docs/business/business-user-guide.md) and [French guide](docs/business/business-user-guide-fr.md)
 - [Business User Cheat Sheet](docs/business/business-user-cheat-sheet.md) and [French sheet](docs/business/business-user-cheat-sheet-fr.md)
 - [Solution Architecture](docs/technical/solution-architecture.md)
-- [Solution Architect Guide](docs/technical/solution-architect-guide.md)
+- [Solution Architect Guide](docs/architecture/solution-architect-guide.md) and [French guide](docs/architecture/solution-architect-guide-fr.md)
 - [System Register](system-register.md) and [French register](system-register-fr.md)
 - [Tool Behavior and Guarantees](docs/technical/tool-capability-contracts.md)
 - [How Work Is Saved and Shared](docs/technical/version-control-adapter.md)
 - [How Copilot Uses These Workflows](docs/technical/copilot-interface.md)
-- [Latest Release Notes](docs/technical/release-notes/2026-09-27-065859Z-release-note-timestamps.md)
+- [Latest Release Notes](docs/technical/release-notes/2026-09-27-161924Z-solution-architect-toolkit.md)
 - [Release-Note Timestamp Policy](docs/technical/release-notes/2026-09-27-065859Z-release-note-timestamps.md)
 
 ## Document Status: Draft → In Review → Approved
@@ -94,7 +108,9 @@ Use the [Stakeholder Register](stakeholder-register.md) for governance roles, im
 - `stories/` — future user story artifacts
 - `change-management/` — future change-management briefs
 - `docs/business/` — practical guides for business users
+- `docs/architecture/` — practical guide for Solution Architects
 - `docs/technical/` — behavior guarantees, current integrations, architecture, and release notes
+- [technical/](technical/README.md) — the project's architecture assessments, decision records, and solution designs
 - `templates/` — blank starting points (you normally won't need to open these yourself — just ask Copilot to draft something)
 - `stakeholder-register.md` — the list of who's involved and who's affected, described above
 - [documentation-register.md](documentation-register.md) — current document status, active work, and approved baseline versions

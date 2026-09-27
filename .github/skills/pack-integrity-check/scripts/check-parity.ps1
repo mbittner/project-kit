@@ -6,7 +6,10 @@ have the same number of level-2 (##) headings.
 #>
 
 $RepoRoot = Resolve-Path "$PSScriptRoot/../../../.."
-$foldersToCheck = @('initiative', 'epics', 'features', 'stories', 'change-management')
+$foldersToCheck = @(
+    'initiative', 'epics', 'features', 'stories', 'change-management',
+    'technical', 'technical/assessments', 'technical/decisions', 'technical/designs'
+)
 $issues = @()
 
 foreach ($folder in $foldersToCheck) {

@@ -1,8 +1,8 @@
 <#
 .SYNOPSIS
 Regenerates the documentation register's status snapshot and approved-baseline
-list from business-document headers. The manually maintained Active Work section
-is left untouched.
+list from business-document and Solution Design headers. The manually maintained
+Active Work section is left untouched.
 #>
 
 $RepoRoot = (Resolve-Path "$PSScriptRoot/../../../..").Path
@@ -65,6 +65,7 @@ function Get-ArtifactType {
     if ($RelativePath -match '^features/') { return 'Features' }
     if ($RelativePath -match '^stories/') { return 'User Stories' }
     if ($RelativePath -match '^change-management/') { return 'Change Management' }
+    if ($RelativePath -match '^technical/designs/') { return 'Solution Designs' }
     return 'Other Business Documents'
 }
 
@@ -75,6 +76,8 @@ $allMarkdown = Get-ChildItem -Path $RepoRoot -Recurse -Filter '*.md' -File | Whe
     foreach ($part in $parts) {
         if ($excludedDirectories -contains $part) { $excluded = $true; break }
     }
+    # Solution Designs carry approved baselines, unlike other technical documents.
+    if ($relative -match '^technical/designs/[^/]+\.md$') { $excluded = $false }
     -not $excluded
 }
 
@@ -110,7 +113,7 @@ foreach ($english in $englishFiles) {
     }
 
     $heading = [regex]::Match($englishText, '(?m)^#\s+(.+)$').Groups[1].Value
-    $idMatch = [regex]::Match($heading, '\b(CM-EPIC|CM-FEAT|INIT|EPIC|FEAT|STORY)-\d+\b')
+    $idMatch = [regex]::Match($heading, '\b(CM-EPIC|CM-FEAT|INIT|EPIC|FEAT|STORY|SD)-\d+\b')
     $displayId = if ($idMatch.Success) { $idMatch.Value } else { [System.IO.Path]::GetFileNameWithoutExtension($english.Name) }
     if ($english.Name -eq 'README.md' -and $english.DirectoryName -eq $RepoRoot) { $displayId = 'Documentation Overview' }
     if ($english.Name -eq 'README.md' -and $relative -eq 'change-management/README.md') { $displayId = 'Change Management Guide' }
@@ -146,7 +149,7 @@ if ($issues.Count -gt 0) {
     exit 1
 }
 
-$typeOrder = @('Initiative', 'Epics', 'Features', 'User Stories', 'Change Management', 'Other Business Documents')
+$typeOrder = @('Initiative', 'Epics', 'Features', 'User Stories', 'Change Management', 'Solution Designs', 'Other Business Documents')
 $counts = @{}
 foreach ($type in $typeOrder) {
     $counts[$type] = @{ Pairs = 0; Draft = 0; Illustrative = 0; Review = 0; Approved = 0 }
@@ -174,6 +177,7 @@ $frenchTypes = @{
     'Features' = ('Fonctionnalit' + [string]$lowerEacute + 's')
     'User Stories' = ('R' + [string]$lowerEacute + 'cits utilisateur')
     'Change Management' = 'Gestion du changement'
+    'Solution Designs' = 'Conceptions de solution'
     'Other Business Documents' = 'Autres documents d''affaires'
 }
 $frDateLine = '**Date du relev' + [string]$lowerEacute + ' :** ' + $date

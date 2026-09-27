@@ -26,6 +26,18 @@ Recommend a solution architect when the decision presents material architecture 
 
 Guidance is read-only: it does not edit artifacts, approve business decisions, commit teams to an option, or assign ownership without evidence.
 
+## Architecture Decisions
+
+Architecture documentation supports business outcomes; it never redefines them.
+
+- **Proportionality:** create an assessment, decision record, or design only when screening shows material architecture uncertainty or risk, or when delivery needs a shared design. "No document needed" is a valid outcome.
+- **Recommendation versus decision:** an assessment recommends; a decision record decides. Only the accountable Solution Architect accepts a decision, recommends an assessment, or approves a design, and only with explicit confirmation after the artifact's readiness conditions are met. Quality scores are advisory evidence, never a gate or an approval.
+- **Immutability:** an accepted decision's substance is never rewritten. A changed decision is recorded as a new decision that supersedes the old one; both remain, with reciprocal links.
+- **Traceability:** every architecture artifact links to at least one business artifact, and linked business artifacts link back. Adding that backlink is the only change architecture work may make to a business document; scope gaps are raised with the Product Owner.
+- **Grounded facts:** costs, volumes, service levels, owners, dates, vendor facts, and system identities are never inferred. Unknowns are recorded as `To confirm` with an open question. Systems are cited by their System Register ID.
+- **Consistency:** a new decision or design is compared with accepted decisions covering the same systems or scope. Conflicts are presented to the Solution Architect, not resolved silently.
+- **Baselines:** Solution Designs follow the Approved Baselines rules below. Assessments and decision records use their own lifecycle status and carry no baseline version.
+
 ## Work Lifecycle
 
 | Capability | Contract |

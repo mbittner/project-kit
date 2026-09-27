@@ -14,7 +14,11 @@ The interface delegates storage and collaboration operations to the [current ver
 | BA Requirements Writer | Guides authoring and decomposition using artifact-specific practice guidance. |
 | BA Requirements Reviewer | Provides a separate, read-only review. |
 | Lifecycle Navigator | Provides read-only, evidence-based next-step advice and can be delegated to by the Writer for sequencing questions. |
-| Solution Architect Guide | Role-specific guidance for using the existing pack as a Solution Architect; it does not imply a dedicated architecture agent or ADR template. |
+| Solution Architect Guide | Role-specific guidance for Solution Architects: when to engage, which architecture artifact to use, and the related assistants and commands. |
+| Solution Architecture Writer | Drafts Architecture Assessments, ADRs, and Solution Designs under `technical/`, following the [Architecture Decisions contract](tool-capability-contracts.md#architecture-decisions); can delegate to the Navigator and the Architecture Reviewer. |
+| Solution Architecture Reviewer | Provides a separate, read-only review of one architecture artifact. |
+| `/screen-architecture`, `/record-decision`, `/supersede-decision`, `/design-solution` | Expose architecture screening, decision recording, supersession, and design proposal; all file-creating steps are confirmation-gated. `/validate` also accepts `assessment`, `adr`, and `design`. |
+| Architecture skills | `architecture-assessment-documentation`, `adr-documentation`, and `solution-design-documentation` own architecture structure, guardrails, advisory scoring, and status gates; `architecture-screening`, `architecture-decision-consistency`, and `architecture-traceability-validation` are shared checks. |
 | System Register guidance | Reconciles project systems in technical documentation with the bilingual System Register and captures owner/CMCD follow-up questions. |
 | Artifact and shared validation skills | Package business practice, quality models, and mechanical checks for Copilot workflows. |
 | `/save-my-work`, `/share-my-work`, `/get-latest`, `/show-history`, `/undo-my-last-change` | Expose the work-lifecycle capabilities and load the version-history execution guidance. |
@@ -28,6 +32,7 @@ The interface delegates storage and collaboration operations to the [current ver
 - A command or assistant may define its interaction sequence and tool permissions, but must link to the capability contract and must not create a competing version of its semantics.
 - Keep next-step advice read-only. The Writer may delegate sequencing questions to the Navigator; the Navigator returns evidence, one recommendation, and an exit condition without editing or approving artifacts.
 - When editing project IT/architecture documentation or saving/sharing changes, follow `system-register-validation` to reconcile system references and missing owner/CMCD data.
+- Architecture assistants and commands never accept an ADR, recommend an assessment, or approve a design without the Solution Architect's explicit confirmation, and never edit business content beyond an `Architecture references` backlink.
 - Keep next-step advice read-only. The Writer may delegate sequencing questions to the Navigator; the Navigator returns evidence, one recommendation, and an exit condition without editing or approving artifacts.
 - Save/share-generated release notes follow the contract's UTC timestamp, filename, and unshared-note update rules. Do not create duplicate notes when share reuses an unchanged saved change set.
 - A change to user-visible capability behavior updates the contract, the affected Copilot customization, the adapter documentation when implementation details change, and both user-facing READMEs as required by `.github/copilot-instructions.md`.

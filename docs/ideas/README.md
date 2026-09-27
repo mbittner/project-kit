@@ -11,3 +11,5 @@ Every idea file must link back to this README, and every idea must be listed her
 
 - [IDEA-001 — Persistent tooling improvement ideas register](idea-001-tool-improvement-ideas-register.md)
 - High-level change: Keep suggestions for improving the pack's tooling and workflows in a numbered, indexed register instead of relying on memory.
+- [IDEA-002 — Solution Architect toolkit](idea-002-solution-architect-toolkit.md)
+- High-level change: Organize Solution Architect work like business requirements, with dedicated assistants, guidance, commands, checks, and templates for assessments, decisions, and designs.

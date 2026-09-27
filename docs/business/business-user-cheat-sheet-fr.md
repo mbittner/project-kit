@@ -40,6 +40,7 @@ Résultat d'affaires
 | `/decompose-epic <ID>` | Propose des fonctionnalités sans chevauchement sous une épopée. Vous confirmez avant la création des fichiers. |
 | `/decompose-feature <ID>` | Propose des récits utilisateur sous une fonctionnalité. Vous confirmez avant la création des fichiers. |
 | `/audit-pack [ID d'initiative]` | Vérifie tout l'ensemble ou une initiative nommée et ses artéfacts descendants. |
+| `/screen-architecture <type> <ID>` | Indique si une initiative, une épopée ou une fonctionnalité exige un architecte de solutions et quelle serait la prochaine étape. Lecture seule. |
 | `/save-my-work [note]` | Actualise la documentation et les registres pertinents, crée une note horodatée pour les changements significatifs et consigne le travail localement. Le travail n'est pas partagé. |
 | `/share-my-work` | Récupère les dernières mises à jour, résout les conflits, actualise la documentation, exécute les vérifications, résume les changements et demande votre confirmation avant le partage. |
 | `/get-latest` | Récupère les changements des collègues et résume les nouveautés. La création d'épopée le fait automatiquement. |

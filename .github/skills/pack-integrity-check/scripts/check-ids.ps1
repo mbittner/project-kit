@@ -1,7 +1,7 @@
 <#
 .SYNOPSIS
-Checks INIT-XXX, EPIC-XXX, FEAT-XXX, CM-EPIC-XXX, and CM-FEAT-XXX filenames
-for duplicate or gapped numbers, and reports the next free ID per prefix.
+Checks INIT-XXX, EPIC-XXX, FEAT-XXX, CM-EPIC-XXX, CM-FEAT-XXX, ARCH-XXX, ADR-XXX,
+and SD-XXX filenames for duplicate or gapped numbers, and reports the next free ID per prefix.
 #>
 
 $RepoRoot = Resolve-Path "$PSScriptRoot/../../../.."
@@ -10,7 +10,7 @@ function Get-IdReport {
     param([string]$Path, [string]$Pattern, [string]$Prefix)
 
     if (-not (Test-Path $Path)) {
-        Write-Output "$Prefix : folder not found ($Path)"
+        Write-Output "$Prefix : 0 file(s) found (folder not created yet), next free = 001"
         return
     }
 
@@ -46,3 +46,6 @@ Get-IdReport -Path (Join-Path $RepoRoot 'features') -Pattern '^feat-(\d+)-' -Pre
 Get-IdReport -Path (Join-Path $RepoRoot 'stories') -Pattern '^story-(\d+)-' -Prefix 'STORY'
 Get-IdReport -Path (Join-Path $RepoRoot 'change-management') -Pattern '^cm-epic-(\d+)-' -Prefix 'CM-EPIC'
 Get-IdReport -Path (Join-Path $RepoRoot 'change-management') -Pattern '^cm-feat-(\d+)-' -Prefix 'CM-FEAT'
+Get-IdReport -Path (Join-Path $RepoRoot 'technical/assessments') -Pattern '^arch-(\d+)-' -Prefix 'ARCH'
+Get-IdReport -Path (Join-Path $RepoRoot 'technical/decisions') -Pattern '^adr-(\d+)-' -Prefix 'ADR'
+Get-IdReport -Path (Join-Path $RepoRoot 'technical/designs') -Pattern '^sd-(\d+)-' -Prefix 'SD'
